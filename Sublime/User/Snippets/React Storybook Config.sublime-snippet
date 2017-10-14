@@ -1,0 +1,28 @@
+<snippet>
+    <content><![CDATA[
+/* eslint-disable import/no-extraneous-dependencies */
+
+import { configure } from '@storybook/react';
+
+// Styles (global).
+import 'sanitize.css';
+import '../src/styles.css';
+
+// Styles (for testing className prop).
+import './styles.css';
+
+//------------------------------------------------------------------------------
+
+const req = require.context('../src', true, /stories\.js${1:ReplaceWithDollarSign}/);
+
+function loadStories() {
+  req.keys().forEach(filename => req(filename));
+}
+
+configure(loadStories, module);
+${0}
+]]></content>
+    <tabTrigger>rstc</tabTrigger>
+    <scope>source.js -(meta)</scope>
+    <description>React: Storybook config</description>
+</snippet>

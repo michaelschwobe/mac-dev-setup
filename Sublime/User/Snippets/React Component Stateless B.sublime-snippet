@@ -1,0 +1,29 @@
+<snippet>
+    <content><![CDATA[
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
+// Siblings.
+import './styles.css';
+
+//------------------------------------------------------------------------------
+
+const ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} = ({ className }) =>
+  <div className={classNames('${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}', className)}>${0:${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}}</div>;
+
+${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.propTypes = {
+  className: PropTypes.string,
+};
+
+${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {
+  className: null,
+};
+
+export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
+
+]]></content>
+    <tabTrigger>rcf</tabTrigger>
+    <scope>source.js -(meta)</scope>
+    <description>React: stateless B</description>
+</snippet>

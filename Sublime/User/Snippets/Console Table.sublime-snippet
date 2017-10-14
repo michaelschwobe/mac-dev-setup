@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+console.table(${1});${2: // eslint-disable-line no-console}
+]]></content>
+	<tabTrigger>con</tabTrigger>
+	<description>Console: table</description>
+</snippet>

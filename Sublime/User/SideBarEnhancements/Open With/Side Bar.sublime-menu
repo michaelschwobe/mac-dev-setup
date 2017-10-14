@@ -1,0 +1,78 @@
+[{
+	"id": "side-bar-files-open-with",
+	"children": [
+
+		{
+			"caption": "Chrome",
+			"id": "side-bar-files-open-with-chrome",
+			"command": "side_bar_files_open_with",
+			"args": {
+				"paths": [],
+				"application": "Google Chrome.app", // OSX
+				"extensions": "html|png|jpg|jpeg|gif|svg", //any file with these extensions
+				"args": []
+			},
+			"open_automatically": false // will close the view/tab and launch the application
+		},
+
+		{
+			"caption": "FirefoxDeveloper",
+			"id": "side-bar-files-open-with-firefoxdeveloper",
+			"command": "side_bar_files_open_with",
+			"args": {
+				"paths": [],
+				"application": "FirefoxDeveloperEdition.app", // OSX
+				"extensions": "html|png|jpg|jpeg|gif|svg", //any file with these extensions
+				"args": []
+			},
+			"open_automatically": false // will close the view/tab and launch the application
+		},
+
+		{
+			"caption": "Safari",
+			"id": "side-bar-files-open-with-safari",
+			"command": "side_bar_files_open_with",
+			"args": {
+				"paths": [],
+				"application": "Safari.app", // OSX
+				"extensions": "html|png|jpg|jpeg|gif|svg", //any file with these extensions
+				"args": []
+			},
+			"open_automatically": false // will close the view/tab and launch the application
+		},
+
+		{
+			"caption": "-"
+		},
+
+		{
+			"caption": "Photoshop",
+			"id": "side-bar-files-open-with-photoshop",
+			"command": "side_bar_files_open_with",
+			"args": {
+				"paths": [],
+				"application": "Adobe Photoshop CC 2017.app", // OSX
+				"extensions": "psd|png|jpg|jpeg|gif", //any file with these extensions
+				"args": []
+			},
+			"open_automatically": false // will close the view/tab and launch the application
+		},
+
+		{
+			"caption": "Illustrator",
+			"id": "side-bar-files-open-with-illustrator",
+			"command": "side_bar_files_open_with",
+			"args": {
+				"paths": [],
+				"application": "Adobe Illustrator CC 2017.app", // OSX
+				"extensions": "ai|svg", //any file with these extensions
+				"args": []
+			},
+			"open_automatically": false // will close the view/tab and launch the application
+		},
+
+		{
+			"caption": "-"
+		},
+	]
+}]

@@ -1,0 +1,25 @@
+{
+	"files":
+	{
+		"H5BP CSS": "https://raw.githubusercontent.com/h5bp/html5-boilerplate/master/dist/css/main.css",
+		"animate.css": "https://raw.githubusercontent.com/daneden/animate.css/master/animate.css",
+		"bigtext.js": "https://raw.githubusercontent.com/zachleat/BigText/master/dist/bigtext.js",
+		"flexboxgrid.css": "https://raw.githubusercontent.com/kristoferjoseph/flexboxgrid/master/dist/flexboxgrid.css",
+		"include-media-export.scss": "https://raw.githubusercontent.com/eduardoboucas/include-media-export/master/dist/_include-media-export.scss",
+		"include-media.js": "https://raw.githubusercontent.com/eduardoboucas/include-media-export/master/include-media.js",
+		"include-media.scss": "https://raw.githubusercontent.com/eduardoboucas/include-media/master/dist/_include-media.scss",
+		"jquery-3.2.1.slim.min.js": "https://code.jquery.com/jquery-3.2.1.slim.min.js",
+		"jquery.fitvids.js": "https://raw.githubusercontent.com/davatron5000/FitVids.js/master/jquery.fitvids.js",
+		"jquery.flexslider-min.js": "https://raw.githubusercontent.com/woothemes/FlexSlider/master/jquery.flexslider-min.js",
+		"jquery.scrollLock.js": "https://gist.githubusercontent.com/barneycarroll/6550066/raw/e523c6da6f84055b3673f5ad6f40e308fec75a77/jquery.scrollLock.js",
+		"normalize.css": "https://raw.githubusercontent.com/necolas/normalize.css/master/normalize.css",
+		"prism.js": "https://raw.githubusercontent.com/PrismJS/prism/gh-pages/prism.js",
+		"sanitize.css": "https://raw.githubusercontent.com/jonathantneal/sanitize.css/master/sanitize.css",
+		"wow.min.js": "https://raw.githubusercontent.com/matthieua/WOW/master/dist/wow.min.js"
+	},
+	"packages":
+	{
+		"H5BP": "https://github.com/h5bp/html5-boilerplate/zipball/master",
+		"WordPress": "http://wordpress.org/latest.zip"
+	}
+}
