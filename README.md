@@ -78,13 +78,13 @@ Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 
 brew install zsh-autosuggestions zsh-syntax-highlighting
 ```
 
-Open `~/.zshrc`, paste in this [zsh config file](https://raw.githubusercontent.com/michaelschwobe/macos-frontend-setup/master/.zshrc), then save. If you have iTerm open, restart it.
+Open `~/.zshrc`, paste in this [zsh config file](https://github.com/michaelschwobe/mac-dev-setup/blob/master/.zshrc), then save. If you have iTerm open, restart it.
 
 ## Sublime Text
 
 Install [Package Control](https://packagecontrol.io/installation) then quit.
 
-Open `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User` with Finder, replace the contents of `User/` with these [files](https://github.com/michaelschwobe/macos-frontend-setup/master/Sublime/User/).
+Open `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User` with Finder, replace the contents of `User/` with these [files](https://github.com/michaelschwobe/mac-dev-setup/tree/master/Sublime/).
 
 Restart ST3 to let Package Control auto-install missing packages. When Package Control finishes, restart again to resolve any lingering UI problems.
 
@@ -97,4 +97,4 @@ Install extensions:
 code --install-extension dbaeumer.vscode-eslint zhuangtongfa.material-theme esbenp.prettier-vscode ms-vscode.sublime-keybindings robertohuertasm.vscode-icons
 ```
 
-Open `~/Library/Application\ Support/Code/User` with Finder, replace the contents of `User/` with these [files](https://github.com/michaelschwobe/macos-frontend-setup/master/Code/User/).
+Open `~/Library/Application\ Support/Code/User` with Finder, replace the contents of `User/` with these [files](https://github.com/michaelschwobe/mac-dev-setup/tree/master/Code/).
