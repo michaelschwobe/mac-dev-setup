@@ -6,6 +6,23 @@
 
 Open up **Terminal.app** and follow this guide from top down.
 
+### Automagically
+
+Run the following command for a guided install:
+
+```sh
+cd ~/Downloads && \
+curl -LJO https://github.com/michaelschwobe/mac-dev-setup/archive/master.zip && \
+unzip mac-dev-setup-master.zip && \
+rm mac-dev-setup-master.zip && \
+cd mac-dev-setup-master/scripts && \
+sh install.sh
+```
+
+And then you're done, no need to read further.
+
+### OR... Manually
+
 Turn on invisible files:
 
 ```sh
