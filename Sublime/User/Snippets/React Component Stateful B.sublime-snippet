@@ -1,0 +1,45 @@
+<snippet>
+    <content><![CDATA[
+import React from 'react';
+import PropTypes from 'prop-types';
+
+//------------------------------------------------------------------------------
+
+class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // Bindings.
+    // this.METHOD = this.METHOD.bind(this);
+
+    // State.
+    this.state = {};
+  }
+
+  // METHOD() {}
+
+  render() {
+    // Destructuring.
+    // const {} = this.props;
+    // const {} = this.state;
+
+    // Default render.
+    return this.props.render();
+  }
+}
+
+${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.propTypes = {
+  render: PropTypes.func.isRequired,
+};
+
+// ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {};
+
+//------------------------------------------------------------------------------
+
+export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
+
+]]></content>
+    <tabTrigger>rcc</tabTrigger>
+    <scope>source.js -(meta)</scope>
+    <description>React: stateful B</description>
+</snippet>

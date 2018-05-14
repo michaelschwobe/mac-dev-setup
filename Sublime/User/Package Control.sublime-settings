@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"ApacheConf",
 		"AutoFileName",
 		"Babel",
 		"Babel Snippets",
@@ -14,18 +15,20 @@
 		"DocBlockr",
 		"EditorConfig",
 		"Emmet",
-		"JavaScript Completions",
+		"JavaScript Enhancements",
 		"JsFormat",
 		"JsPrettier",
 		"Markdown Preview",
 		"Materialize",
 		"Nettuts+ Fetch",
+		"Nunjucks Syntax",
 		"Package Control",
 		"SCSS",
 		"SideBarEnhancements",
 		"SublimeLinter",
-		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-eslint",
 		"Terminal",
+		"TerminalView",
 		"TodoReview",
 		"TypeScript"
 	]

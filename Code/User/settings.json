@@ -40,5 +40,13 @@
   "eslint.autoFixOnSave": true,
   "workbench.colorTheme": "One Dark Pro",
   "window.zoomLevel": 0,
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "sublimeTextKeymap.promptV3Features": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "editor.formatOnPaste": true,
+  "workbench.statusBar.feedback.visible": false,
+  "files.associations": {
+    "*.html": "html"
+  }
 }

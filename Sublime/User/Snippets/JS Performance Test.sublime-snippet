@@ -1,0 +1,11 @@
+<snippet>
+    <content><![CDATA[
+const t0 = performance.now();
+${1:fn()}
+const t1 = performance.now();
+console.log(`${1:fn()} took ~\${(t1 - t0).toFixed(2)}ms`); // eslint-disable-line no-console
+]]></content>
+    <tabTrigger>jpt</tabTrigger>
+    <scope>source.js -(meta)</scope>
+    <description>JS: Performance Test</description>
+</snippet>

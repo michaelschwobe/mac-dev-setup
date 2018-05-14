@@ -5,6 +5,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 // import { action } from '@storybook/addon-actions';
+import { withKnobs, text } from '@storybook/addon-knobs';
 ${2}import { MemoryRouter } from 'react-router-dom';
 
 // Siblings.
@@ -14,7 +15,12 @@ import ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} from './';
 
 storiesOf('${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}', module)
   ${2}.addDecorator(story => <MemoryRouter>{story()}</MemoryRouter>)
-  .add('default', () => <${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} />);
+  .addDecorator(withKnobs)
+  .add('default', () => (
+    <${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}
+      className={text('className', undefined)}
+    />
+  ));
 ${0}
 ]]></content>
     <tabTrigger>rstt</tabTrigger>

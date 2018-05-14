@@ -4,11 +4,11 @@
 
 import { configure } from '@storybook/react';
 
-// Styles (global).
+// Styles: global.
 import 'sanitize.css';
 import '../src/styles.css';
 
-// Styles (for testing className prop).
+// Styles: local.
 import './styles.css';
 
 //------------------------------------------------------------------------------

@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-// Siblings.
+// Styles.
 import './styles.css';
 
 //------------------------------------------------------------------------------
@@ -19,6 +19,8 @@ ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.propTypes = {
 ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {
   className: null,
 };
+
+//------------------------------------------------------------------------------
 
 export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
 

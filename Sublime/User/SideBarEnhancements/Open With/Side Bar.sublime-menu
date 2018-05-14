@@ -51,7 +51,7 @@
 			"command": "side_bar_files_open_with",
 			"args": {
 				"paths": [],
-				"application": "Adobe Photoshop CC 2017.app", // OSX
+				"application": "Adobe Photoshop CC 2018.app", // OSX
 				"extensions": "psd|png|jpg|jpeg|gif", //any file with these extensions
 				"args": []
 			},
@@ -64,7 +64,7 @@
 			"command": "side_bar_files_open_with",
 			"args": {
 				"paths": [],
-				"application": "Adobe Illustrator CC 2017.app", // OSX
+				"application": "Adobe Illustrator CC 2018.app", // OSX
 				"extensions": "ai|svg", //any file with these extensions
 				"args": []
 			},

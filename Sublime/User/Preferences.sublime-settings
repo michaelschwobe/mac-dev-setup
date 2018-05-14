@@ -22,6 +22,7 @@
 		"build/",
 		"dist/",
 		"node_modules/",
+		"package-lock.json",
 		"yarn.lock"
 	],
 	"bold_folder_labels": true,
@@ -33,7 +34,6 @@
 	"color_scheme": "Packages/User/SublimeLinter/Material Spacegray (SL).tmTheme",
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
-	"font_size": 12,
 	"highlight_line": true,
 	"ignored_packages":
 	[

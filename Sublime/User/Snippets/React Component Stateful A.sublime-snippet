@@ -1,8 +1,11 @@
 <snippet>
     <content><![CDATA[
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+// Config.
+// import { MODULE } from '../../config';
 
 // Utils.
 // import { MODULE } from '../../utils';
@@ -10,12 +13,9 @@ import classNames from 'classnames';
 // Components.
 // import MODULE from '../../components/MODULE';
 
-// Siblings.
-import './styles.css';
-
 //------------------------------------------------------------------------------
 
-class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} extends Component {
+class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,10 +34,16 @@ class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} extends Component {
     // const {} = this.state;
 
     // ClassNames.
-    const classNameRoot = classNames('${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}', className);
+    const clsBase = '${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}';
+    const clsRoot = classNames(clsBase, className);
+    const clsItem = `\${clsBase}__item`;
 
     // Default render.
-    return <div className={classNameRoot}>${0:${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}}</div>;
+    return (
+      <div className={clsRoot}>
+        <div className={clsItem}>${0:${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}}</div>
+      </div>
+    );
   }
 }
 
@@ -49,10 +55,12 @@ ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {
   className: null,
 };
 
+//------------------------------------------------------------------------------
+
 export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
 
 ]]></content>
     <tabTrigger>rcc</tabTrigger>
     <scope>source.js -(meta)</scope>
-    <description>React: stateful</description>
+    <description>React: stateful A</description>
 </snippet>
