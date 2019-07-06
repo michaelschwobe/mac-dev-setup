@@ -103,25 +103,6 @@ get_consent() {
   printf "\n"
 }
 
-test_utils() {
-  e_pending "e_pending"
-  e_failure "e_failure"
-  e_success "e_success"
-  e_settled "e_settled"
-
-  test_command "ls"
-
-  get_consent "get_consent"
-  if has_consent; then
-    e_success "has_consent"
-  else
-    e_failure "has_consent"
-  fi
-}
-
-# Uncomment next line and run `sh _utils.sh` to test this file.
-# test_utils
-
 if ! [[ "${OSTYPE}" == "darwin"* ]]; then
   e_failure "Unsupported operating system (macOS only)"
   exit 1
