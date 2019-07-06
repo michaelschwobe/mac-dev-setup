@@ -1,15 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-source ./utils.sh
-# test_utils
+source _utils.sh
 
-source ./os.sh
-source ./tools.sh
-source ./brew.sh
-source ./cask.sh
-source ./zsh.sh
-source ./node.sh
-source ./git.sh
-source ./summary.sh
+source defaults.sh
 
-e_finish "Installation complete!"
+source tools.sh
+
+source casks.sh
+
+source optimizations.sh
+
+source summary.sh
