@@ -2,129 +2,322 @@
 
 > A macOS setup guide specific to front-end development.
 
-## Getting Started
+## Guided Setup
 
-Open up **Terminal.app** and follow this guide from top down.
+For a guided setup, open up **Terminal.app** and run the following command:
 
-### Automagically
-
-Run the following command for a guided install:
+**1.** Save repo to `~/Downloads` folder:
 
 ```sh
-cd ~/Downloads && \
-curl -LJO https://github.com/michaelschwobe/mac-dev-setup/archive/master.zip && \
-unzip mac-dev-setup-master.zip && \
-rm mac-dev-setup-master.zip && \
-cd mac-dev-setup-master/scripts && \
+git clone https://github.com/michaelschwobe/mac-dev-setup.git ~/Downloads/mac-dev-setup && \
+cd ~/Downloads/mac-dev-setup/scripts
+```
+
+**2.** Run the installer script (rerun as many times as needed).
+
+```sh
 sh install.sh
 ```
 
-And then you're done, no need to read further.
-
-### OR... Manually
-
-Turn on invisible files:
+**OR** Run the installer scripts individually:
 
 ```sh
-defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
+sh defaults.sh
+sh tools.sh
+sh casks.sh
+sh optimizations.sh
+sh summary.sh
 ```
 
-Install Xcode command line tools
+✨ And thats it! You’re done, no need to do anything further.
+
+## Manual Setup
+
+For those who prefer à la carte, this section contains everything that the Guided Setup attempts to do.
+
+- [Defaults](#defaults)
+- [Tools](#tools)
+- [Applications](#applications)
+- [Optimizations](#optimizations)
+
+### Defaults
+
+##### Create Dock spacers:
+
+```sh
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
+killall Dock
+```
+
+##### Autohide Dock:
+
+```sh
+defaults write com.apple.dock autohide -boolean true && \
+killall Dock
+```
+
+##### Display hidden Finder files/folders:
+
+```sh
+defaults write com.apple.finder AppleShowAllFiles -boolean true && \
+killall Finder
+```
+
+##### Create `~/Projects` folder:
+
+```sh
+mkdir -p ~/Projects
+```
+
+##### Installing xcode-select (CLI tools):
 
 ```sh
 xcode-select --install
 ```
 
-## Homebrew
-
-Install [Homebrew](https://brew.sh/):
+##### Installing brew ([Homebrew](https://brew.sh/)):
 
 ```sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && \
+brew doctor
 ```
 
-Check if its working:
+### Tools
+
+##### Install [watchman](https://facebook.github.io/watchman/):
 
 ```sh
-brew update && brew doctor
+brew install watchman
 ```
 
-## Oh My Zsh
+##### Install [trash](https://hasseg.org/trash/):
 
-Install [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh):
+```sh
+brew install trash
+```
+
+##### Install [git](https://git-scm.com/):
+
+```sh
+brew install git
+```
+
+##### Install [git-flow](https://github.com/nvie/gitflow/):
+
+```sh
+brew install git-flow
+```
+
+##### Install [zsh](https://github.com/robbyrussell/oh-my-zsh/):
+
+```sh
+brew install zsh
+```
+
+##### Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/):
+
+```sh
+brew install zsh-autosuggestions && \
+echo "source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+```
+
+##### Install [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/):
+
+```sh
+brew install zsh-syntax-highlighting && \
+echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
+```
+
+##### Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/):
 
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-## Node/Yarn
-
-Install both [Node/npm](https://nodejs.org/en/) & [Yarn](https://yarnpkg.com/en/):
-
-```sh
-brew install yarn
-```
-
-Install global packages:
-
-```sh
-npm i -g @storybook/cli create-react-app eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-json eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react gulp-cli prettier serve
-```
-
-## Apps
-
-Install [Cask](https://caskroom.github.io/):
-
-```sh
-brew tap caskroom/cask
-```
-
-Install apps:
-
-```sh
-brew cask install adobe-creative-cloud browserstacklocal diffmerge dropbox google-chrome insomnia iterm2 mamp sketch slack sourcetree spectacle spotify sublime-text transmit visual-studio-code
-```
-
-## iTerm
-
-Download the [base16 Ocean Dark theme](https://raw.githubusercontent.com/chriskempson/base16-iterm2/master/base16-ocean.dark.itermcolors) colors then follow these [installation instructions](https://github.com/chriskempson/base16-iterm2#installation).
-
-Install [Powerline Fonts](https://github.com/powerline/fonts), use "Source Code Pro", then check if they’re working via:
-
-```sh
-echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699"
-```
-
-Install [Powerlevel9k](https://github.com/bhilburn/powerlevel9k) theme:
+##### Install [powerlevel9k](https://github.com/bhilburn/powerlevel9k/) (CLI theming):
 
 ```sh
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
 
-Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) & [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) plugins:
+##### Install [powerline](https://github.com/powerline/fonts/) (CLI fonts):
 
 ```sh
-brew install zsh-autosuggestions zsh-syntax-highlighting
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
 ```
 
-Open `~/.zshrc`, paste in this [zsh config file](https://github.com/michaelschwobe/mac-dev-setup/blob/master/.zshrc), then save. If you have iTerm open, restart it.
-
-## Sublime Text
-
-Install [Package Control](https://packagecontrol.io/installation) then quit.
-
-Open `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User` with Finder, replace the contents of `User/` with these [files](https://github.com/michaelschwobe/mac-dev-setup/tree/master/Sublime/).
-
-Restart ST3 to let Package Control auto-install missing packages. When Package Control finishes, restart again to resolve any lingering UI problems.
-
-Extra - [Syncing with Dropbox](https://packagecontrol.io/docs/syncing#dropbox-osx)
-
-## Visual Studio Code
-
-Install extensions:
+##### Install [node](https://nodejs.org/) (Node via [Homebrew](https://brew.sh/)):
 
 ```sh
-code --install-extension dbaeumer.vscode-eslint zhuangtongfa.material-theme esbenp.prettier-vscode ms-vscode.sublime-keybindings robertohuertasm.vscode-icons
+brew install node
 ```
 
-Open `~/Library/Application\ Support/Code/User` with Finder, replace the contents of `User/` with these [files](https://github.com/michaelschwobe/mac-dev-setup/tree/master/Code/).
+##### Install [n](https://github.com/tj/n/) (Node via n):
+
+```sh
+brew install n
+```
+
+##### Install [nvm](https://github.com/nvm-sh/nvm/) (Node via nvm):
+
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+```
+
+##### Install [yarn](https://yarnpkg.com/):
+
+```sh
+brew install yarn
+# brew install yarn --without-node
+```
+
+##### Upgrade [npm](https://www.npmjs.com/):
+
+```sh
+npm i -g npm@latest
+```
+
+##### Install/Upgrade [serve](https://github.com/zeit/serve/) (globally via npm):
+
+```sh
+npm i -g serve@latest
+```
+
+##### Install/Upgrade [eslint](https://eslint.org/)/[airbnb](https://www.npmjs.com/package/eslint-config-airbnb/)/[prettier](https://prettier.io/) combo (globally via npm):
+
+```sh
+npx install-peerdeps -g eslint-config-airbnb && \
+npm i -g prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
+```
+
+### Applications
+
+##### Install 1Password:
+
+```sh
+brew cask install 1password
+```
+
+##### Install Adobe Creative Cloud:
+
+```sh
+brew cask install adobe-creative-cloud
+```
+
+##### Install BrowserstackLocal:
+
+```sh
+brew cask install browserstacklocal
+```
+
+##### Install DiffMerge:
+
+```sh
+brew cask install diffmerge
+```
+
+##### Install Dropbox:
+
+```sh
+brew cask install dropbox
+```
+
+##### Install Firefox Developer Edition:
+
+```sh
+brew cask install firefox-developer-edition
+```
+
+##### Install Google Chrome:
+
+```sh
+brew cask install google-chrome
+```
+
+##### Install Insomnia:
+
+```sh
+brew cask install insomnia
+```
+
+##### Install iTerm:
+
+```sh
+brew cask install iterm2
+```
+
+##### Install MAMP:
+
+```sh
+brew cask install mamp
+```
+
+##### Install Sketch:
+
+```sh
+brew cask install sketch
+```
+
+##### Install Slack:
+
+```sh
+brew cask install slack
+```
+
+##### Install Sourcetree:
+
+```sh
+brew cask install sourcetree
+```
+
+##### Install Spectacle:
+
+```sh
+brew cask install spectacle
+```
+
+##### Install Spotify:
+
+```sh
+brew cask install spotify
+```
+
+##### Install Sublime Merge:
+
+```sh
+brew cask install sublime-merge
+```
+
+##### Install Sublime Text:
+
+```sh
+brew cask install sublime-text
+```
+
+##### Install Transmit:
+
+```sh
+brew cask install transmit
+```
+
+##### Install Visual Studio Code:
+
+```sh
+brew cask install visual-studio-code
+```
+
+### Optimizations
+
+##### Optimizing [Homebrew](https://brew.sh/):
+
+```sh
+brew update && brew upgrade && brew doctor && brew cleanup
+```
