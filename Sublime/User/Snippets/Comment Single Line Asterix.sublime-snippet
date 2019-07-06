@@ -1,9 +1,0 @@
-<snippet>
-	<content><![CDATA[
-/*----------------------------------------------------------------------------*/
-
-${1}
-]]></content>
-	<tabTrigger>/</tabTrigger>
-	<description>Comment: Single Asterix</description>
-</snippet>

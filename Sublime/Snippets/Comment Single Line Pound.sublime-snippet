@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+<#-- ----------------------------------------------------------------------- -->
+
+${1}
+]]></content>
+	<description>Comment: Single &lt;#</description>
+	<scope>source.asp,source.aspx</scope>
+	<tabTrigger>/</tabTrigger>
+</snippet>

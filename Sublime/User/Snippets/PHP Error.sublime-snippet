@@ -1,8 +1,0 @@
-<snippet>
-	<content><![CDATA[
-error_reporting( E_ALL | E_STRICT ); ini_set( 'display_errors', 1 );
-
-]]></content>
-	<tabTrigger>phperr</tabTrigger>
-	<description>PHP: display errors</description>
-</snippet>

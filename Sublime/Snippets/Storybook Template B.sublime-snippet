@@ -1,0 +1,30 @@
+<snippet>
+	<content><![CDATA[
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { withKnobs, text } from '@storybook/addon-knobs';
+${2:// }import { action } from '@storybook/addon-actions';
+${3:// }import { linkTo } from '@storybook/addon-links';
+
+// Local modules.
+import ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} from './index';
+
+// -----------------------------------------------------------------------------
+
+const stories = storiesOf('${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}', module);
+
+stories.addDecorator(withKnobs);
+
+stories.add('default', () => (
+	<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}
+		className={text('className', undefined)}
+		${2:// }onClick={action('onClick')}
+		${3:// }onClick={linkTo('storiesOf', 'default')}
+	/>
+));
+${0}
+]]></content>
+	<description>Storybook: template B</description>
+	<scope>source.js</scope>
+	<tabTrigger>sbtb</tabTrigger>
+</snippet>

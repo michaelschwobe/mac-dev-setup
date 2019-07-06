@@ -1,7 +1,0 @@
-<snippet>
-	<content><![CDATA[
-console.log(${1});${2: // eslint-disable-line no-console}
-]]></content>
-	<tabTrigger>con</tabTrigger>
-	<description>Console: log</description>
-</snippet>

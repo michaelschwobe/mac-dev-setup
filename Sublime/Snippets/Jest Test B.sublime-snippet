@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+import React from 'react';
+import { shallow } from 'enzyme';
+
+// Local modules.
+import ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} from './index';
+
+// -----------------------------------------------------------------------------
+
+describe('<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}>', () => {
+	test('Should render without crashing', () => {
+		shallow(<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} />);
+	});
+});
+${0}
+]]></content>
+	<description>Jest: test B</description>
+	<scope>source.js</scope>
+	<tabTrigger>jtb</tabTrigger>
+</snippet>

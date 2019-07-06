@@ -1,0 +1,9 @@
+{
+  "allow_inline_formatting": true,
+  "prettier_cli_path": "/usr/local/bin/prettier",
+  "prettier_options": {
+    "printWidth": 80,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}

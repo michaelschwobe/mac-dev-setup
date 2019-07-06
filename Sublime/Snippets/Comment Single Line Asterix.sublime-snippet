@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+/* -------------------------------------------------------------------------- */
+
+${1}
+]]></content>
+	<description>Comment: Single /*</description>
+	<scope>source.css,source.less,source.scss</scope>
+	<tabTrigger>/</tabTrigger>
+</snippet>

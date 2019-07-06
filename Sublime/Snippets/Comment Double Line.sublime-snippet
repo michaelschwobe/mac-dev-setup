@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+// -----------------------------------------------------------------------------
+// ${1:sectionName}
+// -----------------------------------------------------------------------------
+
+
+]]></content>
+	<description>Comment: Double //</description>
+	<tabTrigger>/</tabTrigger>
+</snippet>

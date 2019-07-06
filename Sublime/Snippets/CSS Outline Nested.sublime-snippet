@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+* { outline: 1px dotted red; }
+* * { outline: 1px dotted orange; }
+* * * { outline: 1px dotted yellow; }
+* * * * { outline: 1px dotted green; }
+* * * * * { outline: 1px dotted blue; }
+* * * * * * { outline: 1px dotted purple; }
+]]></content>
+	<description>CSS: outline nested</description>
+	<scope>source.css,source.less,source.scss</scope>
+	<tabTrigger>css</tabTrigger>
+</snippet>

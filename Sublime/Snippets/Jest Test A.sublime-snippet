@@ -1,0 +1,34 @@
+<snippet>
+	<content><![CDATA[
+import React from 'react';
+import { mount, shallow } from 'enzyme';
+
+// Local modules.
+import ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} from './index';
+
+// -----------------------------------------------------------------------------
+
+describe('<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}>', () => {
+	test('Should render without crashing', () => {
+		shallow(<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} />);
+	});
+
+	describe('All props', () => {
+		// Set props.
+		const className = 'test_className';
+
+		// Render to DOM.
+		const wrap = mount(<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} className={className} />);
+
+		test('Should apply the correct classNames', () => {
+			const wrapDiv = wrap.find('div').at(0);
+			expect(wrapDiv.hasClass(className)).toBeTruthy();
+		});
+	});
+});
+${0}
+]]></content>
+	<description>Jest: test A</description>
+	<scope>source.js</scope>
+	<tabTrigger>jta</tabTrigger>
+</snippet>

@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+/* -------------------------------------------------------------------------- */
+/* ${1:sectionName}
+/* -------------------------------------------------------------------------- */
+
+
+]]></content>
+	<description>Comment: Double /*</description>
+	<scope>source.css,source.less,source.scss</scope>
+	<tabTrigger>/</tabTrigger>
+</snippet>

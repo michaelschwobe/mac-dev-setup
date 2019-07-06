@@ -1,0 +1,10 @@
+{
+	"extensions":
+	[
+		"dev",
+		"int",
+		"qa",
+		".stylelintignore",
+		"prod"
+	]
+}

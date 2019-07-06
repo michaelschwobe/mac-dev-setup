@@ -1,8 +1,0 @@
-<snippet>
-  <content><![CDATA[
-outline: 1px dotted red;
-]]></content>
-  <tabTrigger>css</tabTrigger>
-  <scope>source.css,source.less,source.scss</scope>
-  <description>CSS: outline element</description>
-</snippet>
