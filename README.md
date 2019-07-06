@@ -6,34 +6,29 @@
 
 For a guided setup, open up **Terminal.app** and run the following command:
 
-**1.** Save repo to `~/Downloads` folder:
+1. Save repo to `~/Downloads` folder:
+   ```sh
+   git clone https://github.com/michaelschwobe/mac-dev-setup.git ~/Downloads/mac-dev-setup && \
+   cd ~/Downloads/mac-dev-setup/scripts
+   ```
+2. Run the installer script (rerun as many times as needed).
+   ```sh
+   sh install.sh
+   ```
+   **OR** Run the installer scripts individually:
+   ```sh
+   sh defaults.sh
+   sh tools.sh
+   sh casks.sh
+   sh optimizations.sh
+   sh summary.sh
+   ```
 
-```sh
-git clone https://github.com/michaelschwobe/mac-dev-setup.git ~/Downloads/mac-dev-setup && \
-cd ~/Downloads/mac-dev-setup/scripts
-```
-
-**2.** Run the installer script (rerun as many times as needed).
-
-```sh
-sh install.sh
-```
-
-**OR** Run the installer scripts individually:
-
-```sh
-sh defaults.sh
-sh tools.sh
-sh casks.sh
-sh optimizations.sh
-sh summary.sh
-```
-
-✨ And thats it! You’re done, no need to do anything further.
+✨ And thats it! No need to do anything further.
 
 ## Manual Setup
 
-For those who prefer à la carte, this section contains everything that the Guided Setup attempts to do.
+For those who prefer à la carte, this section contains everything that the **Guided Setup** attempts to do, except for IDE customization.
 
 - [Defaults](#defaults)
 - [Tools](#tools)
@@ -125,6 +120,8 @@ brew install zsh-autosuggestions && \
 echo "source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 ```
 
+Restart you’re CLI for this to take effect.
+
 ##### Install [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/):
 
 ```sh
@@ -132,10 +129,18 @@ brew install zsh-syntax-highlighting && \
 echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
 ```
 
+Restart you’re CLI for this to take effect.
+
 ##### Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/):
 
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+Upgrading:
+
+```sh
+upgrade_oh_my_zsh
 ```
 
 ##### Install [powerlevel9k](https://github.com/bhilburn/powerlevel9k/) (CLI theming):
@@ -143,6 +148,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```sh
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 ```
+
+Visit the docs for how to set this up.
 
 ##### Install [powerline](https://github.com/powerline/fonts/) (CLI fonts):
 
@@ -152,6 +159,12 @@ cd fonts
 ./install.sh
 cd ..
 rm -rf fonts
+```
+
+Verify the fonts glyphs work:
+
+```sh
+echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699"
 ```
 
 ##### Install [node](https://nodejs.org/) (Node via [Homebrew](https://brew.sh/)):
@@ -302,6 +315,15 @@ brew cask install sublime-merge
 brew cask install sublime-text
 ```
 
+1. Ensure [Package Control](https://packagecontrol.io/installation) is installed then quit.
+2. Copy my Sublime Text User settings:
+   ```sh
+   cp  ~/Downloads/mac-dev-setup/Sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+   ```
+3. Restart Sublime Text to let Package Control auto-install missing packages. When Package Control finishes, restart and resolve any remaining issues.
+
+See also [Syncing with Dropbox](https://packagecontrol.io/docs/syncing#dropbox-osx)
+
 ##### Install Transmit:
 
 ```sh
@@ -313,6 +335,12 @@ brew cask install transmit
 ```sh
 brew cask install visual-studio-code
 ```
+
+1. Copy my Visual Studio Code User settings:
+   ```sh
+   cp  ~/Downloads/mac-dev-setup/Code/* ~/Library/Application\ Support/Code/User
+   ```
+2. Restart Visual Studio Code and resolve any remaining issues.
 
 ### Optimizations
 
