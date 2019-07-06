@@ -1,14 +1,16 @@
 # Sublime Text
-bh_unicode_properties.cache
-oscrypto-ca-bundle.crt
-Package Control.ca-bundle
-Package Control.ca-certs/
-Package Control.ca-list
-Package Control.cache/
-Package Control.last-run
-Package Control.merged-ca-bundle
-Package Control.system-ca-bundle
-Package Control.user-ca-bundle
+Sublime/**/bh_unicode_properties.cache
+Sublime/**/oscrypto-ca-bundle.crt
+Sublime/**/Package Control.ca-bundle
+Sublime/**/Package Control.ca-certs/
+Sublime/**/Package Control.ca-list
+Sublime/**/Package Control.cache/
+Sublime/**/Package Control.last-run
+Sublime/**/Package Control.merged-ca-bundle
+Sublime/**/Package Control.system-ca-bundle
+Sublime/**/Package Control.user-ca-bundle
 
 # Visual Studio Code
-workspaceStorage/
+Code/**/globalStorage/
+Code/**/workspaceStorage/
+Code/**/projects.json
