@@ -1,0 +1,38 @@
+{
+  "Comment: Double //": {
+    "prefix": "/",
+    "body": [
+      "// -----------------------------------------------------------------------------",
+      "// ${1:sectionName}",
+      "// -----------------------------------------------------------------------------",
+      "",
+      ""
+    ],
+    "description": "Comment: Double //"
+  },
+  "Comment: Single /": {
+    "prefix": "/",
+    "body": [
+      "// -----------------------------------------------------------------------------",
+      "",
+      ""
+    ],
+    "description": "Comment: Single /"
+  },
+  "Console: log": {
+    "scope": "javascript,typescript",
+    "prefix": "conlog",
+    "body": [
+      "console.log('⚡️ ${1}', ${1});${2: // eslint-disable-line no-console}"
+    ],
+    "description": "Console: log"
+  },
+  "Console: log stringified": {
+    "scope": "javascript,typescript",
+    "prefix": "constr",
+    "body": [
+      "console.log('⚡️ ${1}', JSON.stringify(${1}, null, 2));${2: // eslint-disable-line no-console}"
+    ],
+    "description": "Console: log stringified"
+  }
+}
