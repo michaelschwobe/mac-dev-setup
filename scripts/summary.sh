@@ -52,6 +52,7 @@ test_app "Sublime Merge"
 test_app "Sublime Text"
 test_app "Transmit"
 test_app "Visual Studio Code"
+e_success "Optimization commands"
 
 echo "\r"
 
