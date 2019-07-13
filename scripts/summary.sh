@@ -8,13 +8,11 @@ e_pending "Creating summary"
 
 echo "\r"
 
-e_success "Create Dock spacers"
-e_success "Autohide Dock"
-e_success "Display hidden Finder files/folders"
+e_success "Default commands"
 if has_path "Projects"; then
-  e_success "Create '~/Projects' folder"
+  e_success "~/Projects"
 else
-  e_failure "Create '~/Projects' folder"
+  e_failure "~/Projects"
 fi
 test_command "xcode-select"
 test_command "brew"

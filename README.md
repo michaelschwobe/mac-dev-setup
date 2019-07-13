@@ -43,8 +43,6 @@ For those who prefer à la carte, this section contains everything that the **Gu
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
-defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
-defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
 killall Dock
 ```
 
