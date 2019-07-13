@@ -18,3 +18,11 @@ if has_command "zsh"; then
     test_path ".oh-my-zsh"
   fi
 fi
+
+get_consent "Re-sort Launchpad applications"
+  if has_consent; then
+    e_pending "Re-sorting Launchpad applications"
+    defaults write com.apple.dock ResetLaunchPad -boolean true
+    killall Dock
+  fi
+fi
