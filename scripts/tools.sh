@@ -165,6 +165,7 @@ fi
 if has_command 'npm'; then
   get_consent "Upgrade npm"
   if has_consent; then
+    e_pending "Upgrading npm"
     npm i -g npm@latest
     test_command "npm"
   fi
