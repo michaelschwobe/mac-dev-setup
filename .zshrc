@@ -115,10 +115,6 @@ source $ZSH/oh-my-zsh.sh
 
 # ------------------------------------------------------------------------------
 
-# ZSH plugins
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Show or hide hidden files
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
@@ -189,3 +185,7 @@ airbnb() {
   unset UseYarn
   unset ForDev
 }
+
+# ZSH plugins
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
