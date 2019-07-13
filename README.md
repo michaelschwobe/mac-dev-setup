@@ -30,10 +30,10 @@ For a guided setup, open up **Terminal.app** and run the following command:
 
 For those who prefer à la carte, this section contains everything that the **Guided Setup** attempts to do, except for IDE customization.
 
-- [Defaults](#defaults)
-- [Tools](#tools)
-- [Applications](#applications)
-- [Optimizations](#optimizations)
+-  [Defaults](#defaults)
+-  [Tools](#tools)
+-  [Applications](#applications)
+-  [Optimizations](#optimizations)
 
 ### Defaults
 
