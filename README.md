@@ -135,12 +135,6 @@ Restart you’re CLI for this to take effect.
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-Upgrading:
-
-```sh
-upgrade_oh_my_zsh
-```
-
 ##### Install [powerlevel9k](https://github.com/bhilburn/powerlevel9k/) (CLI theming):
 
 ```sh
@@ -265,6 +259,12 @@ brew cask install insomnia
 brew cask install iterm2
 ```
 
+1. Copy my iTerm settings:
+   ```sh
+   cp  ~/Downloads/mac-dev-setup/.zshrc ~/
+   ```
+2. Restart iTerm and resolve any remaining issues.
+
 ##### Install MAMP:
 
 ```sh
@@ -346,4 +346,16 @@ brew cask install visual-studio-code
 
 ```sh
 brew update && brew upgrade && brew doctor && brew cleanup
+```
+
+##### Upgrading [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/):
+
+```sh
+upgrade_oh_my_zsh
+```
+
+##### Re-sort Launchpad applications:
+
+```sh
+defaults write com.apple.dock ResetLaunchPad -boolean true; killall Dock
 ```
