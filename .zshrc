@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -7,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
@@ -44,8 +45,14 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -80,7 +87,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow npm yarn)
+plugins=(git npm yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,9 +107,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -128,6 +132,9 @@ alias zshconfig="subl ~/.zshrc"
 # One-liner for updating Homebrew and other installed packages (such as Node)
 alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
 
+# Re-sort Launchpad applications
+alias sortapps="defaults write com.apple.dock ResetLaunchPad -boolean true; killall Dock"
+
 # Helper function: Create folder and switch into it
 mcd() {
   mkdir -p $1
@@ -138,17 +145,26 @@ mcd() {
 cray() {
   read "WithFolder?With Folder? [y/n]: "
   if [[ "$WithFolder" =~ ^[Yy]$ ]] then
+    read "WithNamed?With named files? [y/n]: "
     mkdir -p $1
     cd $1
-    echo "// TODO: Write <$1 /> component.">>index.js
-    echo "// TODO: Write <$1 /> stories.">>index.stories.js
-    echo "// TODO: Write <$1 /> styles.">>index.styles.js
-    echo "// TODO: Write <$1 /> tests.">>index.test.js
+    if [[ "$WithNamed" =~ ^[Yy]$ ]] then
+      echo "export { default } from './$1';">>index.js
+      echo "// TODO: Write <$1 /> component.">>$1.js
+      echo "// TODO: Write <$1 /> stories.">>$1.stories.js
+      echo "/* TODO: Write <$1 /> styles. */">>$1.css
+      echo "// TODO: Write <$1 /> tests.">>$1.test.js
+    else
+      echo "// TODO: Write <$1 /> component.">>index.js
+      echo "// TODO: Write <$1 /> stories.">>index.stories.js
+      echo "/* TODO: Write <$1 /> styles. */">>index.css
+      echo "// TODO: Write <$1 /> tests.">>index.test.js
+    fi
     cd ..
   else
     echo "// TODO: Write <$1 /> component.">>$1.js
     echo "// TODO: Write <$1 /> stories.">>$1.stories.js
-    echo "// TODO: Write <$1 /> styles.">>$1.styles.js
+    echo "/* TODO: Write <$1 /> styles. */">>$1.css
     echo "// TODO: Write <$1 /> tests.">>$1.test.js
   fi
 }
