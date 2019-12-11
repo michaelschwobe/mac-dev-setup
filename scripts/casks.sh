@@ -7,12 +7,12 @@ e_pending "Checking applications"
 # ------------------------------------------------------------------------------
 
 if has_command "brew cask"; then
-  if ! has_app "1Password"; then
-    get_consent "Install 1Password.app"
+  if ! has_app "1Password 7"; then
+    get_consent "Install 1Password 7.app"
     if has_consent; then
       e_pending "Installing 1password"
       brew cask install 1password
-      test_app "1Password"
+      test_app "1Password 7"
     fi
   fi
 fi
