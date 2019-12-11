@@ -261,7 +261,7 @@ brew cask install iterm2
 
 1. Copy my iTerm settings:
    ```sh
-   cp  ~/Downloads/mac-dev-setup/.zshrc ~/
+   cp ~/Downloads/mac-dev-setup/.zshrc ~/
    ```
 2. Restart iTerm and resolve any remaining issues.
 
@@ -316,7 +316,7 @@ brew cask install sublime-text
 1. Ensure [Package Control](https://packagecontrol.io/installation) is installed then quit.
 2. Copy my Sublime Text User settings:
    ```sh
-   cp  ~/Downloads/mac-dev-setup/Sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+   cp ~/Downloads/mac-dev-setup/Sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
    ```
 3. Restart Sublime Text to let Package Control auto-install missing packages. When Package Control finishes, restart and resolve any remaining issues.
 
@@ -336,7 +336,7 @@ brew cask install visual-studio-code
 
 1. Copy my Visual Studio Code User settings:
    ```sh
-   cp  ~/Downloads/mac-dev-setup/Code/* ~/Library/Application\ Support/Code/User
+   cp ~/Downloads/mac-dev-setup/Code/* ~/Library/Application\ Support/Code/User
    ```
 2. Restart Visual Studio Code and resolve any remaining issues.
 
