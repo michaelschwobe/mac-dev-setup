@@ -1,26 +1,20 @@
 <snippet>
-	<content><![CDATA[
-import React from 'react';
-import PropTypes from 'prop-types';
+  <content><![CDATA[
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 // Styles.
 ${2:// }import './index.css';
 
 // -----------------------------------------------------------------------------
 
-const cnBase = '${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}';
-
-const ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} = ({ className }) => (
-	<div className={classNames(className, cnBase)}>${0:${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}}</div>
+const ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} = ({ className = null }) => (
+  <div className={classNames(className, '${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}')}>${0:${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}}</div>
 );
 
 ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.propTypes = {
-	className: PropTypes.string,
-};
-
-${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {
-	className: null,
+  className: PropTypes.string,
 };
 
 // -----------------------------------------------------------------------------
@@ -28,7 +22,7 @@ ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {
 export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
 
 ]]></content>
-	<description>React: stateless B</description>
-	<scope>source.js</scope>
-	<tabTrigger>rcfb</tabTrigger>
+  <description>React: stateless B</description>
+  <scope>source.js</scope>
+  <tabTrigger>rcfb</tabTrigger>
 </snippet>

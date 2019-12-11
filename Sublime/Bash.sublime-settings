@@ -4,7 +4,8 @@
 		"dev",
 		"int",
 		"qa",
+		"prod",
 		".stylelintignore",
-		"prod"
+		".prettierignore"
 	]
 }

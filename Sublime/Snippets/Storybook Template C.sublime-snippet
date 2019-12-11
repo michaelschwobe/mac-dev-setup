@@ -1,5 +1,5 @@
 <snippet>
-	<content><![CDATA[
+  <content><![CDATA[
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
@@ -13,7 +13,7 @@ const stories = storiesOf('${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}', m
 stories.add('default', () => <${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} />);
 ${0}
 ]]></content>
-	<description>Storybook: template C</description>
-	<scope>source.js</scope>
-	<tabTrigger>sbtc</tabTrigger>
+  <description>Storybook: template C</description>
+  <scope>source.js</scope>
+  <tabTrigger>sbtc</tabTrigger>
 </snippet>

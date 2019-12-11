@@ -1,5 +1,5 @@
 <snippet>
-	<content><![CDATA[
+  <content><![CDATA[
 ${1:dirA}/
 ├── dirB/
 |   ├── index.js
@@ -9,6 +9,6 @@ ${1:dirA}/
     └── index.test.js
 ${0}
 ]]></content>
-	<description>ASCII Tree</description>
-	<tabTrigger>tree</tabTrigger>
+  <description>ASCII Tree</description>
+  <tabTrigger>tree</tabTrigger>
 </snippet>

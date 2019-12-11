@@ -1,34 +1,23 @@
 <snippet>
-	<content><![CDATA[
+  <content><![CDATA[
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import ReactDOM from 'react-dom';
 
 // Local modules.
-import ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} from './index';
+import ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} from './${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}';
 
 // -----------------------------------------------------------------------------
 
 describe('<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}>', () => {
-	test('Should render without crashing', () => {
-		shallow(<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} />);
-	});
-
-	describe('All props', () => {
-		// Set props.
-		const className = 'test_className';
-
-		// Render to DOM.
-		const wrap = mount(<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} className={className} />);
-
-		test('Should apply the correct classNames', () => {
-			const wrapDiv = wrap.find('div').at(0);
-			expect(wrapDiv.hasClass(className)).toBeTruthy();
-		});
-	});
+  test('Should render without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
 });
 ${0}
 ]]></content>
-	<description>Jest: test A</description>
-	<scope>source.js</scope>
-	<tabTrigger>jta</tabTrigger>
+  <description>Jest: test A</description>
+  <scope>source.js</scope>
+  <tabTrigger>jta</tabTrigger>
 </snippet>

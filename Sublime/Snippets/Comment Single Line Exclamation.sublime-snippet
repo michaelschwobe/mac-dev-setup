@@ -1,10 +1,10 @@
 <snippet>
-	<content><![CDATA[
+  <content><![CDATA[
 <!-- ----------------------------------------------------------------------- -->
 
-${1}
+${0}
 ]]></content>
-	<description>Comment: Single &lt;!</description>
-	<scope>source.html</scope>
-	<tabTrigger>/</tabTrigger>
+  <description>Comment: Single &lt;!</description>
+  <scope>source.html</scope>
+  <tabTrigger>/</tabTrigger>
 </snippet>

@@ -1,5 +1,5 @@
 <snippet>
-	<content><![CDATA[
+  <content><![CDATA[
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
@@ -16,15 +16,15 @@ const stories = storiesOf('${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}', m
 stories.addDecorator(withKnobs);
 
 stories.add('default', () => (
-	<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}
-		className={text('className', undefined)}
-		${2:// }onClick={action('onClick')}
-		${3:// }onClick={linkTo('storiesOf', 'default')}
-	/>
+  <${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}
+    className={text('className', undefined)}
+    ${2:// }onClick={action('onClick')}
+    ${3:// }onClick={linkTo('storiesOf', 'default')}
+  />
 ));
 ${0}
 ]]></content>
-	<description>Storybook: template B</description>
-	<scope>source.js</scope>
-	<tabTrigger>sbtb</tabTrigger>
+  <description>Storybook: template B</description>
+  <scope>source.js</scope>
+  <tabTrigger>sbtb</tabTrigger>
 </snippet>

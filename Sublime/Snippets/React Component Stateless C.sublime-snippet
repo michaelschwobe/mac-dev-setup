@@ -1,7 +1,7 @@
 <snippet>
-	<content><![CDATA[
-import React from 'react';
+  <content><![CDATA[
 ${2:// }import PropTypes from 'prop-types';
+import React from 'react';
 
 // -----------------------------------------------------------------------------
 
@@ -9,14 +9,12 @@ const ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} = () => <div>${0:${1:${T
 
 ${2:// }${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.propTypes = {${3}};
 
-${2:// }${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {${3}};
-
 // -----------------------------------------------------------------------------
 
 export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
 
 ]]></content>
-	<description>React: stateless C</description>
-	<scope>source.js</scope>
-	<tabTrigger>rcfc</tabTrigger>
+  <description>React: stateless C</description>
+  <scope>source.js</scope>
+  <tabTrigger>rcfc</tabTrigger>
 </snippet>

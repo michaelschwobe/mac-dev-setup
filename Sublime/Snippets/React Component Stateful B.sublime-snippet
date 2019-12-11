@@ -1,48 +1,46 @@
 <snippet>
-	<content><![CDATA[
-import React from 'react';
+  <content><![CDATA[
 import PropTypes from 'prop-types';
+import React from 'react';
 
 // -----------------------------------------------------------------------------
 
 class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} extends React.Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		// Bindings.
-		${4:// }this.handleClick = this.handleClick.bind(this);
+    // Bindings.
+    ${4:// }this.handleClick = this.handleClick.bind(this);
 
-		// State.
-		this.state = {};
-	}
+    // State.
+    this.state = {};
+  }
 
-	${4:// }handleClick(event) {
-	${4:// }  event.preventDefault();
-	${4:// }}
+  ${4:// }handleClick(event) {
+  ${4:// }  event.preventDefault();
+  ${4:// }}
 
-	render() {
-		// Destructuring.
-		const { render } = this.props;
-		// const {  } = this.state;
+  render() {
+    // Destructuring.
+    const { render } = this.props;
+    // const {  } = this.state;
 
-		// Default render.
-		const renderProps = {};
-		return render(renderProps);
-	}
+    // Default render.
+    const renderProps = {};
+    return render(renderProps);
+  }
 }
 
 ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.propTypes = {
-	render: PropTypes.func.isRequired,
+  render: PropTypes.func.isRequired,
 };
-
-${2:// }${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {${3}};
 
 // -----------------------------------------------------------------------------
 
 export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
 ${0}
 ]]></content>
-	<description>React: stateful B</description>
-	<scope>source.js</scope>
-	<tabTrigger>rccb</tabTrigger>
+  <description>React: stateful B</description>
+  <scope>source.js</scope>
+  <tabTrigger>rccb</tabTrigger>
 </snippet>

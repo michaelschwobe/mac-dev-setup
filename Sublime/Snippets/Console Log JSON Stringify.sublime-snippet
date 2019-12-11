@@ -1,8 +1,8 @@
 <snippet>
-	<content><![CDATA[
-console.log('⚡️ ${1}', JSON.stringify(${1}, null, 2));${2: // eslint-disable-line no-console}
+  <content><![CDATA[
+console.log('⚡️ ${1}', JSON.stringify(${1}, null, 2));
 ]]></content>
-	<description>Console: log JSON.stringify</description>
-	<scope>source.js</scope>
-	<tabTrigger>constr</tabTrigger>
+  <description>Console: log JSON.stringify</description>
+  <scope>source.js</scope>
+  <tabTrigger>constr</tabTrigger>
 </snippet>

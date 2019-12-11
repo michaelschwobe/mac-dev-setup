@@ -1,8 +1,8 @@
 <snippet>
-	<content><![CDATA[
-console.log('⚡️ ${1}', ${1});${2: // eslint-disable-line no-console}
+  <content><![CDATA[
+console.log('⚡️ ${1}', ${1});
 ]]></content>
-	<description>Console: log</description>
-	<scope>source.js</scope>
-	<tabTrigger>conlog</tabTrigger>
+  <description>Console: log</description>
+  <scope>source.js</scope>
+  <tabTrigger>conlog</tabTrigger>
 </snippet>

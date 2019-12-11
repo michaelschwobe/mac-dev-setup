@@ -1,10 +1,12 @@
 <snippet>
-	<content><![CDATA[
+  <content><![CDATA[
 <div style={{ fontSize: '10px', lineHeight: 1 }}>
-	<pre>{JSON.stringify(${1:data}, null, 2)}</pre>
+  <pre>
+    <code>{JSON.stringify(${1:data}, null, 2)}</code>
+  </pre>
 </div>
 ]]></content>
-	<description>React: Inline Data</description>
-	<scope>source.js</scope>
-	<tabTrigger>rid</tabTrigger>
+  <description>React: Inline Data</description>
+  <scope>source.js</scope>
+  <tabTrigger>rid</tabTrigger>
 </snippet>

@@ -1,8 +1,8 @@
 <snippet>
-	<content><![CDATA[
-import React from 'react';
-import PropTypes from 'prop-types';
+  <content><![CDATA[
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 // Styles.
 ${2:// }import './index.css';
@@ -11,27 +11,23 @@ ${2:// }import './index.css';
 
 const cnBase = '${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}';
 
-const ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} = ({ className }) => {
-	// ClassNames.
-	const cn = {
-		wrapper: classNames(className, cnBase),
-		item: `\${cnBase}__item`,
-	};
+const ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} = ({ className = null }) => {
+  // ClassNames.
+  const cn = {
+    wrapper: classNames(className, cnBase),
+    item: `\${cnBase}__item`,
+  };
 
-	// Default render.
-	return (
-		<div className={cn.wrapper}>
-			<div className={cn.item}>${0:${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}}</div>
-		</div>
-	);
+  // Default render.
+  return (
+    <div className={cn.wrapper}>
+      <div className={cn.item}>${0:${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}}</div>
+    </div>
+  );
 };
 
 ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.propTypes = {
-	className: PropTypes.string,
-};
-
-${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {
-	className: null,
+  className: PropTypes.string,
 };
 
 // -----------------------------------------------------------------------------
@@ -39,7 +35,7 @@ ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {
 export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
 
 ]]></content>
-	<description>React: stateless A</description>
-	<scope>source.js</scope>
-	<tabTrigger>rcfa</tabTrigger>
+  <description>React: stateless A</description>
+  <scope>source.js</scope>
+  <tabTrigger>rcfa</tabTrigger>
 </snippet>

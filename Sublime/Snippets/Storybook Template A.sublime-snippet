@@ -1,5 +1,5 @@
 <snippet>
-	<content><![CDATA[
+  <content><![CDATA[
 import React from 'react';
 ${4:// }import { Provider } from 'react-redux';
 ${4:// }import configureStore from 'redux-mock-store';
@@ -20,20 +20,20 @@ ${4:// }const mockStore = configureStore();
 ${4:// }const store = mockStore({});
 
 storiesOf('${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}', module)
-	.addDecorator(withInfo) // Must be first!
-	.addDecorator(withKnobs)
-	${4:// }.addDecorator(getStory => <Provider store={store}>{getStory()}</Provider>)
-	${5:// }.addDecorator(story => <Router>{story()}</Router>)
-	.add('default', () => (
-		<${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}
-			className={text('className', undefined)}
-			${2:// }onClick={action('onClick')}
-			${3:// }onClick={linkTo('storiesOf', 'default')}
-		/>
-	));
+  .addDecorator(withInfo) // Must be first!
+  .addDecorator(withKnobs)
+  ${4:// }.addDecorator(getStory => <Provider store={store}>{getStory()}</Provider>)
+  ${5:// }.addDecorator(story => <Router>{story()}</Router>)
+  .add('default', () => (
+    <${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}
+      className={text('className', undefined)}
+      ${2:// }onClick={action('onClick')}
+      ${3:// }onClick={linkTo('storiesOf', 'default')}
+    />
+  ));
 ${0}
 ]]></content>
-	<description>Storybook: template A</description>
-	<scope>source.js</scope>
-	<tabTrigger>sbta</tabTrigger>
+  <description>Storybook: template A</description>
+  <scope>source.js</scope>
+  <tabTrigger>sbta</tabTrigger>
 </snippet>

@@ -1,9 +1,9 @@
 <snippet>
-	<content><![CDATA[
+  <content><![CDATA[
 error_reporting( E_ALL | E_STRICT ); ini_set( 'display_errors', 1 );
 
 ]]></content>
-	<description>PHP: display errors</description>
-	<tabTrigger>phperr</tabTrigger>
-	<scope>source.php</scope>
+  <description>PHP: display errors</description>
+  <tabTrigger>phperr</tabTrigger>
+  <scope>source.php</scope>
 </snippet>

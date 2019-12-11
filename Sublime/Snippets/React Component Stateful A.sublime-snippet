@@ -1,8 +1,8 @@
 <snippet>
-	<content><![CDATA[
-import React from 'react';
-import PropTypes from 'prop-types';
+  <content><![CDATA[
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 // Constants.
 // import { MODULE } from '../../constants';
@@ -10,57 +10,53 @@ import classNames from 'classnames';
 // Utils.
 // import { MODULE } from '../../utils';
 
-// Components.
+// Local modules.
 // import MODULE from '../../components/MODULE';
 
 // Styles.
-${2:// }import './index.css';
+${2:// }import './index.scss';
 
 // -----------------------------------------------------------------------------
 
 const cnBase = '${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}';
 
 class ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}} extends React.Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		// Bindings.
-		${4:// }this.handleClick = this.handleClick.bind(this);
+    // Bindings.
+    ${4:// }this.handleClick = this.handleClick.bind(this);
 
-		// State.
-		this.state = {};
-	}
+    // State.
+    this.state = {};
+  }
 
-	${4:// }handleClick(event) {
-	${4:// }  event.preventDefault();
-	${4:// }}
+  ${4:// }handleClick(event) {
+  ${4:// }  event.preventDefault();
+  ${4:// }}
 
-	render() {
-		// Destructuring.
-		const { className } = this.props;
-		// const {  } = this.state;
+  render() {
+    // Destructuring.
+    const { className = null } = this.props;
+    // const {  } = this.state;
 
-		// ClassNames.
-		const cn = {
-			wrapper: classNames(className, cnBase),
-			item: `\${cnBase}__item`,
-		};
+    // ClassNames.
+    const cn = {
+      wrapper: classNames(className, cnBase),
+      item: `\${cnBase}__item`,
+    };
 
-		// Default render.
-		return (
-			<div className={cn.wrapper}>
-				<div className={cn.item}>${0:${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}}</div>
-			</div>
-		);
-	}
+    // Default render.
+    return (
+      <div className={cn.wrapper}>
+        <div className={cn.item}>${0:${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}}</div>
+      </div>
+    );
+  }
 }
 
 ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.propTypes = {
-	className: PropTypes.string,${3}
-};
-
-${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {
-	className: null,${3}
+  className: PropTypes.string,${3}
 };
 
 // -----------------------------------------------------------------------------
@@ -68,7 +64,7 @@ ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}}.defaultProps = {
 export default ${1:${TM_FILENAME/(.+)\..+|.*/$1/:ComponentName}};
 
 ]]></content>
-	<description>React: stateful A</description>
-	<scope>source.js</scope>
-	<tabTrigger>rcca</tabTrigger>
+  <description>React: stateful A</description>
+  <scope>source.js</scope>
+  <tabTrigger>rcca</tabTrigger>
 </snippet>

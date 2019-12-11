@@ -44,7 +44,6 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"TypeScript",
 		"Vintage"
 	],
 	"indent_guide_options":
