@@ -7,29 +7,26 @@ e_pending "Creating defaults"
 # ------------------------------------------------------------------------------
 
 get_consent "Create Dock spacers"
-  if has_consent; then
-    e_pending "Creating Dock spacers"
-    defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
-    defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
-    defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
-    killall Dock
-  fi
+if has_consent; then
+  e_pending "Creating Dock spacers"
+  defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+  defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+  defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+  killall Dock
 fi
 
 get_consent "Autohide Dock"
-  if has_consent; then
-    e_pending "Autohiding Dock"
-    defaults write com.apple.dock autohide -boolean true
-    killall Dock
-  fi
+if has_consent; then
+  e_pending "Autohiding Dock"
+  defaults write com.apple.dock autohide -boolean true
+  killall Dock
 fi
 
 get_consent "Display hidden Finder files/folders"
-  if has_consent; then
-    e_pending "Displaying hidden Finder files/folders"
-    defaults write com.apple.finder AppleShowAllFiles -boolean true
-    killall Finder
-  fi
+if has_consent; then
+  e_pending "Displaying hidden Finder files/folders"
+  defaults write com.apple.finder AppleShowAllFiles -boolean true
+  killall Finder
 fi
 
 if ! has_path "Projects"; then
