@@ -30,10 +30,10 @@ For a guided setup, open up **Terminal.app** and run the following command:
 
 For those who prefer à la carte, this section contains everything that the **Guided Setup** attempts to do, except for IDE customization.
 
--  [Defaults](#defaults)
--  [Tools](#tools)
--  [Applications](#applications)
--  [Optimizations](#optimizations)
+- [Defaults](#defaults)
+- [Tools](#tools)
+- [Applications](#applications)
+- [Optimizations](#optimizations)
 
 ### Defaults
 
@@ -334,11 +334,36 @@ brew cask install transmit
 brew cask install visual-studio-code
 ```
 
-1. Copy my Visual Studio Code User settings:
+1. Install my Extensions:
+   ```sh
+   code --install-extension alefragnani.project-manager
+   code --install-extension asvetliakov.snapshot-tools
+   code --install-extension christian-kohler.npm-intellisense
+   code --install-extension christian-kohler.path-intellisense
+   code --install-extension CoenraadS.bracket-pair-colorizer
+   code --install-extension dbaeumer.vscode-eslint
+   code --install-extension dsznajder.es7-react-js-snippets
+   code --install-extension eamodio.gitlens
+   code --install-extension EditorConfig.EditorConfig
+   code --install-extension eg2.vscode-npm-script
+   code --install-extension esbenp.prettier-vscode
+   code --install-extension formulahendry.auto-rename-tag
+   code --install-extension johnpapa.vscode-peacock
+   code --install-extension liviuschera.noctis
+   code --install-extension mikestead.dotenv
+   code --install-extension ms-vscode.sublime-keybindings
+   code --install-extension sdras.night-owl
+   code --install-extension Tyriar.sort-lines
+   code --install-extension vscode-icons-team.vscode-icons
+   code --install-extension wix.vscode-import-cost
+   code --install-extension zhuangtongfa.material-theme
+   code --install-extension Zignd.html-css-class-completion
+   ```
+2. Copy my Visual Studio Code User settings:
    ```sh
    cp ~/Downloads/mac-dev-setup/Code/* ~/Library/Application\ Support/Code/User
    ```
-2. Restart Visual Studio Code and resolve any remaining issues.
+3. Restart Visual Studio Code and resolve any remaining issues.
 
 ### Optimizations
 
