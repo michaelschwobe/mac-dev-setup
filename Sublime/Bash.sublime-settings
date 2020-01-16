@@ -1,11 +1,11 @@
 {
-	"extensions":
-	[
-		"dev",
-		"int",
-		"qa",
-		"prod",
-		".stylelintignore",
-		".prettierignore"
-	]
+  "extensions":
+  [
+    ".prettierignore",
+    ".stylelintignore",
+    "dev",
+    "int",
+    "prod",
+    "qa"
+  ]
 }
