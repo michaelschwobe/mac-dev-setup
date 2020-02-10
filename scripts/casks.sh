@@ -150,12 +150,12 @@ if has_command "brew cask"; then
 fi
 
 if has_command "brew cask"; then
-  if ! has_app "Spectacle"; then
-    get_consent "Install Spectacle.app"
+  if ! has_app "Rectangle"; then
+    get_consent "Install Rectangle.app"
     if has_consent; then
-      e_pending "Installing spectacle"
-      brew cask install spectacle
-      test_app "Spectacle"
+      e_pending "Installing rectangle"
+      brew cask install rectangle
+      test_app "Rectangle"
     fi
   fi
 fi
