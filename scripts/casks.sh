@@ -117,6 +117,17 @@ if has_command "brew cask"; then
 fi
 
 if has_command "brew cask"; then
+  if ! has_app "Rectangle"; then
+    get_consent "Install Rectangle.app"
+    if has_consent; then
+      e_pending "Installing rectangle"
+      brew cask install rectangle
+      test_app "Rectangle"
+    fi
+  fi
+fi
+
+if has_command "brew cask"; then
   if ! has_app "Sketch"; then
     get_consent "Install Sketch.app"
     if has_consent; then
@@ -145,17 +156,6 @@ if has_command "brew cask"; then
       e_pending "Installing sourcetree"
       brew cask install sourcetree
       test_app "Sourcetree"
-    fi
-  fi
-fi
-
-if has_command "brew cask"; then
-  if ! has_app "Spectacle"; then
-    get_consent "Install Spectacle.app"
-    if has_consent; then
-      e_pending "Installing spectacle"
-      brew cask install spectacle
-      test_app "Spectacle"
     fi
   fi
 fi

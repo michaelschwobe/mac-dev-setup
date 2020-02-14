@@ -271,6 +271,12 @@ brew cask install iterm2
 brew cask install mamp
 ```
 
+##### Install Rectangle:
+
+```sh
+brew cask install rectangle
+```
+
 ##### Install Sketch:
 
 ```sh
@@ -287,12 +293,6 @@ brew cask install slack
 
 ```sh
 brew cask install sourcetree
-```
-
-##### Install Spectacle:
-
-```sh
-brew cask install spectacle
 ```
 
 ##### Install Spotify:
