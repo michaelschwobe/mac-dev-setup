@@ -75,7 +75,7 @@ xcode-select --install
 ##### Installing brew ([Homebrew](https://brew.sh/)):
 
 ```sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && \
 brew doctor
 ```
 
@@ -105,10 +105,29 @@ brew install git
 brew install git-flow
 ```
 
-##### Install [zsh](https://github.com/robbyrussell/oh-my-zsh/):
+##### Install [zsh](https://www.zsh.org/):
 
 ```sh
 brew install zsh
+```
+
+##### Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
+
+```sh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+##### Install [powerlevel10k](https://github.com/romkatv/powerlevel10k/) (CLI theming):
+
+```sh
+brew install romkatv/powerlevel10k/powerlevel10k && \
+echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+```
+
+Restart you’re CLI for this to take effect.
+
+```sh
+p10k configure
 ```
 
 ##### Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/):
@@ -128,36 +147,7 @@ echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 ```
 
 Restart you’re CLI for this to take effect.
-
-##### Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/):
-
-```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-##### Install [powerlevel9k](https://github.com/bhilburn/powerlevel9k/) (CLI theming):
-
-```sh
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-```
-
-Visit the docs for how to set this up.
-
-##### Install [powerline](https://github.com/powerline/fonts/) (CLI fonts):
-
-```sh
-git clone https://github.com/powerline/fonts.git --depth=1
-cd fonts
-./install.sh
-cd ..
-rm -rf fonts
-```
-
-Verify the fonts glyphs work:
-
-```sh
-echo "\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699"
-```
+Note the `source` command must be **at the end** of `~/.zshrc`.
 
 ##### Install [node](https://nodejs.org/) (Node via [Homebrew](https://brew.sh/)):
 
@@ -174,7 +164,7 @@ brew install n
 ##### Install [nvm](https://github.com/nvm-sh/nvm/) (Node via nvm):
 
 ```sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 ```
 
 ##### Install [yarn](https://yarnpkg.com/):
@@ -337,14 +327,14 @@ brew cask install visual-studio-code
 1. Install my Extensions:
    ```sh
    code --install-extension alefragnani.project-manager
-   code --install-extension asvetliakov.snapshot-tools
+   code --install-extension atomiks.moonlight
    code --install-extension christian-kohler.npm-intellisense
    code --install-extension christian-kohler.path-intellisense
-   code --install-extension CoenraadS.bracket-pair-colorizer
+   code --install-extension coenraads.bracket-pair-colorizer
    code --install-extension dbaeumer.vscode-eslint
    code --install-extension dsznajder.es7-react-js-snippets
    code --install-extension eamodio.gitlens
-   code --install-extension EditorConfig.EditorConfig
+   code --install-extension editorconfig.editorconfig
    code --install-extension eg2.vscode-npm-script
    code --install-extension esbenp.prettier-vscode
    code --install-extension formulahendry.auto-rename-tag
@@ -352,12 +342,14 @@ brew cask install visual-studio-code
    code --install-extension liviuschera.noctis
    code --install-extension mikestead.dotenv
    code --install-extension ms-vscode.sublime-keybindings
+   code --install-extension ms-vsliveshare.vsliveshare
+   code --install-extension msjsdiag.debugger-for-chrome
+   code --install-extension prisma.prisma
    code --install-extension sdras.night-owl
-   code --install-extension Tyriar.sort-lines
+   code --install-extension tyriar.sort-lines
    code --install-extension vscode-icons-team.vscode-icons
    code --install-extension wix.vscode-import-cost
-   code --install-extension zhuangtongfa.material-theme
-   code --install-extension Zignd.html-css-class-completion
+   code --install-extension zignd.html-css-class-completion
    ```
 2. Copy my Visual Studio Code User settings:
    ```sh
@@ -373,7 +365,7 @@ brew cask install visual-studio-code
 brew update && brew upgrade && brew doctor && brew cleanup
 ```
 
-##### Upgrading [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/):
+##### Upgrading [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
 
 ```sh
 upgrade_oh_my_zsh

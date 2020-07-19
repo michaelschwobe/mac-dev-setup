@@ -1,38 +1,54 @@
 {
+  "Comment: Single /": {
+    "prefix": "/",
+    "body": [
+      "// -----------------------------------------------------------------------------",
+      ""
+    ],
+    "description": "Comment: Single /"
+  },
   "Comment: Double //": {
     "prefix": "/",
     "body": [
       "// -----------------------------------------------------------------------------",
       "// ${1:sectionName}",
       "// -----------------------------------------------------------------------------",
-      "",
       ""
     ],
     "description": "Comment: Double //"
   },
-  "Comment: Single /": {
-    "prefix": "/",
-    "body": [
-      "// -----------------------------------------------------------------------------",
-      "",
-      ""
-    ],
-    "description": "Comment: Single /"
-  },
   "Console: log": {
     "scope": "javascript,typescript",
     "prefix": "conlog",
-    "body": [
-      "console.log('⚡️ ${1}', ${1});${2: // eslint-disable-line no-console}"
-    ],
+    "body": ["console.log('⚡️ ${1}', ${1});"],
     "description": "Console: log"
   },
   "Console: log stringified": {
     "scope": "javascript,typescript",
     "prefix": "constr",
-    "body": [
-      "console.log('⚡️ ${1}', JSON.stringify(${1}, null, 2));${2: // eslint-disable-line no-console}"
-    ],
+    "body": ["console.log('⚡️ ${1}', JSON.stringify(${1}, null, 2));}"],
     "description": "Console: log stringified"
+  },
+  "Jest: test": {
+    "scope": "javascript,typescript",
+    "prefix": "jt",
+    "body": [
+      "test('Should', () => {",
+      "  expect(${1:provided}).toEqual(${0:expected});",
+      "});"
+    ],
+    "description": "Jest: test"
+  },
+  "Jest: describe": {
+    "scope": "javascript,typescript",
+    "prefix": "jd",
+    "body": [
+      "describe('${1:moduleName}', () => {",
+      "  test('TODO: Write `${1:moduleName}` tests', () => {",
+      "    expect(typeof ${1:moduleName}).toEqual(${0:'function'});",
+      "  });",
+      "});"
+    ],
+    "description": "Jest: describe"
   }
 }

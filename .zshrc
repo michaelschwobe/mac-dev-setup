@@ -13,27 +13,9 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# PowerLevel9K Customization.
-ZSH_THEME="powerlevel9k/powerlevel9k"
-prompt_pkg_version() {
-  local version=$("$1" --version 2>/dev/null)
-  [[ -z "${version}" ]] && return
-  printf "${1}@${version}"
-}
-POWERLEVEL9K_CUSTOM_NPM_VERSION="echo $(prompt_pkg_version npm)"
-POWERLEVEL9K_CUSTOM_NPM_VERSION_BACKGROUND="cyan"
-POWERLEVEL9K_CUSTOM_YARN_VERSION="echo $(prompt_pkg_version yarn)"
-POWERLEVEL9K_CUSTOM_YARN_VERSION_BACKGROUND="white"
-POWERLEVEL9K_NODE_VERSION_FOREGROUND="black"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_with_package_name"
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time rbenv node_version custom_npm_version custom_yarn_version dir vcs status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,7 +34,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -83,8 +65,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git npm yarn)
@@ -118,30 +100,66 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ------------------------------------------------------------------------------
+# Aliases
+# ------------------------------------------------------------------------------
 
-# Show or hide hidden files
+# Show or hide hidden files.
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
-# Sublime alias
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-
-# Open this file (.zshrc) in Sublime
-alias zshconfig="subl ~/.zshrc"
-
-# One-liner for updating Homebrew and other installed packages (such as Node)
-alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
-
-# Re-sort Launchpad applications
+# Re-sort Launchpad applications.
 alias sortapps="defaults write com.apple.dock ResetLaunchPad -boolean true; killall Dock"
 
-# Helper function: Create folder and switch into it
+# SublimeText alias.
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+# Open this file (.zshrc) in VSCode.
+alias zshconfig="code ~/.zshrc"
+
+# One-liner for updating Homebrew and other installed packages (such as Node).
+alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
+
+# ------------------------------------------------------------------------------
+# Helpers
+# ------------------------------------------------------------------------------
+
+# Reinstalls xcode-select to fix missing receipt for command line tools.
+fixcli() {
+  echo "⚡️ Reinstalling xcode-select..."
+  sudo rm -rf $(xcode-select -print-path)
+  sudo rm -rf /Library/Developer/CommandLineTools
+  xcode-select --install
+}
+
+# Re-signs Firewall permissions for Node caused by switching versions via `nvm` or `n`.
+fixnode() {
+  echo "⚡️ Re-signing Firewall permissions for Node..."
+  /usr/libexec/ApplicationFirewall/socketfilterfw --remove $(which node)
+  codesign --force --sign - $(which node)
+  /usr/libexec/ApplicationFirewall/socketfilterfw --add $(which node)
+}
+
+# Deletes all globally installed Node modules except for `npm`, `nvm`, or `n`.
+trashg() {
+  echo "⚡️ Deleting global packages..."
+  npm ls -gp --depth=0 | awk -F/ '/node_modules/ && !/\/(npm|nvm|n)$/ {print $NF}' | xargs npm -g rm
+}
+
+# Deletes the current directory's generated files and reinstalls Node modules.
+trashy() {
+  echo "⚡️ Deleting generated files..."
+  rm -rf node_modules/ build/ dist/ storybook-static/ package-lock.json .eslintcache .stylelintcache
+  echo "⚡️ Installing packages..."
+  yarn
+}
+
+# Create folder and switch into it.
 mcd() {
   mkdir -p $1
   cd $1
 }
 
-# Helper function: Scaffold a React component folder/files.
+# Scaffold a React component folder/files.
 cray() {
   read "WithFolder?With Folder? [y/n]: "
   if [[ "$WithFolder" =~ ^[Yy]$ ]] then
@@ -151,57 +169,69 @@ cray() {
     if [[ "$WithNamed" =~ ^[Yy]$ ]] then
       echo "export { default } from './$1';">>index.js
       echo "// TODO: Write <$1 /> component.">>$1.js
+      echo "/* TODO: Write <$1 /> styles. */">>$1.module.css
       echo "// TODO: Write <$1 /> stories.">>$1.stories.js
-      echo "/* TODO: Write <$1 /> styles. */">>$1.css
       echo "// TODO: Write <$1 /> tests.">>$1.test.js
     else
       echo "// TODO: Write <$1 /> component.">>index.js
+      echo "/* TODO: Write <$1 /> styles. */">>index.module.css
       echo "// TODO: Write <$1 /> stories.">>index.stories.js
-      echo "/* TODO: Write <$1 /> styles. */">>index.css
       echo "// TODO: Write <$1 /> tests.">>index.test.js
     fi
     cd ..
   else
     echo "// TODO: Write <$1 /> component.">>$1.js
+    echo "/* TODO: Write <$1 /> styles. */">>$1.module.css
     echo "// TODO: Write <$1 /> stories.">>$1.stories.js
-    echo "/* TODO: Write <$1 /> styles. */">>$1.css
     echo "// TODO: Write <$1 /> tests.">>$1.test.js
   fi
 }
 
-# Helper function: Ensures eslint-config-airbnb packages are installed with correct version numbers
+# Ensures eslint-config-airbnb packages are installed with correct version numbers.
 airbnb() {
   read "UseYarn?Use Yarn? [y/n]: "
   read "ForDev?For Dev? [y/n]: "
   if [[ "$UseYarn" =~ ^[Yy]$ ]] then
     if [[ ! "$ForDev" =~ ^[Yy]$ ]] then
+      echo "⚡️ Installing global packages via yarn..."
       (
         export PKG=eslint-config-airbnb;
         npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs yarn global add "$PKG@latest"
       )
+      yarn global add prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
     else
+      echo "⚡️ Installing local packages via yarn..."
       (
         export PKG=eslint-config-airbnb;
         npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs yarn add --dev "$PKG@latest"
       )
+      yarn add -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
     fi
   else
     if [[ ! "$ForDev" =~ ^[Yy]$ ]] then
-      (
-        export PKG=eslint-config-airbnb;
-        npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install -g "$PKG@latest"
-      )
+      echo "⚡️ Installing global packages via npm..."
+      npx install-peerdeps -g eslint-config-airbnb
+      npm i -g prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
     else
-      (
-        export PKG=eslint-config-airbnb;
-        npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG@latest"
-      )
+      echo "⚡️ Installing local packages via npm..."
+      npx install-peerdeps -D eslint-config-airbnb
+      npm i -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
     fi
   fi
-  unset UseYarn
-  unset ForDev
 }
 
-# ZSH plugins
+# ------------------------------------------------------------------------------
+# Plugins
+# ------------------------------------------------------------------------------
+
+# Theme configuration: PowerLevel10K
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Fish shell-like fast/unobtrusive autosuggestions for Zsh.
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Fish shell-like syntax highlighting for Zsh.
+# Warning: Must be last sourced!
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

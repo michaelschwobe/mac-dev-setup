@@ -55,6 +55,30 @@ if has_command "brew"; then
   fi
 fi
 
+if has_command "zsh"; then
+  if ! has_path ".oh-my-zsh"; then
+    get_consent "Install oh-my-zsh"
+    if has_consent; then
+      e_pending "Installing oh-my-zsh"
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      test_path ".oh-my-zsh"
+    fi
+  fi
+fi
+
+if has_command "brew" && has_command "zsh"; then
+  if ! has_brew "powerlevel10k"; then
+    get_consent "Install powerlevel10k (CLI theming)"
+    if has_consent; then
+      e_pending "Installing powerlevel10k"
+      brew install romkatv/powerlevel10k/powerlevel10k
+      echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+      test_brew "powerlevel10k"
+      p10k configure
+    fi
+  fi
+fi
+
 if has_command "brew" && has_command "zsh"; then
   if ! has_brew "zsh-autosuggestions"; then
     get_consent "Install zsh-autosuggestions"
@@ -76,40 +100,6 @@ if has_command "brew" && has_command "zsh"; then
       echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
       test_brew "zsh-syntax-highlighting"
     fi
-  fi
-fi
-
-if has_command "zsh"; then
-  if ! has_path ".oh-my-zsh"; then
-    get_consent "Install oh-my-zsh"
-    if has_consent; then
-      e_pending "Installing oh-my-zsh"
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-      test_path ".oh-my-zsh"
-    fi
-  fi
-fi
-
-if has_command "git"; then
-  if ! has_path ".oh-my-zsh/custom/themes/powerlevel9k"; then
-    get_consent "Install powerlevel9k (CLI theming)"
-    if has_consent; then
-      e_pending "Installing powerlevel9k"
-      git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-      test_path ".oh-my-zsh/custom/themes/powerlevel9k"
-    fi
-  fi
-fi
-
-if has_command "git"; then
-  get_consent "Install powerline (CLI fonts)"
-  if has_consent; then
-    e_pending "Installing powerline"
-    git clone https://github.com/powerline/fonts.git --depth=1
-    cd fonts
-    ./install.sh
-    cd ..
-    rm -rf fonts
   fi
 fi
 

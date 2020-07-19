@@ -46,7 +46,7 @@ fi
 
 if ! has_command "brew"; then
   e_pending "Installing brew (Homebrew)"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   brew doctor
   test_command "brew"
 fi
