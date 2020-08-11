@@ -47,6 +47,7 @@
     "**/package-lock.json": true
   },
   "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,
   "window.closeWhenEmpty": true,
