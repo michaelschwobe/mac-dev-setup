@@ -62,6 +62,17 @@ if has_command "brew cask"; then
 fi
 
 if has_command "brew cask"; then
+  if ! has_app "Figma"; then
+    get_consent "Install Figma.app"
+    if has_consent; then
+      e_pending "Installing figma"
+      brew cask install figma
+      test_app "Figma"
+    fi
+  fi
+fi
+
+if has_command "brew cask"; then
   if ! has_app "Firefox Developer Edition"; then
     get_consent "Install Firefox Developer Edition.app"
     if has_consent; then

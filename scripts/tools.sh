@@ -60,7 +60,7 @@ if has_command "zsh"; then
     get_consent "Install oh-my-zsh"
     if has_consent; then
       e_pending "Installing oh-my-zsh"
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       test_path ".oh-my-zsh"
     fi
   fi
@@ -72,7 +72,10 @@ if has_command "brew" && has_command "zsh"; then
     if has_consent; then
       e_pending "Installing powerlevel10k"
       brew install romkatv/powerlevel10k/powerlevel10k
+      echo '# Theme configuration: PowerLevel10K' >>! ~/.zshrc
       echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+      echo '# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.' >>! ~/.zshrc
+      echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >>! ~/.zshrc
       test_brew "powerlevel10k"
       p10k configure
     fi
@@ -85,6 +88,7 @@ if has_command "brew" && has_command "zsh"; then
     if has_consent; then
       e_pending "Installing zsh-autosuggestions"
       brew install zsh-autosuggestions
+      echo "# Fish shell-like fast/unobtrusive autosuggestions for Zsh." >> ~/.zshrc
       echo "source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
       test_brew "zsh-autosuggestions"
     fi
@@ -97,6 +101,8 @@ if has_command "brew" && has_command "zsh"; then
     if has_consent; then
       e_pending "Installing zsh-syntax-highlighting"
       brew install zsh-syntax-highlighting
+      echo "# Fish shell-like syntax highlighting for Zsh." >> ~/.zshrc
+      echo "# Warning: Must be last sourced!" >> ~/.zshrc
       echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
       test_brew "zsh-syntax-highlighting"
     fi
@@ -130,7 +136,7 @@ if has_command "brew"; then
     get_consent "Install nvm (Node via nvm)"
     if has_consent; then
       e_pending "Installing nvm"
-      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
       test_command "nvm"
     fi
   fi
@@ -140,13 +146,8 @@ if has_command "brew"; then
   if ! has_command "yarn"; then
     get_consent "Install yarn"
     if has_consent; then
-      if has_command "node"; then
-        e_pending "Installing yarn (without Node)"
-        brew install yarn --without-node
-      else
-        e_pending "Installing yarn (with Node)"
-        brew install yarn
-      fi
+      e_pending "Installing yarn"
+      brew install yarn
       test_command "yarn"
     fi
   fi
@@ -167,16 +168,5 @@ if has_command "npm"; then
     e_pending "Installing/Upgrading serve"
     npm i -g serve@latest
     test_command "serve"
-  fi
-fi
-
-if has_command "npm"; then
-  get_consent "Install/Upgrade eslint/airbnb/prettier combo (globally via npm)"
-  if has_consent; then
-    e_pending "Installing/Upgrading eslint/airbnb/prettier combo"
-    npx install-peerdeps -g eslint-config-airbnb
-    npm i -g prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
-    test_command "eslint"
-    test_command "prettier"
   fi
 fi

@@ -60,10 +60,10 @@ defaults write com.apple.finder AppleShowAllFiles -boolean true && \
 killall Finder
 ```
 
-##### Create `~/Projects` folder:
+##### Create `~/Developer` folder:
 
 ```sh
-mkdir -p ~/Projects
+mkdir -p ~/Developer
 ```
 
 ##### Installing xcode-select (CLI tools):
@@ -75,7 +75,7 @@ xcode-select --install
 ##### Installing brew ([Homebrew](https://brew.sh/)):
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && \
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
 brew doctor
 ```
 
@@ -121,10 +121,13 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 ```sh
 brew install romkatv/powerlevel10k/powerlevel10k && \
-echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+echo '# Theme configuration: PowerLevel10K' >>! ~/.zshrc && \
+echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc && \
+echo '# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.' >>! ~/.zshrc && \
+echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >>! ~/.zshrc
 ```
 
-Restart you’re CLI for this to take effect.
+Restart you’re CLI for this to take effect, or run:
 
 ```sh
 p10k configure
@@ -134,6 +137,7 @@ p10k configure
 
 ```sh
 brew install zsh-autosuggestions && \
+echo "# Fish shell-like fast/unobtrusive autosuggestions for Zsh." >> ~/.zshrc && \
 echo "source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 ```
 
@@ -143,6 +147,8 @@ Restart you’re CLI for this to take effect.
 
 ```sh
 brew install zsh-syntax-highlighting && \
+echo "# Fish shell-like syntax highlighting for Zsh." >> ~/.zshrc && \
+echo "# Warning: Must be last sourced!" >> ~/.zshrc && \
 echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
 ```
 
@@ -164,14 +170,13 @@ brew install n
 ##### Install [nvm](https://github.com/nvm-sh/nvm/) (Node via nvm):
 
 ```sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 ```
 
 ##### Install [yarn](https://yarnpkg.com/):
 
 ```sh
 brew install yarn
-# brew install yarn --without-node
 ```
 
 ##### Upgrade [npm](https://www.npmjs.com/):
@@ -184,13 +189,6 @@ npm i -g npm@latest
 
 ```sh
 npm i -g serve@latest
-```
-
-##### Install/Upgrade [eslint](https://eslint.org/)/[airbnb](https://www.npmjs.com/package/eslint-config-airbnb/)/[prettier](https://prettier.io/) combo (globally via npm):
-
-```sh
-npx install-peerdeps -g eslint-config-airbnb && \
-npm i -g prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
 ```
 
 ### Applications
@@ -229,6 +227,12 @@ brew cask install dropbox
 
 ```sh
 brew cask install firefox-developer-edition
+```
+
+##### Install Figma:
+
+```sh
+brew cask install figma
 ```
 
 ##### Install Google Chrome:
@@ -358,20 +362,20 @@ brew cask install visual-studio-code
 
 ### Optimizations
 
-##### Optimizing [Homebrew](https://brew.sh/):
-
-```sh
-brew update && brew upgrade && brew doctor && brew cleanup
-```
-
-##### Upgrading [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
-
-```sh
-upgrade_oh_my_zsh
-```
-
 ##### Re-sort Launchpad applications:
 
 ```sh
 defaults write com.apple.dock ResetLaunchPad -boolean true; killall Dock
+```
+
+##### Updating [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
+
+```sh
+omz update
+```
+
+##### Optimizing [Homebrew](https://brew.sh/):
+
+```sh
+brew update && brew upgrade && brew doctor && brew cleanup
 ```

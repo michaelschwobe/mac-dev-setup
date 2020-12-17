@@ -29,12 +29,12 @@ if has_consent; then
   killall Finder
 fi
 
-if ! has_path "Projects"; then
-  get_consent "Create ~/Projects folder"
+if ! has_path "Developer"; then
+  get_consent "Create ~/Developer folder"
   if has_consent; then
-    e_pending "Creating ~/Projects folder"
-    mkdir -p ~/Projects
-    test_path "Projects"
+    e_pending "Creating ~/Developer folder"
+    mkdir -p ~/Developer
+    test_path "Developer"
   fi
 fi
 
@@ -46,7 +46,7 @@ fi
 
 if ! has_command "brew"; then
   e_pending "Installing brew (Homebrew)"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew doctor
   test_command "brew"
 fi
