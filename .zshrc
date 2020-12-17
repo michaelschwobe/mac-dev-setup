@@ -126,8 +126,7 @@ alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
 # Reinstalls xcode-select to fix missing receipt for command line tools.
 fixcli() {
   echo "⚡️ Reinstalling xcode-select..."
-  sudo rm -rf $(xcode-select -print-path)
-  sudo rm -rf /Library/Developer/CommandLineTools
+  sudo rm -rf $(xcode-select --print-path)
   xcode-select --install
 }
 
@@ -148,9 +147,15 @@ trashg() {
 # Deletes the current directory's generated files and reinstalls Node modules.
 trashy() {
   echo "⚡️ Deleting generated files..."
-  rm -rf node_modules/ build/ dist/ storybook-static/ package-lock.json .eslintcache .stylelintcache
-  echo "⚡️ Installing packages..."
-  yarn
+  rm -rf node_modules/ build/ coverage/ dist/ storybook-static/ package-lock.json yarn.lock .eslintcache .stylelintcache
+  read "UseYarn?Use yarn? [y/n]: "
+  if [[ "$UseYarn" =~ ^[Yy]$ ]] then
+    echo "⚡️ Installing packages via yarn..."
+    yarn
+  else
+    echo "⚡️ Installing packages via npm..."
+    npm i
+  fi
 }
 
 # Create folder and switch into it.
@@ -161,62 +166,48 @@ mcd() {
 
 # Scaffold a React component folder/files.
 cray() {
+  local TXT_RE_EXPORT="export { default } from './$1';"
+  local TXT_JS="/* TODO: Write <$1 /> component. */"
+  local TXT_CSS="/* TODO: Write <$1 /> styles. */"
+  local TXT_STORY="/* TODO: Write <$1 /> stories. */"
+  local TXT_TEST="/* TODO: Write <$1 /> tests. */"
   read "WithFolder?With Folder? [y/n]: "
   if [[ "$WithFolder" =~ ^[Yy]$ ]] then
     read "WithNamed?With named files? [y/n]: "
     mkdir -p $1
     cd $1
     if [[ "$WithNamed" =~ ^[Yy]$ ]] then
-      echo "export { default } from './$1';">>index.js
-      echo "// TODO: Write <$1 /> component.">>$1.js
-      echo "/* TODO: Write <$1 /> styles. */">>$1.module.css
-      echo "// TODO: Write <$1 /> stories.">>$1.stories.js
-      echo "// TODO: Write <$1 /> tests.">>$1.test.js
+      echo $TXT_RE_EXPORT>>index.js
+      echo $TXT_JS>>$1.js
+      echo $TXT_CSS>>$1.module.css
+      echo $TXT_STORY>>$1.stories.js
+      echo $TXT_TEST>>$1.test.js
     else
-      echo "// TODO: Write <$1 /> component.">>index.js
-      echo "/* TODO: Write <$1 /> styles. */">>index.module.css
-      echo "// TODO: Write <$1 /> stories.">>index.stories.js
-      echo "// TODO: Write <$1 /> tests.">>index.test.js
+      echo $TXT_JS>>index.js
+      echo $TXT_CSS>>index.module.css
+      echo $TXT_STORY>>index.stories.js
+      echo $TXT_TEST>>index.test.js
     fi
     cd ..
   else
-    echo "// TODO: Write <$1 /> component.">>$1.js
-    echo "/* TODO: Write <$1 /> styles. */">>$1.module.css
-    echo "// TODO: Write <$1 /> stories.">>$1.stories.js
-    echo "// TODO: Write <$1 /> tests.">>$1.test.js
+    echo TXT_JS>>$1.js
+    echo TXT_CSS>>$1.module.css
+    echo TXT_STORY>>$1.stories.js
+    echo TXT_TEST>>$1.test.js
   fi
 }
 
 # Ensures eslint-config-airbnb packages are installed with correct version numbers.
 airbnb() {
-  read "UseYarn?Use Yarn? [y/n]: "
-  read "ForDev?For Dev? [y/n]: "
+  read "UseYarn?Use yarn? [y/n]: "
   if [[ "$UseYarn" =~ ^[Yy]$ ]] then
-    if [[ ! "$ForDev" =~ ^[Yy]$ ]] then
-      echo "⚡️ Installing global packages via yarn..."
-      (
-        export PKG=eslint-config-airbnb;
-        npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs yarn global add "$PKG@latest"
-      )
-      yarn global add prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
-    else
-      echo "⚡️ Installing local packages via yarn..."
-      (
-        export PKG=eslint-config-airbnb;
-        npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs yarn add --dev "$PKG@latest"
-      )
-      yarn add -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
-    fi
+    echo "⚡️ Installing packages via yarn..."
+    npx install-peerdeps -D -Y eslint-config-airbnb
+    yarn add -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
   else
-    if [[ ! "$ForDev" =~ ^[Yy]$ ]] then
-      echo "⚡️ Installing global packages via npm..."
-      npx install-peerdeps -g eslint-config-airbnb
-      npm i -g prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
-    else
-      echo "⚡️ Installing local packages via npm..."
-      npx install-peerdeps -D eslint-config-airbnb
-      npm i -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
-    fi
+    echo "⚡️ Installing packages via npm..."
+    npx install-peerdeps -D eslint-config-airbnb
+    npm i -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
   fi
 }
 
