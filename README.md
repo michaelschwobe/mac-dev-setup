@@ -339,13 +339,12 @@ brew cask install visual-studio-code
    code --install-extension esbenp.prettier-vscode
    code --install-extension formulahendry.auto-rename-tag
    code --install-extension johnpapa.vscode-peacock
-   code --install-extension liviuschera.noctis
    code --install-extension mikestead.dotenv
    code --install-extension ms-vscode.sublime-keybindings
    code --install-extension ms-vsliveshare.vsliveshare
    code --install-extension msjsdiag.debugger-for-chrome
    code --install-extension prisma.prisma
-   code --install-extension sdras.night-owl
+   code --install-extension stylelint.vscode-stylelint
    code --install-extension tyriar.sort-lines
    code --install-extension vscode-icons-team.vscode-icons
    code --install-extension wix.vscode-import-cost
