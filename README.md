@@ -196,61 +196,61 @@ npm i -g serve@latest
 ##### Install 1Password:
 
 ```sh
-brew cask install 1password
+brew install --cask 1password
 ```
 
 ##### Install Adobe Creative Cloud:
 
 ```sh
-brew cask install adobe-creative-cloud
+brew install --cask adobe-creative-cloud
 ```
 
 ##### Install BrowserstackLocal:
 
 ```sh
-brew cask install browserstacklocal
+brew install --cask browserstacklocal
 ```
 
 ##### Install DiffMerge:
 
 ```sh
-brew cask install diffmerge
+brew install --cask diffmerge
 ```
 
 ##### Install Dropbox:
 
 ```sh
-brew cask install dropbox
+brew install --cask dropbox
 ```
 
 ##### Install Firefox Developer Edition:
 
 ```sh
-brew cask install firefox-developer-edition
+brew install --cask firefox-developer-edition
 ```
 
 ##### Install Figma:
 
 ```sh
-brew cask install figma
+brew install --cask figma
 ```
 
 ##### Install Google Chrome:
 
 ```sh
-brew cask install google-chrome
+brew install --cask google-chrome
 ```
 
 ##### Install Insomnia:
 
 ```sh
-brew cask install insomnia
+brew install --cask insomnia
 ```
 
 ##### Install iTerm:
 
 ```sh
-brew cask install iterm2
+brew install --cask iterm2
 ```
 
 1. Copy my iTerm settings:
@@ -262,49 +262,49 @@ brew cask install iterm2
 ##### Install MAMP:
 
 ```sh
-brew cask install mamp
+brew install --cask mamp
 ```
 
 ##### Install Rectangle:
 
 ```sh
-brew cask install rectangle
+brew install --cask rectangle
 ```
 
 ##### Install Sketch:
 
 ```sh
-brew cask install sketch
+brew install --cask sketch
 ```
 
 ##### Install Slack:
 
 ```sh
-brew cask install slack
+brew install --cask slack
 ```
 
 ##### Install Sourcetree:
 
 ```sh
-brew cask install sourcetree
+brew install --cask sourcetree
 ```
 
 ##### Install Spotify:
 
 ```sh
-brew cask install spotify
+brew install --cask spotify
 ```
 
 ##### Install Sublime Merge:
 
 ```sh
-brew cask install sublime-merge
+brew install --cask sublime-merge
 ```
 
 ##### Install Sublime Text:
 
 ```sh
-brew cask install sublime-text
+brew install --cask sublime-text
 ```
 
 1. Ensure [Package Control](https://packagecontrol.io/installation) is installed then quit.
@@ -319,13 +319,13 @@ See also [Syncing with Dropbox](https://packagecontrol.io/docs/syncing#dropbox-o
 ##### Install Transmit:
 
 ```sh
-brew cask install transmit
+brew install --cask transmit
 ```
 
 ##### Install Visual Studio Code:
 
 ```sh
-brew cask install visual-studio-code
+brew install --cask visual-studio-code
 ```
 
 1. Install my Extensions:
