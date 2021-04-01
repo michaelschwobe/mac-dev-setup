@@ -6,7 +6,14 @@
     "editor.formatOnSave": false
   },
   "[javascriptreact]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
@@ -21,7 +28,9 @@
   "editor.linkedEditing": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   "editor.scrollBeyondLastLine": false,
   "editor.snippetSuggestions": "top",
   "editor.tabCompletion": "on",
