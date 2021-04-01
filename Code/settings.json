@@ -15,7 +15,7 @@
   "editor.cursorBlinking": "phase",
   "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Source Code Pro for Powerline', monospace",
   "editor.fontLigatures": true,
-  "editor.fontSize": 12,
+  "editor.fontSize": 13,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.linkedEditing": true,
@@ -34,11 +34,10 @@
   "files.associations": {
     ".env*": "dotenv"
   },
-  "files.defaultLanguage": "javascript",
+  "files.defaultLanguage": "javascriptreact",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
-  "prettier.disableLanguages": ["javascript", "javascriptreact"],
   "projectManager.git.baseFolders": [
     "~/Developer"
   ],
@@ -54,11 +53,12 @@
   },
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "MesloLGS NF",
+  "todohighlight.isEnable": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,
   "window.closeWhenEmpty": true,
   "workbench.colorTheme": "Moonlight II Italic",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.tree.indent": 16,
+  "workbench.tree.indent": 16
 }

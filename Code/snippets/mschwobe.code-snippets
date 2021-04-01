@@ -2,7 +2,7 @@
   "Comment: Single /": {
     "prefix": "/",
     "body": [
-      "// -----------------------------------------------------------------------------",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
       ""
     ],
     "description": "Comment: Single /"
@@ -10,9 +10,9 @@
   "Comment: Double //": {
     "prefix": "/",
     "body": [
-      "// -----------------------------------------------------------------------------",
-      "// ${1:sectionName}",
-      "// -----------------------------------------------------------------------------",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "$LINE_COMMENT ${1:sectionName}",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
       ""
     ],
     "description": "Comment: Double //"
@@ -44,11 +44,56 @@
     "prefix": "jd",
     "body": [
       "describe('${1:moduleName}', () => {",
-      "  test('TODO: Write `${1:moduleName}` tests', () => {",
-      "    expect(typeof ${1:moduleName}).toEqual(${0:'function'});",
-      "  });",
+      "  ${0}",
       "});"
     ],
     "description": "Jest: describe"
+  },
+  "Jest: describe test": {
+    "scope": "javascript,typescript",
+    "prefix": "jdt",
+    "body": [
+      "import ${TM_FILENAME_BASE/[\\-]//g} from './${TM_FILENAME_BASE/[\\-]//g}'",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "describe('${TM_FILENAME_BASE/[\\-]//g}', () => {",
+      "  test('TODO: Write `${TM_FILENAME_BASE/[\\-]//g}` tests', () => {",
+      "    expect(typeof ${TM_FILENAME_BASE/[\\-]//g}).toEqual(${0:'function'});",
+      "  });",
+      "});"
+    ],
+    "description": "Jest: describe and test"
+  },
+  "React: arrowFn classnames prop-types": {
+    "prefix": "rafccp",
+    "body": [
+      "import classnames from 'classnames';",
+      "import PropTypes from 'prop-types';",
+      "",
+      "import styles from './${TM_FILENAME_BASE/[\\-]//g}.module.css';",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "const ${TM_FILENAME_BASE/[\\-]//g} = ({ children, className, ...props }) => (",
+      "  <div className={classnames(className, styles.${TM_FILENAME_BASE/[\\-]//g})} {...props}>",
+      "    {children}",
+      "  </div>",
+      ");",
+      "",
+      "${TM_FILENAME_BASE/[\\-]//g}.propTypes = {",
+      "  children: PropTypes.node.isRequired,",
+      "  className: PropTypes.string,",
+      "};",
+      "",
+      "${TM_FILENAME_BASE/[\\-]//g}.defaultProps = {",
+      "  className: undefined,",
+      "};",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "export default ${TM_FILENAME_BASE/[\\-]//g};"
+    ],
+    "description": "Creates a React arrow function component with CSS modules, classnames, and prop-types"
   }
 }
