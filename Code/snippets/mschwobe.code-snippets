@@ -20,13 +20,17 @@
   "Console: log": {
     "scope": "javascript,typescript",
     "prefix": "conlog",
-    "body": ["console.log('⚡️ ${1}', ${1});"],
+    "body": [
+      "console.log('⚡️ ${1}', ${1});"
+    ],
     "description": "Console: log"
   },
   "Console: log stringified": {
     "scope": "javascript,typescript",
     "prefix": "constr",
-    "body": ["console.log('⚡️ ${1}', JSON.stringify(${1}, null, 2));}"],
+    "body": [
+      "console.log('⚡️ ${1}', JSON.stringify(${1}, null, 2));"
+    ],
     "description": "Console: log stringified"
   },
   "Jest: test": {
@@ -76,7 +80,7 @@
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       "",
       "const ${TM_FILENAME_BASE/[\\-]//g} = ({ children, className, ...props }) => (",
-      "  <div className={classnames(className, styles.${TM_FILENAME_BASE/[\\-]//g})} {...props}>",
+      "  <div className={classnames('${TM_FILENAME_BASE/[\\-]//g}', styles.root, className)} {...props}>",
       "    {children}",
       "  </div>",
       ");",
