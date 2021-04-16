@@ -104,14 +104,14 @@ source $ZSH/oh-my-zsh.sh
 # ------------------------------------------------------------------------------
 
 # Show or hide hidden files.
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias showFiles="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app"
+alias hideFiles="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app"
 
 # Re-sort Launchpad applications.
 alias sortapps="defaults write com.apple.dock ResetLaunchPad -boolean true; killall Dock"
 
 # SublimeText alias.
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # Open this file (.zshrc) in VSCode.
 alias zshconfig="code ~/.zshrc"
@@ -190,10 +190,10 @@ cray() {
     fi
     cd ..
   else
-    echo TXT_JS>>$1.js
-    echo TXT_CSS>>$1.module.css
-    echo TXT_STORY>>$1.stories.js
-    echo TXT_TEST>>$1.test.js
+    echo $TXT_JS>>$1.js
+    echo $TXT_CSS>>$1.module.css
+    echo $TXT_STORY>>$1.stories.js
+    echo $TXT_TEST>>$1.test.js
   fi
 }
 
