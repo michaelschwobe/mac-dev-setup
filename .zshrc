@@ -110,6 +110,9 @@ alias hideFiles="defaults write com.apple.finder AppleShowAllFiles NO; killall F
 # Re-sort Launchpad applications.
 alias sortapps="defaults write com.apple.dock ResetLaunchPad -boolean true; killall Dock"
 
+# Adds a single Dock spacer.
+alias addDockSpacer="defaults write com.apple.dock persistent-apps -array-add '{\"tile-type\"=\"spacer-tile\";}'; killall Dock"
+
 # SublimeText alias.
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
