@@ -343,6 +343,7 @@ brew install --cask visual-studio-code
    code --install-extension eg2.vscode-npm-script
    code --install-extension esbenp.prettier-vscode
    code --install-extension formulahendry.auto-rename-tag
+   code --install-extension gruntfuggly.todo-tree
    code --install-extension johnpapa.vscode-peacock
    code --install-extension mikestead.dotenv
    code --install-extension ms-vscode.sublime-keybindings

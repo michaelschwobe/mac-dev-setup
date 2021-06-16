@@ -33,6 +33,13 @@
     ],
     "description": "Console: log stringified"
   },
+  "Array of length N": {
+    "prefix": "arrn",
+    "body": [
+      "[...Array(${1:n}).keys()]"
+    ],
+    "description": "JS: Array of length N"
+  },
   "Jest: test": {
     "scope": "javascript,typescript",
     "prefix": "jt",
@@ -57,13 +64,13 @@
     "scope": "javascript,typescript",
     "prefix": "jdt",
     "body": [
-      "import ${TM_FILENAME_BASE/[\\-]//g} from './${TM_FILENAME_BASE/[\\-]//g}'",
+      "import ${TM_FILENAME/([^.]+).*/$1/} from './${TM_FILENAME/([^.]+).*/$1/}'",
       "",
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       "",
-      "describe('${TM_FILENAME_BASE/[\\-]//g}', () => {",
-      "  test('TODO: Write `${TM_FILENAME_BASE/[\\-]//g}` tests', () => {",
-      "    expect(typeof ${TM_FILENAME_BASE/[\\-]//g}).toEqual(${0:'function'});",
+      "describe('${TM_FILENAME/([^.]+).*/$1/}', () => {",
+      "  test('TODO: Write `${TM_FILENAME/([^.]+).*/$1/}` tests', () => {",
+      "    expect(typeof ${TM_FILENAME/([^.]+).*/$1/}).toEqual(${0:'function'});",
       "  });",
       "});"
     ],
@@ -72,32 +79,64 @@
   "React: arrowFn classnames prop-types": {
     "prefix": "rafccp",
     "body": [
-      "import classnames from 'classnames';",
+      "import cc from 'classcat';",
       "import PropTypes from 'prop-types';",
       "",
-      "import styles from './${TM_FILENAME_BASE/[\\-]//g}.module.css';",
+      "import styles from './${TM_FILENAME/([^.]+).*/$1/}.module.css';",
       "",
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       "",
-      "const ${TM_FILENAME_BASE/[\\-]//g} = ({ children, className, ...props }) => (",
-      "  <div className={classnames('${TM_FILENAME_BASE/[\\-]//g}', styles.root, className)} {...props}>",
+      "const ${TM_FILENAME/([^.]+).*/$1/} = ({ children, className, ...props }) => (",
+      "  <div",
+      "    className={cc({",
+      "      [className]: true,",
+      "      [styles.root]: true,",
+      "    })}",
+      "    {...props}",
+      "  >",
       "    {children}",
       "  </div>",
       ");",
       "",
-      "${TM_FILENAME_BASE/[\\-]//g}.propTypes = {",
+      "${TM_FILENAME/([^.]+).*/$1/}.propTypes = {",
       "  children: PropTypes.node.isRequired,",
       "  className: PropTypes.string,",
       "};",
       "",
-      "${TM_FILENAME_BASE/[\\-]//g}.defaultProps = {",
+      "${TM_FILENAME/([^.]+).*/$1/}.defaultProps = {",
       "  className: undefined,",
       "};",
       "",
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       "",
-      "export default ${TM_FILENAME_BASE/[\\-]//g};"
+      "export default ${TM_FILENAME/([^.]+).*/$1/};"
     ],
-    "description": "Creates a React arrow function component with CSS modules, classnames, and prop-types"
+    "description": "Creates a React arrow function component with CSS modules, classcat, and prop-types"
+  },
+  "React: storybook story": {
+    "prefix": "rsb",
+    "body": [
+      "import ${TM_FILENAME/([^.]+).*/$1/} from './${TM_FILENAME/([^.]+).*/$1/}';",
+      "",
+      "// -----------------------------------------------------------------------------",
+      "",
+      "const Template = (args) => <${TM_FILENAME/([^.]+).*/$1/} {...args} />;",
+      "",
+      "const Meta = {",
+      "  title: 'Components/${TM_FILENAME/([^.]+).*/$1/}',",
+      "  component: ${TM_FILENAME/([^.]+).*/$1/},",
+      "};",
+      "",
+      "export const Default = Template.bind({});",
+      "Default.args = {",
+      "  children: 'Example',",
+      "};",
+      "",
+      "// -----------------------------------------------------------------------------",
+      "",
+      "export default Meta;",
+      ""
+    ],
+    "description": "React: storybook story"
   }
 }
