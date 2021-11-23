@@ -1,9 +1,0 @@
-<snippet>
-  <content><![CDATA[
-// -----------------------------------------------------------------------------
-
-${0}
-]]></content>
-  <description>Comment: Single //</description>
-  <tabTrigger>/</tabTrigger>
-</snippet>

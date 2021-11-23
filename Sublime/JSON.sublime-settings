@@ -1,9 +1,0 @@
-{
-	"extensions":
-	[
-		".eslintrc",
-		".prettierrc",
-		".stylelintrc",
-		".babelrc"
-	]
-}

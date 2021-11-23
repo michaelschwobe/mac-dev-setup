@@ -295,34 +295,7 @@ brew install --cask sourcetree
 brew install --cask spotify
 ```
 
-##### Install Sublime Merge:
-
-```sh
-brew install --cask sublime-merge
-```
-
-##### Install Sublime Text:
-
-```sh
-brew install --cask sublime-text
-```
-
-1. Ensure [Package Control](https://packagecontrol.io/installation) is installed then quit.
-2. Copy my Sublime Text User settings:
-   ```sh
-   cp ~/Downloads/mac-dev-setup/Sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-   ```
-3. Restart Sublime Text to let Package Control auto-install missing packages. When Package Control finishes, restart and resolve any remaining issues.
-
-See also [Syncing with Dropbox](https://packagecontrol.io/docs/syncing#dropbox-osx)
-
-##### Install Transmit:
-
-```sh
-brew install --cask transmit
-```
-
-##### Install Visual Studio Code:
+##### Install Visual Studio Code
 
 ```sh
 brew install --cask visual-studio-code

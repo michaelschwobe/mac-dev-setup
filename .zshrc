@@ -113,9 +113,6 @@ alias sortapps="defaults write com.apple.dock ResetLaunchPad -boolean true; kill
 # Adds a single Dock spacer.
 alias addDockSpacer="defaults write com.apple.dock persistent-apps -array-add '{\"tile-type\"=\"spacer-tile\";}'; killall Dock"
 
-# SublimeText alias.
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-
 # Open this file (.zshrc) in VSCode.
 alias zshconfig="code ~/.zshrc"
 

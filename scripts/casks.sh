@@ -23,8 +23,6 @@ declare -a cask_name=(
 "slack"
 "sourcetree"
 "spotify"
-"sublime-merge"
-"sublime-text"
 "transmit"
 "visual-studio-code"
 )
@@ -46,8 +44,6 @@ declare -a cask_desc=(
 "Slack"
 "Sourcetree"
 "Spotify"
-"Sublime Merge"
-"Sublime Text"
 "Transmit"
 "Visual Studio Code"
 )
