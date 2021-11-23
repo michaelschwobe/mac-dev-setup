@@ -1,83 +1,102 @@
 {
   "Comment: Single /": {
     "prefix": "/",
+    "description": "Comment: Single /",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "body": [
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       ""
-    ],
-    "description": "Comment: Single /"
+    ]
   },
   "Comment: Double //": {
     "prefix": "/",
+    "description": "Comment: Double //",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "body": [
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       "$LINE_COMMENT ${1:sectionName}",
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       ""
-    ],
-    "description": "Comment: Double //"
+    ]
+  },
+  "Comment: Single /*": {
+    "prefix": "/",
+    "description": "Comment: Single /*",
+    "body": [
+      "$BLOCK_COMMENT_START -------------------------------------------------------------------------- $BLOCK_COMMENT_END",
+      ""
+    ]
+  },
+  "Comment: Double //*": {
+    "prefix": "/",
+    "description": "Comment: Double //*",
+    "body": [
+      "$BLOCK_COMMENT_START -----------------------------------------------------------------------------",
+      "$BLOCK_COMMENT_START ${1:sectionName}",
+      "$BLOCK_COMMENT_START -------------------------------------------------------------------------- $BLOCK_COMMENT_END",
+      ""
+    ]
   },
   "Console: log": {
-    "scope": "javascript,typescript",
     "prefix": "conlog",
-    "body": [
-      "console.log('⚡️ ${1}', ${1});"
-    ],
-    "description": "Console: log"
+    "description": "Console: log",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "body": ["console.log('⚡️ ${1}', ${1});"]
   },
   "Console: log stringified": {
-    "scope": "javascript,typescript",
     "prefix": "constr",
-    "body": [
-      "console.log('⚡️ ${1}', JSON.stringify(${1}, null, 2));"
-    ],
-    "description": "Console: log stringified"
+    "description": "Console: log stringified",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "body": ["console.log('⚡️ ${1}', JSON.stringify(${1}, null, 2));"]
   },
   "Array of length N": {
     "prefix": "arrn",
-    "body": [
-      "[...Array(${1:n}).keys()]"
-    ],
-    "description": "JS: Array of length N"
+    "description": "Array of length N",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "body": ["[...Array(${1:n}).keys()]"]
   },
   "Jest: test": {
-    "scope": "javascript,typescript",
     "prefix": "jt",
+    "description": "Jest: test",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "body": [
       "test('Should', () => {",
       "  expect(${1:provided}).toEqual(${0:expected});",
       "});"
-    ],
-    "description": "Jest: test"
+    ]
   },
   "Jest: describe": {
-    "scope": "javascript,typescript",
     "prefix": "jd",
-    "body": [
-      "describe('${1:moduleName}', () => {",
-      "  ${0}",
-      "});"
-    ],
-    "description": "Jest: describe"
+    "description": "Jest: describe",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
+    "body": ["describe('${1:moduleName}', () => {", "  ${0}", "});"]
   },
   "Jest: describe test": {
-    "scope": "javascript,typescript",
     "prefix": "jdt",
+    "description": "Jest: describe and test",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "body": [
-      "import ${TM_FILENAME/([^.]+).*/$1/} from './${TM_FILENAME/([^.]+).*/$1/}'",
+      "import { render, screen } from '@testing-library/react';",
+      "",
+      "import ${TM_FILENAME/([^.]+).*/$1/} from './${TM_FILENAME/([^.]+).*/$1/}';",
       "",
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       "",
       "describe('${TM_FILENAME/([^.]+).*/$1/}', () => {",
-      "  test('TODO: Write `${TM_FILENAME/([^.]+).*/$1/}` tests', () => {",
-      "    expect(typeof ${TM_FILENAME/([^.]+).*/$1/}).toEqual(${0:'function'});",
+      "  test('should render', () => {",
+      "    render(<${TM_FILENAME/([^.]+).*/$1/} data-testid=\"${TM_FILENAME/([^.]+).*/$1/}\">Example</${TM_FILENAME/([^.]+).*/$1/}>);",
+      "    expect(screen.queryByTestId('${TM_FILENAME/([^.]+).*/$1/}')).toBeInTheDocument();",
       "  });",
-      "});"
-    ],
-    "description": "Jest: describe and test"
+      "});",
+      "",
+      "/* TODO: Write <${TM_FILENAME/([^.]+).*/$1/} /> tests. */",
+      ""
+    ]
   },
-  "React: arrowFn classnames prop-types": {
-    "prefix": "rafccp",
+  "React: arrowFn classcat (prop-types)": {
+    "prefix": "rafcc",
+    "description": "Creates a React arrow function component with CSS modules and classcat",
+    "scope": "javascript,javascriptreact",
     "body": [
       "import cc from 'classcat';",
       "import PropTypes from 'prop-types';",
@@ -86,57 +105,184 @@
       "",
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       "",
-      "const ${TM_FILENAME/([^.]+).*/$1/} = ({ children, className, ...props }) => (",
-      "  <div",
-      "    className={cc({",
-      "      [className]: true,",
-      "      [styles.root]: true,",
-      "    })}",
-      "    {...props}",
-      "  >",
-      "    {children}",
-      "  </div>",
-      ");",
-      "",
-      "${TM_FILENAME/([^.]+).*/$1/}.propTypes = {",
+      "export const ${TM_FILENAME/([^.]+).*/$1/}PropTypes = {",
+      "  /**",
+      "   * Sets the content.",
+      "   */",
       "  children: PropTypes.node.isRequired,",
+      "  /**",
+      "   * Sets the `class` attribute.",
+      "   */",
       "  className: PropTypes.string,",
       "};",
       "",
-      "${TM_FILENAME/([^.]+).*/$1/}.defaultProps = {",
+      "export const default${TM_FILENAME/([^.]+).*/$1/}Props = {",
       "  className: undefined,",
       "};",
       "",
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       "",
-      "export default ${TM_FILENAME/([^.]+).*/$1/};"
-    ],
-    "description": "Creates a React arrow function component with CSS modules, classcat, and prop-types"
+      "const ${TM_FILENAME/([^.]+).*/$1/} = ({ children, className, ...props }) => {",
+      "  const rootClassNames = cc({",
+      "    [String(className)]: className,",
+      "    [styles.root]: styles.root,",
+      "    // [styles.isFullWidth]: isFullWidth,",
+      "    // [styles[`variant-\\${variant}`]]: variant,",
+      "  });",
+      "",
+      "  return (",
+      "    <div {...props} className={rootClassNames}>",
+      "      {children}",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "${TM_FILENAME/([^.]+).*/$1/}.propTypes = ${TM_FILENAME/([^.]+).*/$1/}PropTypes;",
+      "",
+      "${TM_FILENAME/([^.]+).*/$1/}.defaultProps = default${TM_FILENAME/([^.]+).*/$1/}Props;",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "export default ${TM_FILENAME/([^.]+).*/$1/};",
+      ""
+    ]
   },
-  "React: storybook story": {
+  "React: arrowFn css-in-js (typescript)": {
+    "prefix": "rafcc",
+    "description": "Creates a React arrow function component with CSS-in-JS",
+    "scope": "typescriptreact",
+    "body": [
+      "import { /* defaultVariants, */ rootStyles } from './${TM_FILENAME/([^.]+).*/$1/}.css';",
+      "",
+      "// import type { Variants } from './${TM_FILENAME/([^.]+).*/$1/}.css';",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "export interface ${TM_FILENAME/([^.]+).*/$1/}Props extends React.HTMLAttributes<HTMLDivElement> {",
+      "  /**",
+      "   * Sets the content.",
+      "   */",
+      "  children: React.ReactNode;",
+      "  /**",
+      "   * Sets the `class` attribute.",
+      "   */",
+      "  className?: string;",
+      "}",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "const ${TM_FILENAME/([^.]+).*/$1/} = ({ children, className, ...props }: ${TM_FILENAME/([^.]+).*/$1/}Props): JSX.Element => {",
+      "  const rootClassNames = [className, rootStyles()].filter(Boolean).join(' ');",
+      "",
+      "  return (",
+      "    <div {...props} className={rootClassNames}>",
+      "      {children}",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "export default ${TM_FILENAME/([^.]+).*/$1/};",
+      ""
+    ]
+  },
+  "React: arrowFn forwardRef css-in-js (typescript)": {
+    "prefix": "raffrcc",
+    "description": "Creates a React arrow function component with forwardRef and CSS-in-JS",
+    "scope": "typescriptreact",
+    "body": [
+      "import { forwardRef } from 'react';",
+      "",
+      "import { /* defaultVariants, */ rootStyles } from './${TM_FILENAME/([^.]+).*/$1/}.css';",
+      "",
+      "// import type { Variants } from './${TM_FILENAME/([^.]+).*/$1/}.css';",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "export interface ${TM_FILENAME/([^.]+).*/$1/}Props extends React.HTMLAttributes<HTMLDivElement> {",
+      "  /**",
+      "   * Sets the content.",
+      "   */",
+      "  children: React.ReactNode;",
+      "  /**",
+      "   * Sets the `class` attribute.",
+      "   */",
+      "  className?: string;",
+      "}",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "const ${TM_FILENAME/([^.]+).*/$1/} = forwardRef<HTMLDivElement, ${TM_FILENAME/([^.]+).*/$1/}Props>(",
+      "  ({ children, className, ...props }, forwardedRef) => {",
+      "    const rootClassNames = [className, rootStyles()].filter(Boolean).join(' ');",
+      "",
+      "    return (",
+      "      <div {...props} className={rootClassNames} ref={forwardedRef}>",
+      "        {children}",
+      "      </div>",
+      "    );",
+      "  },",
+      ");",
+      "",
+      "/* istanbul ignore next */",
+      "if (process.env.NODE_ENV === 'development') {",
+      "  ${TM_FILENAME/([^.]+).*/$1/}.displayName = '${TM_FILENAME/([^.]+).*/$1/}';",
+      "}",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "export default ${TM_FILENAME/([^.]+).*/$1/};",
+      ""
+    ]
+  },
+  "React: storybook story (javascript)": {
     "prefix": "rsb",
+    "description": "React: storybook story (javascript)",
+    "scope": "javascript,javascriptreact",
     "body": [
       "import ${TM_FILENAME/([^.]+).*/$1/} from './${TM_FILENAME/([^.]+).*/$1/}';",
       "",
-      "// -----------------------------------------------------------------------------",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
       "",
-      "const Template = (args) => <${TM_FILENAME/([^.]+).*/$1/} {...args} />;",
-      "",
-      "const Meta = {",
+      "export default {",
       "  title: 'Components/${TM_FILENAME/([^.]+).*/$1/}',",
       "  component: ${TM_FILENAME/([^.]+).*/$1/},",
       "};",
+      "",
+      "const Template = (args) => <${TM_FILENAME/([^.]+).*/$1/} {...args} />;",
       "",
       "export const Default = Template.bind({});",
       "Default.args = {",
       "  children: 'Example',",
       "};",
-      "",
-      "// -----------------------------------------------------------------------------",
-      "",
-      "export default Meta;",
       ""
-    ],
-    "description": "React: storybook story"
+    ]
+  },
+  "React: Storybook story (typescript)": {
+    "prefix": "rsb",
+    "description": "React: Storybook story (typescript)",
+    "scope": "typescriptreact",
+    "body": [
+      "import ${TM_FILENAME/([^.]+).*/$1/} from './${TM_FILENAME/([^.]+).*/$1/}';",
+      "",
+      "import type { ${TM_FILENAME/([^.]+).*/$1/}Props } from './${TM_FILENAME/([^.]+).*/$1/}';",
+      "import type { Meta, Story } from '@storybook/react';",
+      "",
+      "$LINE_COMMENT -----------------------------------------------------------------------------",
+      "",
+      "export default {",
+      "  component: ${TM_FILENAME/([^.]+).*/$1/},",
+      "  title: 'Components/${TM_FILENAME/([^.]+).*/$1/}',",
+      "} as Meta;",
+      "",
+      "const Template: Story<${TM_FILENAME/([^.]+).*/$1/}Props> = (args) => <${TM_FILENAME/([^.]+).*/$1/} {...args} />;",
+      "",
+      "export const Default = Template.bind({});",
+      "Default.args = {",
+      "  children: 'Example',",
+      "};",
+      ""
+    ]
   }
 }

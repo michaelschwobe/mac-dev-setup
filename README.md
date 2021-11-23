@@ -295,7 +295,7 @@ brew install --cask sourcetree
 brew install --cask spotify
 ```
 
-##### Install Visual Studio Code
+##### Install Visual Studio Code:
 
 ```sh
 brew install --cask visual-studio-code
@@ -305,7 +305,6 @@ brew install --cask visual-studio-code
    ```sh
    code --install-extension alefragnani.project-manager
    code --install-extension atomiks.moonlight
-   code --install-extension bungcip.better-toml
    code --install-extension christian-kohler.npm-intellisense
    code --install-extension christian-kohler.path-intellisense
    code --install-extension CoenraadS.bracket-pair-colorizer
@@ -316,16 +315,15 @@ brew install --cask visual-studio-code
    code --install-extension eg2.vscode-npm-script
    code --install-extension esbenp.prettier-vscode
    code --install-extension formulahendry.auto-rename-tag
-   code --install-extension gruntfuggly.todo-tree
+   code --install-extension Gruntfuggly.todo-tree
    code --install-extension johnpapa.vscode-peacock
+   code --install-extension JuanBlanco.solidity
    code --install-extension mikestead.dotenv
    code --install-extension ms-vscode.sublime-keybindings
-   code --install-extension msjsdiag.debugger-for-chrome
    code --install-extension Prisma.prisma
    code --install-extension stylelint.vscode-stylelint
    code --install-extension Tyriar.sort-lines
    code --install-extension vscode-icons-team.vscode-icons
-   code --install-extension wayou.vscode-todo-highlight
    code --install-extension wix.vscode-import-cost
    code --install-extension Zignd.html-css-class-completion
    ```
