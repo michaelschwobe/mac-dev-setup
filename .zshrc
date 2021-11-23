@@ -125,14 +125,14 @@ alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
 
 # Reinstalls xcode-select to fix missing receipt for command line tools.
 fixcli() {
-  echo "⚡️ Reinstalling xcode-select..."
+  printf "⚡️ Reinstalling xcode-select..."
   sudo rm -rf $(xcode-select --print-path)
   xcode-select --install
 }
 
 # Re-signs Firewall permissions for Node caused by switching versions via `nvm` or `n`.
 fixnode() {
-  echo "⚡️ Re-signing Firewall permissions for Node..."
+  printf "⚡️ Re-signing Firewall permissions for Node..."
   /usr/libexec/ApplicationFirewall/socketfilterfw --remove $(which node)
   codesign --force --sign - $(which node)
   /usr/libexec/ApplicationFirewall/socketfilterfw --add $(which node)
@@ -140,22 +140,27 @@ fixnode() {
 
 # Deletes all globally installed Node modules except for `npm`, `nvm`, or `n`.
 trashg() {
-  echo "⚡️ Deleting global packages..."
+  printf "⚡️ Deleting global packages..."
   npm ls -gp --depth=0 | awk -F/ '/node_modules/ && !/\/(npm|nvm|n)$/ {print $NF}' | xargs npm -g rm
 }
 
 # Deletes the current directory's generated files and reinstalls Node modules.
 trashy() {
-  echo "⚡️ Deleting generated files..."
-  rm -rf node_modules/ build/ coverage/ dist/ storybook-static/ package-lock.json yarn.lock .eslintcache .stylelintcache
+  printf "⚡️ Deleting generated files..."
+  rm -rf .next/ build/ coverage/ dist/ node_modules/ out/ storybook-static/ package-lock.json yarn.lock .eslintcache .stylelintcache
   read "UseYarn?Use yarn? [y/n]: "
   if [[ "$UseYarn" =~ ^[Yy]$ ]] then
-    echo "⚡️ Installing packages via yarn..."
+    printf "⚡️ Installing packages via yarn..."
     yarn
   else
-    echo "⚡️ Installing packages via npm..."
+    printf "⚡️ Installing packages via npm..."
     npm i
   fi
+}
+
+# Convert string to PascalCase.
+toPascalCase() {
+  printf $1 | awk 'BEGIN{FS="";RS="-";ORS=""} {$0=toupper(substr($0,1,1)) substr($0,2)} 1'
 }
 
 # Create folder and switch into it.
@@ -166,34 +171,48 @@ mcd() {
 
 # Scaffold a React component folder/files.
 cray() {
-  local TXT_RE_EXPORT="export { default } from './$1';"
-  local TXT_JS="/* TODO: Write <$1 /> component. */"
-  local TXT_CSS="/* TODO: Write <$1 /> styles. */"
-  local TXT_STORY="/* TODO: Write <$1 /> stories. */"
-  local TXT_TEST="/* TODO: Write <$1 /> tests. */"
   read "WithFolder?With Folder? [y/n]: "
+  read "WithNamedFiles?With Named Files? [y/n]: "
+  read "WithTypescript?With Typescript? [y/n]: "
+  read "WithCssInJs?With CSS-in-JS? [y/n]: "
+
+  local COMP_NAME=$(toPascalCase $1)
+
+  local FILE_NAME="index"
+  if [[ "$WithNamedFiles" =~ ^[Yy]$ ]] then
+    FILE_NAME="$1"
+  fi
+
+  local JS_EXT="js"
+  local JSX_EXT="jsx"
+  if [[ "$WithTypescript" =~ ^[Yy]$ ]] then
+    JS_EXT="ts"
+    JSX_EXT="tsx"
+  fi
+
+  local STYLE_EXT="module.css"
+  if [[ "$WithCssInJs" =~ ^[Yy]$ ]] then
+    STYLE_EXT="css.$JS_EXT"
+  fi
+
   if [[ "$WithFolder" =~ ^[Yy]$ ]] then
-    read "WithNamed?With named files? [y/n]: "
     mkdir -p $1
     cd $1
-    if [[ "$WithNamed" =~ ^[Yy]$ ]] then
-      echo $TXT_RE_EXPORT>>index.js
-      echo $TXT_JS>>$1.js
-      echo $TXT_CSS>>$1.module.css
-      echo $TXT_STORY>>$1.stories.js
-      echo $TXT_TEST>>$1.test.js
-    else
-      echo $TXT_JS>>index.js
-      echo $TXT_CSS>>index.module.css
-      echo $TXT_STORY>>index.stories.js
-      echo $TXT_TEST>>index.test.js
-    fi
+    printf "export { default as $COMP_NAME } from './$FILE_NAME';\n">>index.$JS_EXT
+  fi
+
+  if [[ "$WithFolder" =~ ^[Yy]$ && "$WithTypescript" =~ ^[Yy]$ ]] then
+    local PROPS="Props"
+    printf "export type { $COMP_NAME$PROPS } from './$FILE_NAME';\n">>index.$JS_EXT
+  fi
+
+  printf "/* TODO: Write <$COMP_NAME /> component. */\n">>$FILE_NAME.$JSX_EXT
+  printf "/* TODO: Write <$COMP_NAME /> styles. */\n">>$FILE_NAME.$STYLE_EXT
+  printf "/* TODO: Write <$COMP_NAME /> stories. */\n">>$FILE_NAME.stories.$JSX_EXT
+  printf "/* TODO: Write <$COMP_NAME /> tests. */\n">>$FILE_NAME.test.$JSX_EXT
+
+  if [[ "$WithFolder" =~ ^[Yy]$ ]] then
     cd ..
-  else
-    echo $TXT_JS>>$1.js
-    echo $TXT_CSS>>$1.module.css
-    echo $TXT_STORY>>$1.stories.js
-    echo $TXT_TEST>>$1.test.js
   fi
 }
 
@@ -201,11 +220,11 @@ cray() {
 airbnb() {
   read "UseYarn?Use yarn? [y/n]: "
   if [[ "$UseYarn" =~ ^[Yy]$ ]] then
-    echo "⚡️ Installing packages via yarn..."
+    printf "⚡️ Installing packages via yarn..."
     npx install-peerdeps -D -Y eslint-config-airbnb
     yarn add -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
   else
-    echo "⚡️ Installing packages via npm..."
+    printf "⚡️ Installing packages via npm..."
     npx install-peerdeps -D eslint-config-airbnb
     npm i -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
   fi
