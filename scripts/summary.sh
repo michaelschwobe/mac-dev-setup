@@ -9,10 +9,10 @@ e_pending "Creating summary"
 echo "\r"
 
 e_success "Default commands"
-if has_path "Projects"; then
-  e_success "~/Projects"
+if has_path "Developer"; then
+  e_success "~/Developer"
 else
-  e_failure "~/Projects"
+  e_failure "~/Developer"
 fi
 test_command "xcode-select"
 test_command "brew"
