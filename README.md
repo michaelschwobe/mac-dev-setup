@@ -199,16 +199,10 @@ npm i -g serve@latest
 brew install --cask 1password
 ```
 
-##### Install Adobe Creative Cloud:
+##### Install Brave Browser:
 
 ```sh
-brew install --cask adobe-creative-cloud
-```
-
-##### Install BrowserstackLocal:
-
-```sh
-brew install --cask browserstacklocal
+brew install --cask brave-browser
 ```
 
 ##### Install DiffMerge:
@@ -217,16 +211,10 @@ brew install --cask browserstacklocal
 brew install --cask diffmerge
 ```
 
-##### Install Dropbox:
+##### Install Discord:
 
 ```sh
-brew install --cask dropbox
-```
-
-##### Install Firefox Developer Edition:
-
-```sh
-brew install --cask firefox-developer-edition
+brew install --cask discord
 ```
 
 ##### Install Figma:
@@ -259,22 +247,10 @@ brew install --cask iterm2
    ```
 2. Restart iTerm and resolve any remaining issues.
 
-##### Install MAMP:
-
-```sh
-brew install --cask mamp
-```
-
 ##### Install Rectangle:
 
 ```sh
 brew install --cask rectangle
-```
-
-##### Install Sketch:
-
-```sh
-brew install --cask sketch
 ```
 
 ##### Install Slack:
@@ -332,6 +308,12 @@ brew install --cask visual-studio-code
    cp ~/Downloads/mac-dev-setup/Code/* ~/Library/Application\ Support/Code/User
    ```
 3. Restart Visual Studio Code and resolve any remaining issues.
+
+##### Install Zoom:
+
+```sh
+brew install --cask zoom
+```
 
 ### Optimizations
 
