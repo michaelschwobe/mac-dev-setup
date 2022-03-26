@@ -147,7 +147,7 @@ trashg() {
 # Deletes the current directory's generated files and reinstalls Node modules.
 trashy() {
   printf "⚡️ Deleting generated files..."
-  rm -rf .next/ build/ coverage/ dist/ node_modules/ out/ storybook-static/ package-lock.json yarn.lock .eslintcache .stylelintcache
+  rm -rf .cache/ .next/ .turbo/ build/ coverage/ dist/ node_modules/ out/ public/build storybook-static/ package-lock.json yarn.lock .eslintcache .stylelintcache
   read "UseYarn?Use yarn? [y/n]: "
   if [[ "$UseYarn" =~ ^[Yy]$ ]] then
     printf "⚡️ Installing packages via yarn..."
@@ -171,47 +171,63 @@ mcd() {
 
 # Scaffold a React component folder/files.
 cray() {
-  read "WithFolder?With Folder? [y/n]: "
-  read "WithNamedFiles?With Named Files? [y/n]: "
-  read "WithTypescript?With Typescript? [y/n]: "
-  read "WithCssInJs?With CSS-in-JS? [y/n]: "
+  read "WITH_FOLDER?With Folder? [y/n]: "
+  read "WITH_NAMED_FILES?With Named Files? [y/n]: "
+  read "WITH_TYPESCRIPT?With Typescript? [y/n]: "
+  read "WITH_STORIES?With Stories? [y/n]: "
+  read "WITH_TESTS?With Tests? [y/n]: "
+  read "WITH_CSS?With CSS, CSS Modules, CSS-in-JS, or none? [1/2/3/4]: "
 
   local COMP_NAME=$(toPascalCase $1)
 
   local FILE_NAME="index"
-  if [[ "$WithNamedFiles" =~ ^[Yy]$ ]] then
+  if [[ "$WITH_NAMED_FILES" =~ ^[Yy]$ ]] then
     FILE_NAME="$1"
   fi
 
-  local JS_EXT="js"
-  local JSX_EXT="jsx"
-  if [[ "$WithTypescript" =~ ^[Yy]$ ]] then
-    JS_EXT="ts"
-    JSX_EXT="tsx"
+  local SCRIPT_EXT="js"
+  local SCRIPT_EXT_JSX="jsx"
+  if [[ "$WITH_TYPESCRIPT" =~ ^[Yy]$ ]] then
+    SCRIPT_EXT="ts"
+    SCRIPT_EXT_JSX="tsx"
   fi
 
-  local STYLE_EXT="module.css"
-  if [[ "$WithCssInJs" =~ ^[Yy]$ ]] then
-    STYLE_EXT="css.$JS_EXT"
+  local STYLE_EXT="css"
+  if [[ "$WITH_CSS" == 2 ]] then
+    STYLE_EXT="module.css"
+  fi
+  if [[ "$WITH_CSS" == 3 ]] then
+    STYLE_EXT="css.${SCRIPT_EXT}"
   fi
 
-  if [[ "$WithFolder" =~ ^[Yy]$ ]] then
+  if [[ "$WITH_FOLDER" =~ ^[Yy]$ ]] then
     mkdir -p $1
     cd $1
-    printf "export { default as $COMP_NAME } from './$FILE_NAME';\n">>index.$JS_EXT
   fi
 
-  if [[ "$WithFolder" =~ ^[Yy]$ && "$WithTypescript" =~ ^[Yy]$ ]] then
-    local PROPS="Props"
-    printf "export type { $COMP_NAME$PROPS } from './$FILE_NAME';\n">>index.$JS_EXT
+  printf "/* TODO: Write <$COMP_NAME /> component. */\n">>$FILE_NAME.$SCRIPT_EXT_JSX
+
+  if [[ "$WITH_NAMED_FILES" =~ ^[Yy]$ ]] then
+    printf "export { default as $COMP_NAME } from './$FILE_NAME';\n">>index.$SCRIPT_EXT
+    if [[ "$WITH_TYPESCRIPT" =~ ^[Yy]$ ]] then
+      local PROPS="Props"
+      printf "export type { $COMP_NAME$PROPS } from './$FILE_NAME';\n">>index.$SCRIPT_EXT
+    fi
   fi
 
-  printf "/* TODO: Write <$COMP_NAME /> component. */\n">>$FILE_NAME.$JSX_EXT
-  printf "/* TODO: Write <$COMP_NAME /> styles. */\n">>$FILE_NAME.$STYLE_EXT
-  printf "/* TODO: Write <$COMP_NAME /> stories. */\n">>$FILE_NAME.stories.$JSX_EXT
-  printf "/* TODO: Write <$COMP_NAME /> tests. */\n">>$FILE_NAME.test.$JSX_EXT
+  if [[ "$WITH_STORIES" =~ ^[Yy]$ ]] then
+    printf "/* TODO: Write <$COMP_NAME /> stories. */\n">>$FILE_NAME.stories.$SCRIPT_EXT_JSX
+  fi
 
-  if [[ "$WithFolder" =~ ^[Yy]$ ]] then
+  if [[ "$WITH_TESTS" =~ ^[Yy]$ ]] then
+    printf "/* TODO: Write <$COMP_NAME /> tests. */\n">>$FILE_NAME.test.$SCRIPT_EXT_JSX
+  fi
+
+  if [[ "$WITH_CSS" == 1 || "$WITH_CSS" == 2 || "$WITH_CSS" == 3 ]] then
+    printf "/* TODO: Write <$COMP_NAME /> styles. */\n">>$FILE_NAME.$STYLE_EXT
+  fi
+
+  if [[ "$WITH_FOLDER" =~ ^[Yy]$ ]] then
     cd ..
   fi
 }
