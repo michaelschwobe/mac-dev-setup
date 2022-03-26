@@ -11,7 +11,7 @@ For a guided setup, open up **Terminal.app** and run the following command:
    git clone https://github.com/michaelschwobe/mac-dev-setup.git ~/Downloads/mac-dev-setup && \
    cd ~/Downloads/mac-dev-setup/scripts
    ```
-2. Run the installer script (rerun as many times as needed).
+2. Run the installer script.
    ```sh
    sh install.sh
    ```
@@ -25,6 +25,8 @@ For a guided setup, open up **Terminal.app** and run the following command:
    ```
 
 ✨ And thats it! No need to do anything further.
+
+🔥 **Rerun as many times as needed.** The scripts auto-skip prompts for items already installed.
 
 ## Manual Setup
 
