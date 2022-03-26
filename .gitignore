@@ -1,15 +1,3 @@
-# Sublime Text
-Sublime/**/bh_unicode_properties.cache
-Sublime/**/oscrypto-ca-bundle.crt
-Sublime/**/Package Control.ca-bundle
-Sublime/**/Package Control.ca-certs/
-Sublime/**/Package Control.ca-list
-Sublime/**/Package Control.cache/
-Sublime/**/Package Control.last-run
-Sublime/**/Package Control.merged-ca-bundle
-Sublime/**/Package Control.system-ca-bundle
-Sublime/**/Package Control.user-ca-bundle
-
 # Visual Studio Code
 Code/**/globalStorage/
 Code/**/workspaceStorage/

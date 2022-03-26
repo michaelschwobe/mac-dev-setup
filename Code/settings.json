@@ -1,4 +1,7 @@
 {
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -17,6 +20,7 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
@@ -27,6 +31,7 @@
   "editor.fontSize": 13,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": "active",
   "editor.linkedEditing": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
@@ -48,8 +53,8 @@
   "files.trimTrailingWhitespace": true,
   "projectManager.git.baseFolders": ["~/Developer"],
   "search.exclude": {
-    "**/*.lock": true,
     "**/.*lintcache": true,
+    "**/*.lock": true,
     "**/bower_components": true,
     "**/build": true,
     "**/coverage": true,
