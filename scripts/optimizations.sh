@@ -15,14 +15,25 @@ fi
 
 if has_command "zsh"; then
   if has_path ".oh-my-zsh"; then
-    e_pending "Updating oh-my-zsh"
-    # omz update
-    $ZSH/tools/upgrade.sh
-    test_path ".oh-my-zsh"
+    get_consent "Update oh-my-zsh"
+    if has_consent; then
+      e_pending "Updating oh-my-zsh"
+      $ZSH/tools/upgrade.sh
+      test_path ".oh-my-zsh"
+    fi
   fi
 fi
 
 if has_command "brew"; then
-  e_pending "Optimizing Homebrew"
-  brew update && brew upgrade && brew doctor && brew cleanup
+  get_consent "Optimize Homebrew"
+  if has_consent; then
+    e_pending "Running brew update"
+    brew update
+    e_pending "Running brew upgrade"
+    brew upgrade
+    e_pending "Running brew doctor"
+    brew doctor
+    e_pending "Running brew cleanup"
+    brew cleanup
+  fi
 fi
