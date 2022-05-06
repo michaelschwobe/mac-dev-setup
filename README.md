@@ -68,6 +68,12 @@ killall Finder
 mkdir -p ~/Developer
 ```
 
+##### Create `~/Sandbox` folder:
+
+```sh
+mkdir -p ~/Sandbox
+```
+
 ##### Installing xcode-select (CLI tools):
 
 ```sh

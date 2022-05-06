@@ -38,6 +38,15 @@ if ! has_path "Developer"; then
   fi
 fi
 
+if ! has_path "Sandbox"; then
+  get_consent "Create ~/Sandbox folder"
+  if has_consent; then
+    e_pending "Creating ~/Sandbox folder"
+    mkdir -p ~/Sandbox
+    test_path "Sandbox"
+  fi
+fi
+
 if ! has_command "xcode-select"; then
   e_pending "Installing xcode-select (CLI tools)"
   xcode-select --install

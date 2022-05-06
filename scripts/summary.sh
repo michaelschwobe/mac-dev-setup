@@ -14,6 +14,11 @@ if has_path "Developer"; then
 else
   e_failure "~/Developer"
 fi
+if has_path "Sandbox"; then
+  e_success "~/Sandbox"
+else
+  e_failure "~/Sandbox"
+fi
 test_command "xcode-select"
 test_command "brew"
 test_command "watchman"
