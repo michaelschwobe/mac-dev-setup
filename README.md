@@ -322,6 +322,12 @@ brew install --cask visual-studio-code
    ```
 3. Restart Visual Studio Code and resolve any remaining issues.
 
+##### Install Warp:
+
+```sh
+brew install --cask warp
+```
+
 ##### Install Zoom:
 
 ```sh

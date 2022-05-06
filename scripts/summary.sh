@@ -50,6 +50,7 @@ test_app "Slack"
 test_app "Sourcetree"
 test_app "Spotify"
 test_app "Visual Studio Code"
+test_app "Warp"
 test_app "Zoom"
 e_success "Optimization commands"
 

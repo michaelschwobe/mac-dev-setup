@@ -20,6 +20,7 @@ declare -a cask_name=(
 "sourcetree"
 "spotify"
 "visual-studio-code"
+"warp"
 "zoom"
 )
 
@@ -37,6 +38,7 @@ declare -a cask_desc=(
 "Sourcetree"
 "Spotify"
 "Visual Studio Code"
+"Warp"
 "Zoom"
 )
 
