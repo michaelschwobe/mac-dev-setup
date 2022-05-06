@@ -187,6 +187,12 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 brew install yarn
 ```
 
+##### Install [pnpm](https://pnpm.io/):
+
+```sh
+brew install pnpm
+```
+
 ##### Upgrade [npm](https://www.npmjs.com/):
 
 ```sh

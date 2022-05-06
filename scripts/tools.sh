@@ -153,6 +153,17 @@ if has_command "brew"; then
   fi
 fi
 
+if has_command "brew"; then
+  if ! has_command "pnpm"; then
+    get_consent "Install pnpm"
+    if has_consent; then
+      e_pending "Installing pnpm"
+      brew install pnpm
+      test_command "pnpm"
+    fi
+  fi
+fi
+
 if has_command 'npm'; then
   get_consent "Upgrade npm"
   if has_consent; then
