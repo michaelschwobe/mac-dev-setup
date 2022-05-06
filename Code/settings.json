@@ -51,19 +51,19 @@
   "files.defaultLanguage": "javascriptreact",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "projectManager.git.baseFolders": ["~/Developer"],
+  "projectManager.git.baseFolders": ["~/Developer", "~/Sandbox"],
   "search.exclude": {
     "**/.*lintcache": true,
+    "**/*-lock.*": true,
     "**/*.lock": true,
     "**/bower_components": true,
     "**/build": true,
     "**/coverage": true,
     "**/dist": true,
-    "**/node_modules": true,
-    "**/package-lock.json": true
+    "**/node_modules": true
   },
   "stylelint.packageManager": "yarn",
-  "terminal.external.osxExec": "iTerm.app",
+  "terminal.external.osxExec": "Warp.app",
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,

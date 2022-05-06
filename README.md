@@ -283,6 +283,7 @@ brew install --cask visual-studio-code
    ```sh
    code --install-extension alefragnani.project-manager
    code --install-extension atomiks.moonlight
+   code --install-extension bradlc.vscode-tailwindcss
    code --install-extension christian-kohler.npm-intellisense
    code --install-extension christian-kohler.path-intellisense
    code --install-extension dbaeumer.vscode-eslint
