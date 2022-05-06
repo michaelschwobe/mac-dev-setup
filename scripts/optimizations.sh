@@ -3,7 +3,7 @@
 source _utils.sh
 
 # ------------------------------------------------------------------------------
-e_pending "Running optimizations"
+e_message "Running optimizations"
 # ------------------------------------------------------------------------------
 
 get_consent "Re-sort Launchpad applications"
@@ -37,3 +37,7 @@ if has_command "brew"; then
     brew cleanup
   fi
 fi
+
+# ------------------------------------------------------------------------------
+e_message "Optimizations complete"
+# ------------------------------------------------------------------------------

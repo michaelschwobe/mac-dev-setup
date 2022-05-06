@@ -3,10 +3,8 @@
 source _utils.sh
 
 # ------------------------------------------------------------------------------
-e_pending "Creating summary"
+e_message "Creating summary"
 # ------------------------------------------------------------------------------
-
-echo "\r"
 
 e_success "Default commands"
 if has_path "Developer"; then
@@ -54,6 +52,6 @@ test_app "Warp"
 test_app "Zoom"
 e_success "Optimization commands"
 
-echo "\r"
-
-e_settled "Installation complete!"
+# ------------------------------------------------------------------------------
+e_message "Summary complete"
+# ------------------------------------------------------------------------------
