@@ -135,7 +135,7 @@ echo '# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.' >> ~/.zs
 echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
 ```
 
-Restart you’re CLI for this to take effect, or run:
+Restart your CLI for this to take effect, or run:
 
 ```sh
 p10k configure
@@ -149,7 +149,7 @@ echo "# Fish shell-like fast/unobtrusive autosuggestions for Zsh." >> ~/.zshrc &
 echo "source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 ```
 
-Restart you’re CLI for this to take effect.
+Restart your CLI for this to take effect.
 
 ##### Install [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/):
 
@@ -160,7 +160,7 @@ echo "# Warning: Must be last sourced!" >> ~/.zshrc && \
 echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
 ```
 
-Restart you’re CLI for this to take effect.
+Restart your CLI for this to take effect.
 Note the `source` command must be **at the end** of `~/.zshrc`.
 
 ##### Install [node](https://nodejs.org/) (Node via [Homebrew](https://brew.sh/)):
