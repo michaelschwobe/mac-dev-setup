@@ -154,14 +154,18 @@ trashg() {
 # Deletes the current directory's generated files and reinstalls Node modules.
 trashy() {
   printf "⚡️ Deleting generated files..."
-  rm -rf .cache/ .next/ .turbo/ build/ coverage/ dist/ node_modules/ out/ public/build storybook-static/ package-lock.json yarn.lock .eslintcache .stylelintcache
-  read "UseYarn?Use yarn? [y/n]: "
-  if [[ "$UseYarn" =~ ^[Yy]$ ]] then
+  rm -rf .cache/ .next/ .turbo/ build/ coverage/ dist/ node_modules/ out/ public/build storybook-static/ package-lock.json pnpm-lock.yaml yarn.lock .eslintcache .stylelintcache
+  printf "⚡️ Deleted generated files"
+  read "PackageManager?Install packages via npm, pnpm, or yarn? [n/p/y]: "
+  if [[ "$PackageManager" =~ ^[Yy]$ ]] then
+    printf "⚡️ Installing packages via pnpm..."
+    yarn install
+  elif [[ "$PackageManager" =~ ^[Pp]$ ]] then
     printf "⚡️ Installing packages via yarn..."
-    yarn
+    pnpm install
   else
     printf "⚡️ Installing packages via npm..."
-    npm i
+    npm install
   fi
 }
 
