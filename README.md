@@ -328,7 +328,7 @@ brew install --cask visual-studio-code
 brew install --cask warp
 ```
 
-##### Install Zoom:
+##### Install Zoom.us:
 
 ```sh
 brew install --cask zoom

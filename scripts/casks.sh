@@ -39,7 +39,7 @@ declare -a cask_desc=(
 "Spotify"
 "Visual Studio Code"
 "Warp"
-"Zoom"
+"Zoom.us"
 )
 
 if has_command "brew"; then
