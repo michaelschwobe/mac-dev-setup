@@ -132,14 +132,14 @@ alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
 
 # Reinstalls xcode-select to fix missing receipt for command line tools.
 fixcli() {
-  printf "⚡️ Reinstalling xcode-select..."
+  printf "⚡️ Reinstalling xcode-select...\n"
   sudo rm -rf $(xcode-select --print-path)
   xcode-select --install
 }
 
 # Re-signs Firewall permissions for Node caused by switching versions via `nvm` or `n`.
 fixnode() {
-  printf "⚡️ Re-signing Firewall permissions for Node..."
+  printf "⚡️ Re-signing Firewall permissions for Node...\n"
   /usr/libexec/ApplicationFirewall/socketfilterfw --remove $(which node)
   codesign --force --sign - $(which node)
   /usr/libexec/ApplicationFirewall/socketfilterfw --add $(which node)
@@ -147,24 +147,24 @@ fixnode() {
 
 # Deletes all globally installed Node modules except for `npm`, `nvm`, or `n`.
 trashg() {
-  printf "⚡️ Deleting global packages..."
+  printf "⚡️ Deleting global packages...\n"
   npm ls -gp --depth=0 | awk -F/ '/node_modules/ && !/\/(npm|nvm|n)$/ {print $NF}' | xargs npm -g rm
 }
 
 # Deletes the current directory's generated files and reinstalls Node modules.
 trashy() {
-  printf "⚡️ Deleting generated files..."
+  printf "⚡️ Deleting generated files...\n"
   rm -rf .cache/ .next/ .turbo/ build/ coverage/ dist/ node_modules/ out/ public/build storybook-static/ package-lock.json pnpm-lock.yaml yarn.lock .eslintcache .stylelintcache
-  printf "⚡️ Deleted generated files"
+  printf "⚡️ Deleted generated files.\n"
   read "PackageManager?Install packages via npm, pnpm, or yarn? [n/p/y]: "
   if [[ "$PackageManager" =~ ^[Yy]$ ]] then
-    printf "⚡️ Installing packages via pnpm..."
+    printf "⚡️ Installing packages via pnpm...\n"
     yarn install
   elif [[ "$PackageManager" =~ ^[Pp]$ ]] then
-    printf "⚡️ Installing packages via yarn..."
+    printf "⚡️ Installing packages via yarn...\n"
     pnpm install
   else
-    printf "⚡️ Installing packages via npm..."
+    printf "⚡️ Installing packages via npm...\n"
     npm install
   fi
 }
@@ -247,11 +247,11 @@ cray() {
 airbnb() {
   read "UseYarn?Use yarn? [y/n]: "
   if [[ "$UseYarn" =~ ^[Yy]$ ]] then
-    printf "⚡️ Installing packages via yarn..."
+    printf "⚡️ Installing packages via yarn...\n"
     npx install-peerdeps -D -Y eslint-config-airbnb
     yarn add -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
   else
-    printf "⚡️ Installing packages via npm..."
+    printf "⚡️ Installing packages via npm...\n"
     npx install-peerdeps -D eslint-config-airbnb
     npm i -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
   fi
