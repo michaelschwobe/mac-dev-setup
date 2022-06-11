@@ -7,7 +7,6 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:/usr/local/sbin
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -253,7 +252,7 @@ airbnb() {
   else
     printf "⚡️ Installing packages via npm...\n"
     npx install-peerdeps -D eslint-config-airbnb
-    npm i -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
+    npm install -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
   fi
 }
 

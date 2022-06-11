@@ -6,7 +6,6 @@ source _utils.sh
 e_message "Creating summary"
 # ------------------------------------------------------------------------------
 
-e_success "Default commands"
 if has_path "Developer"; then
   e_success "~/Developer"
 else
@@ -50,7 +49,6 @@ test_app "Spotify"
 test_app "Visual Studio Code"
 test_app "Warp"
 test_app "Zoom.us"
-e_success "Optimization commands"
 
 # ------------------------------------------------------------------------------
 e_message "Summary complete"

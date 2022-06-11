@@ -168,7 +168,7 @@ if has_command 'npm'; then
   get_consent "Upgrade npm"
   if has_consent; then
     e_pending "Upgrading npm"
-    npm i -g npm@latest
+    npm install --location=global npm@latest
     test_command "npm"
   fi
 fi
@@ -177,7 +177,7 @@ if has_command "npm"; then
   get_consent "Install/Upgrade serve (globally via npm)"
   if has_consent; then
     e_pending "Installing/Upgrading serve"
-    npm i -g serve@latest
+    npm install --location=global serve@latest
     test_command "serve"
   fi
 fi

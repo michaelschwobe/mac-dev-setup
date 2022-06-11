@@ -196,13 +196,13 @@ brew install pnpm
 ##### Upgrade [npm](https://www.npmjs.com/):
 
 ```sh
-npm i -g npm@latest
+npm install --location=global npm@latest
 ```
 
 ##### Install/Upgrade [serve](https://github.com/zeit/serve/) (globally via npm):
 
 ```sh
-npm i -g serve@latest
+npm install --location=global serve@latest
 ```
 
 ### Applications
