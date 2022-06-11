@@ -92,6 +92,13 @@ test_app() {
   fi
 }
 
+has_arm() {
+  if [[ $(uname -p) == 'arm' ]]; then
+    return 0
+  fi
+  return 1
+}
+
 has_consent() {
   if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     return 0

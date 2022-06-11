@@ -82,6 +82,17 @@ xcode-select --install
 
 ##### Installing brew ([Homebrew](https://brew.sh/)):
 
+If: Apple Silicon/ARM Architecture:
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'>>$HOME/.zprofile && \
+eval "$(/opt/homebrew/bin/brew shellenv)" && \
+brew doctor
+```
+
+If Intel Architecture:
+
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
 brew doctor
@@ -132,7 +143,8 @@ brew install romkatv/powerlevel10k/powerlevel10k && \
 echo '# Theme configuration: PowerLevel10K' >> ~/.zshrc && \
 echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc && \
 echo '# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.' >> ~/.zshrc && \
-echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
+echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc && \
+echo 'POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true' >> ~/.zshrc
 ```
 
 Restart your CLI for this to take effect, or run:
@@ -146,7 +158,7 @@ p10k configure
 ```sh
 brew install zsh-autosuggestions && \
 echo "# Fish shell-like fast/unobtrusive autosuggestions for Zsh." >> ~/.zshrc && \
-echo "source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+echo "source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 ```
 
 Restart your CLI for this to take effect.
@@ -157,7 +169,7 @@ Restart your CLI for this to take effect.
 brew install zsh-syntax-highlighting && \
 echo "# Fish shell-like syntax highlighting for Zsh." >> ~/.zshrc && \
 echo "# Warning: Must be last sourced!" >> ~/.zshrc && \
-echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
+echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
 ```
 
 Restart your CLI for this to take effect.

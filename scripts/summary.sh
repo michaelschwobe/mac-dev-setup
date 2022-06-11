@@ -6,6 +6,7 @@ source _utils.sh
 e_message "Creating summary"
 # ------------------------------------------------------------------------------
 
+e_success "$(uname -p) Architecture"
 if has_path "Developer"; then
   e_success "~/Developer"
 else

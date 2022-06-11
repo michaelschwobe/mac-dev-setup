@@ -56,6 +56,10 @@ fi
 if ! has_command "brew"; then
   e_pending "Installing brew (Homebrew)"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  if has_arm; then
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'>>$HOME/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
   brew doctor
   test_command "brew"
 fi
