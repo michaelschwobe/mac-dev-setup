@@ -14,6 +14,9 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -63,8 +66,8 @@
     "**/node_modules": true
   },
   "stylelint.packageManager": "yarn",
-  "terminal.external.osxExec": "Warp.app",
   "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.external.osxExec": "iTerm.app",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,
   "window.closeWhenEmpty": true,

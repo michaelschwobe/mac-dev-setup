@@ -313,7 +313,6 @@ brew install --cask visual-studio-code
    code --install-extension dbaeumer.vscode-eslint
    code --install-extension dsznajder.es7-react-js-snippets
    code --install-extension editorconfig.editorconfig
-   code --install-extension eg2.vscode-npm-script
    code --install-extension esbenp.prettier-vscode
    code --install-extension formulahendry.auto-rename-tag
    code --install-extension gruntfuggly.todo-tree
