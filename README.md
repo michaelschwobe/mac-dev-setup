@@ -24,13 +24,13 @@ For a guided setup, open up **Terminal.app** and run the following command:
    sh summary.sh
    ```
 
-✨ And thats it! No need to do anything further.
+🔥 The scripts auto-skip prompts for items already installed. **Recommended:** Rerun as many times as needed.
 
-🔥 **Rerun as many times as needed.** The scripts auto-skip prompts for items already installed.
+✨ And thats it! For additional CLI and IDE customizations, refer to the related **Manual Setup** section below.
 
 ## Manual Setup
 
-For those who prefer à la carte, this section contains everything that the **Guided Setup** attempts to do, except for IDE customization.
+For those who prefer à la carte, this section contains everything that the **Guided Setup** attempts to do including CLI and IDE customizations.
 
 - [Defaults](#defaults)
 - [Tools](#tools)
@@ -217,7 +217,13 @@ npm install --location=global npm@latest
 npm install --location=global serve@latest
 ```
 
-### Applications
+### Applications/Casks
+
+##### Install JetBrains Mono Nerd Font:
+
+```sh
+brew install font-jetbrains-mono-nerd-font
+```
 
 ##### Install 1Password:
 
@@ -271,7 +277,13 @@ brew install --cask iterm2
    ```sh
    cp ~/Downloads/mac-dev-setup/.zshrc ~/
    ```
-2. Restart iTerm and resolve any remaining issues.
+2. Set the theme by going to:
+   - "Preferences &rarr; Profiles &rarr; Colors &rarr; Color Presets… &rarr; Import…"
+   - Theme location: `~/Downloads/mac-dev-setup/Moonlight.itermcolors`
+3. Set the font by going to:
+   - "Preferences &rarr; Profiles &rarr; Text &rarr; Font"
+   - Font name: "JetBrainsMono Nerd Font Mono"
+4. Restart iTerm and resolve any remaining issues.
 
 ##### Install Rectangle:
 
@@ -291,11 +303,24 @@ brew install --cask slack
 brew install --cask sourcetree
 ```
 
+1. Set the font by going to:
+   - "Preferences &rarr; Diff &rarr; Internal Diff Visualization &rarr; Diff View font"
+   - Font name: "JetBrainsMono Nerd Font Mono"
+2. Restart Sourcetree and resolve any remaining issues.
+
 ##### Install Spotify:
 
 ```sh
 brew install --cask spotify
 ```
+
+##### Install Terminal:
+
+1. Set the theme and font by going to:
+   - "Preferences &rarr; Profiles &rarr; Import…"
+   - Theme location: `~/Downloads/mac-dev-setup/Moonlight.terminal`
+   - Font name: "JetBrainsMono Nerd Font Mono"
+2. Restart iTerm and resolve any remaining issues.
 
 ##### Install Visual Studio Code:
 
@@ -338,6 +363,16 @@ brew install --cask visual-studio-code
 ```sh
 brew install --cask warp
 ```
+
+1. Copy the theme:
+   ```sh
+   mkdir -p ~/.warp/themes/ && \
+   cp ~/Downloads/mac-dev-setup/Moonlight.yaml ~/.warp/themes/
+   ```
+2. Set the theme and font by going to:
+   - "Settings &rarr; Appearance &rarr; Themes"
+   - Theme name: "Moonlight"
+   - Font name: "JetBrainsMono Nerd Font Mono"
 
 ##### Install Zoom.us:
 

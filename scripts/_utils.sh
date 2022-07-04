@@ -76,6 +76,21 @@ test_path() {
   fi
 }
 
+has_cask() {
+  if $(brew ls --cask $1 &> /dev/null); then
+    return 0
+  fi
+  return 1
+}
+
+test_cask() {
+  if has_cask $1; then
+    e_success "$1"
+  else
+    e_failure "$1"
+  fi
+}
+
 has_app() {
   local name="$@"
   if [ -e "/Applications/$name.app" ]; then

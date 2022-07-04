@@ -29,7 +29,7 @@
     "source.fixAll.stylelint": true
   },
   "editor.cursorBlinking": "phase",
-  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Source Code Pro for Powerline', monospace",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono, monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.formatOnPaste": true,
@@ -66,8 +66,8 @@
     "**/node_modules": true
   },
   "stylelint.packageManager": "yarn",
-  "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono, monospace",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,
   "window.closeWhenEmpty": true,

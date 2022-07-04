@@ -16,6 +16,9 @@ test_command "ls"
 e_pending "Checking test_brew"
 test_brew "python"
 
+e_pending "Checking test_cask"
+test_cask "brave-browser"
+
 e_pending "Checking test_path"
 test_path "Downloads"
 
