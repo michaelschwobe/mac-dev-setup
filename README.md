@@ -32,6 +32,13 @@ For a guided setup, open up **Terminal.app** and run the following command:
 
 For those who prefer à la carte, this section contains everything that the **Guided Setup** attempts to do including CLI and IDE customizations.
 
+1. If you haven’t already, save repo to `~/Downloads` folder:
+   ```sh
+   git clone https://github.com/michaelschwobe/mac-dev-setup.git ~/Downloads/mac-dev-setup && \
+   cd ~/Downloads/mac-dev-setup/scripts
+   ```
+2. Continue with setup below.
+
 - [Defaults](#defaults)
 - [Tools](#tools)
 - [Applications](#applications)
@@ -222,6 +229,7 @@ npm install --location=global serve@latest
 ##### Install JetBrains Mono Nerd Font:
 
 ```sh
+brew tap homebrew/cask-fonts # You only need to do this once!
 brew install font-jetbrains-mono-nerd-font
 ```
 

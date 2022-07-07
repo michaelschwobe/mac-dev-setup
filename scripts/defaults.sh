@@ -61,6 +61,7 @@ if ! has_command "brew"; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
   brew doctor
+  brew tap homebrew/cask-fonts
   test_command "brew"
 fi
 
