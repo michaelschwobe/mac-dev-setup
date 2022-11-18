@@ -15,7 +15,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -30,14 +30,13 @@ export ZSH=$HOME/.oh-my-zsh
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -52,6 +51,9 @@ export ZSH=$HOME/.oh-my-zsh
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -75,7 +77,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm yarn)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,45 +131,6 @@ alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
 # Helpers
 # ------------------------------------------------------------------------------
 
-# Reinstalls xcode-select to fix missing receipt for command line tools.
-fixcli() {
-  printf "⚡️ Reinstalling xcode-select...\n"
-  sudo rm -rf $(xcode-select --print-path)
-  xcode-select --install
-}
-
-# Re-signs Firewall permissions for Node caused by switching versions via `nvm` or `n`.
-fixnode() {
-  printf "⚡️ Re-signing Firewall permissions for Node...\n"
-  /usr/libexec/ApplicationFirewall/socketfilterfw --remove $(which node)
-  codesign --force --sign - $(which node)
-  /usr/libexec/ApplicationFirewall/socketfilterfw --add $(which node)
-}
-
-# Deletes all globally installed Node modules except for `npm`, `nvm`, or `n`.
-trashg() {
-  printf "⚡️ Deleting global packages...\n"
-  npm ls -gp --depth=0 | awk -F/ '/node_modules/ && !/\/(npm|nvm|n)$/ {print $NF}' | xargs npm -g rm
-}
-
-# Deletes the current directory's generated files and reinstalls Node modules.
-trashy() {
-  printf "⚡️ Deleting generated files...\n"
-  rm -rf .cache/ .next/ .turbo/ build/ coverage/ dist/ node_modules/ out/ public/build storybook-static/ package-lock.json pnpm-lock.yaml yarn.lock .eslintcache .stylelintcache
-  printf "⚡️ Deleted generated files.\n"
-  read "PackageManager?Install packages via npm, pnpm, or yarn? [n/p/y]: "
-  if [[ "$PackageManager" =~ ^[Yy]$ ]] then
-    printf "⚡️ Installing packages via pnpm...\n"
-    yarn install
-  elif [[ "$PackageManager" =~ ^[Pp]$ ]] then
-    printf "⚡️ Installing packages via yarn...\n"
-    pnpm install
-  else
-    printf "⚡️ Installing packages via npm...\n"
-    npm install
-  fi
-}
-
 # Convert string to PascalCase.
 toPascalCase() {
   printf $1 | awk 'BEGIN{FS="";RS="-";ORS=""} {$0=toupper(substr($0,1,1)) substr($0,2)} 1'
@@ -181,12 +144,12 @@ mcd() {
 
 # Scaffold a React component folder/files.
 cray() {
-  read "WITH_FOLDER?With Folder? [y/n]: "
-  read "WITH_NAMED_FILES?With Named Files? [y/n]: "
-  read "WITH_TYPESCRIPT?With Typescript? [y/n]: "
-  read "WITH_STORIES?With Stories? [y/n]: "
-  read "WITH_TESTS?With Tests? [y/n]: "
-  read "WITH_CSS?With CSS, CSS Modules, CSS-in-JS, or none? [1/2/3/4]: "
+  read "WITH_FOLDER?🟡 With Folder? [y/n]: "
+  read "WITH_NAMED_FILES?🟡 With Named Files? [y/n]: "
+  read "WITH_TYPESCRIPT?🟡 With Typescript? [y/n]: "
+  read "WITH_STORIES?🟡 With Stories? [y/n]: "
+  read "WITH_TESTS?🟡 With Tests? [y/n]: "
+  read "WITH_CSS?🟡 With CSS, CSS Modules, CSS-in-JS, or none? [1/2/3/4]: "
 
   local COMP_NAME=$(toPascalCase $1)
 
@@ -242,17 +205,27 @@ cray() {
   fi
 }
 
-# Ensures eslint-config-airbnb packages are installed with correct version numbers.
-airbnb() {
-  read "UseYarn?Use yarn? [y/n]: "
-  if [[ "$UseYarn" =~ ^[Yy]$ ]] then
-    printf "⚡️ Installing packages via yarn...\n"
-    npx install-peerdeps -D -Y eslint-config-airbnb
-    yarn add -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
+# Deletes the current directory's generated files and reinstalls Node modules.
+trashy() {
+  printf "🟡 Deleting generated files...\n"
+  rm -rf .cache/ .next/ .turbo/ build/ coverage/ dist/ node_modules/ out/ public/build storybook-static/ .eslintcache .stylelintcache
+  printf "🟡 Deleted generated files.\n"
+  read "DeleteLockFiles?🟡 Delete npm, pnpm, or yarn lockfiles? [y/n]: "
+    if [[ "$DeleteLockFiles" =~ ^[Yy]$ ]] then
+      printf "🟡 Deleting lockfiles...\n"
+      rm -rf package-lock.json pnpm-lock.yaml yarn.lock
+      printf "🟡 Deleted lockfiles.\n"
+  fi
+  read "PackageManager?🟡 Install packages via npm, pnpm, or yarn? [n/p/y]: "
+  if [[ "$PackageManager" =~ ^[Yy]$ ]] then
+    printf "🟡 Installing packages via pnpm...\n"
+    yarn install
+  elif [[ "$PackageManager" =~ ^[Pp]$ ]] then
+    printf "🟡 Installing packages via yarn...\n"
+    pnpm install
   else
-    printf "⚡️ Installing packages via npm...\n"
-    npx install-peerdeps -D eslint-config-airbnb
-    npm install -D prettier@latest eslint-config-prettier@latest eslint-plugin-prettier@latest
+    printf "🟡 Installing packages via npm...\n"
+    npm install
   fi
 }
 
