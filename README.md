@@ -212,16 +212,16 @@ brew install yarn
 brew install pnpm
 ```
 
-##### Upgrade [npm](https://www.npmjs.com/):
+##### Upgrade [npm](https://www.npmjs.com/) (globally via npm):
 
 ```sh
-npm install --location=global npm@latest
+npm install -g npm@latest
 ```
 
 ##### Install/Upgrade [serve](https://github.com/zeit/serve/) (globally via npm):
 
 ```sh
-npm install --location=global serve@latest
+npm install -g serve@latest
 ```
 
 ### Applications/Casks
@@ -246,6 +246,8 @@ brew install --cask brave-browser
 ```
 
 ##### Install DiffMerge:
+
+If Intel Architecture:
 
 ```sh
 brew install --cask diffmerge
@@ -322,7 +324,7 @@ brew install --cask sourcetree
 brew install --cask spotify
 ```
 
-##### Install Terminal:
+##### Update Terminal:
 
 1. Set the theme and font by going to:
    - "Preferences &rarr; Profiles &rarr; Import…"
