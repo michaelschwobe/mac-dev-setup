@@ -1,34 +1,14 @@
 {
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.organizeImports": true
   },
   "editor.cursorBlinking": "phase",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "JetBrainsMono Nerd Font Mono, monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
@@ -44,9 +24,6 @@
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
   "eslint.alwaysShowStatus": true,
   "files.associations": {
     ".env*": "dotenv"
@@ -65,7 +42,6 @@
     "**/dist": true,
     "**/node_modules": true
   },
-  "stylelint.packageManager": "yarn",
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono, monospace",
   "typescript.updateImportsOnFileMove.enabled": "always",

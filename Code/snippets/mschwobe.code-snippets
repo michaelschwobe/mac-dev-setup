@@ -41,13 +41,13 @@
     "prefix": "conlog",
     "description": "Console: log",
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
-    "body": ["console.log('⚡️ ${1}', ${1});"]
+    "body": ["console.log('🟢 ${1}', ${1});"]
   },
   "Console: log stringified": {
     "prefix": "constr",
     "description": "Console: log stringified",
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
-    "body": ["console.log('⚡️ ${1}', JSON.stringify(${1}, null, 2));"]
+    "body": ["console.log('🟢 ${1}', JSON.stringify(${1}${2:, null, 2}));"]
   },
   "CSS: debug with outline": {
     "prefix": "debugcss",

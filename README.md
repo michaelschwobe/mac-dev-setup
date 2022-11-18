@@ -345,17 +345,21 @@ brew install --cask visual-studio-code
    code --install-extension christian-kohler.path-intellisense
    code --install-extension dbaeumer.vscode-eslint
    code --install-extension dsznajder.es7-react-js-snippets
+   code --install-extension eamodio.gitlens
    code --install-extension editorconfig.editorconfig
    code --install-extension esbenp.prettier-vscode
    code --install-extension formulahendry.auto-rename-tag
    code --install-extension gruntfuggly.todo-tree
+   code --install-extension l13rary.l13-diff
+   code --install-extension mattpocock.ts-error-translator
    code --install-extension mikestead.dotenv
    code --install-extension ms-vscode.sublime-keybindings
    code --install-extension prisma.prisma
-   code --install-extension silvenon.mdx
    code --install-extension stylelint.vscode-stylelint
    code --install-extension tyriar.sort-lines
+   code --install-extension unifiedjs.vscode-mdx
    code --install-extension vscode-icons-team.vscode-icons
+   code --install-extension wallabyjs.console-ninja
    code --install-extension wix.vscode-import-cost
    code --install-extension zenclabs.previewjs
    code --install-extension zignd.html-css-class-completion
