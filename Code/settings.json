@@ -24,26 +24,29 @@
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
-  "eslint.alwaysShowStatus": true,
   "files.associations": {
     ".env*": "dotenv"
   },
-  "files.defaultLanguage": "javascriptreact",
+  "files.defaultLanguage": "typescriptreact",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "projectManager.git.baseFolders": ["~/Developer", "~/Sandbox"],
   "search.exclude": {
-    "**/.*lintcache": true,
     "**/*-lock.*": true,
     "**/*.lock": true,
+    "**/.*cache": true,
+    "**/.next": true,
     "**/bower_components": true,
     "**/build": true,
     "**/coverage": true,
     "**/dist": true,
-    "**/node_modules": true
+    "**/node_modules": true,
+    "**/storybook-build": true
   },
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono, monospace",
+  "totalTypeScript.hideAllTips": true,
+  "totalTypeScript.hideBasicTips": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,
   "window.closeWhenEmpty": true,
