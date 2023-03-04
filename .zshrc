@@ -229,6 +229,13 @@ trashy() {
   fi
 }
 
+# Kill all related processes.
+killps() {
+  printf "🟡 Killing processes...\n"
+  kill `ps -ef | grep $1 | awk '{print $2}'`
+  printf "🟡 Restart affected applications!\n"
+}
+
 # ------------------------------------------------------------------------------
 # Plugins
 # ------------------------------------------------------------------------------
