@@ -11,6 +11,10 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Path to your pnpm installation.
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -126,6 +130,9 @@ alias zshconfig="code ~/.zshrc"
 
 # One-liner for updating Homebrew and other installed packages (such as Node).
 alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
+
+# One-liner for updating pnpm to the latest version via corepack.
+alias pnpmup="corepack prepare pnpm@latest --activate"
 
 # ------------------------------------------------------------------------------
 # Helpers
