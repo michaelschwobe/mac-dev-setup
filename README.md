@@ -140,7 +140,7 @@ brew install zsh
 ##### Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh):
 
 ```sh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ##### Install [powerlevel10k](https://github.com/romkatv/powerlevel10k/) (CLI theming):
@@ -197,7 +197,7 @@ brew install n
 ##### Install [nvm](https://github.com/nvm-sh/nvm/) (Node via nvm):
 
 ```sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ```
 
 ##### Install [yarn](https://yarnpkg.com/):

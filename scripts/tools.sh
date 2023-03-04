@@ -60,7 +60,7 @@ if has_command "zsh"; then
     get_consent "Install oh-my-zsh"
     if has_consent; then
       e_pending "Installing oh-my-zsh"
-      sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       test_path ".oh-my-zsh"
     fi
   fi
@@ -137,7 +137,7 @@ if has_command "brew"; then
     get_consent "Install nvm (Node via nvm)"
     if has_consent; then
       e_pending "Installing nvm"
-      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
       test_command "nvm"
     fi
   fi
@@ -169,7 +169,7 @@ if has_command 'npm'; then
   get_consent "Upgrade npm"
   if has_consent; then
     e_pending "Upgrading npm"
-    npm install --location=global npm@latest
+    npm install -g npm@latest
     test_command "npm"
   fi
 fi
@@ -178,7 +178,7 @@ if has_command "npm"; then
   get_consent "Install/Upgrade serve (globally via npm)"
   if has_consent; then
     e_pending "Installing/Upgrading serve"
-    npm install --location=global serve@latest
+    npm install -g serve@latest
     test_command "serve"
   fi
 fi
