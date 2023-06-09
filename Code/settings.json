@@ -15,6 +15,7 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
+  "editor.inlineSuggest.enabled": true,
   "editor.linkedEditing": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
@@ -43,7 +44,12 @@
     "**/node_modules": true,
     "**/storybook-build": true
   },
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
   "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.env.osx": {},
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono, monospace",
   "totalTypeScript.hideAllTips": true,
   "totalTypeScript.hideBasicTips": true,

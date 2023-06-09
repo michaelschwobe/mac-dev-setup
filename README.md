@@ -351,6 +351,7 @@ brew install --cask visual-studio-code
    code --install-extension EditorConfig.EditorConfig
    code --install-extension esbenp.prettier-vscode
    code --install-extension formulahendry.auto-rename-tag
+   code --install-extension GitHub.copilot
    code --install-extension Gruntfuggly.todo-tree
    code --install-extension L13RARY.l13-diff
    code --install-extension mattpocock.ts-error-translator
@@ -364,6 +365,7 @@ brew install --cask visual-studio-code
    code --install-extension vscode-icons-team.vscode-icons
    code --install-extension WallabyJs.console-ninja
    code --install-extension wix.vscode-import-cost
+   code --install-extension yoavbls.pretty-ts-errors
    code --install-extension zenclabs.previewjs
    code --install-extension Zignd.html-css-class-completion
    ```
