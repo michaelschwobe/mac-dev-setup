@@ -125,12 +125,6 @@ brew install trash
 brew install git
 ```
 
-##### Install [git-flow](https://github.com/nvie/gitflow/):
-
-```sh
-brew install git-flow
-```
-
 ##### Install [zsh](https://www.zsh.org/):
 
 ```sh

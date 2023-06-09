@@ -34,17 +34,6 @@ if has_command "brew"; then
 fi
 
 if has_command "brew"; then
-  if ! has_command "git-flow"; then
-    get_consent "Install git-flow"
-    if has_consent; then
-      e_pending "Installing git-flow"
-      brew install git-flow
-      test_command "git-flow"
-    fi
-  fi
-fi
-
-if has_command "brew"; then
   if ! has_command "zsh"; then
     get_consent "Install zsh"
     if has_consent; then
