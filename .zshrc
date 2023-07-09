@@ -131,8 +131,14 @@ alias zshconfig="code ~/.zshrc"
 # One-liner for updating Homebrew and other installed packages (such as Node).
 alias brewup="brew update && brew upgrade && brew doctor && brew cleanup"
 
+# One-liner for updating npm to the latest version via itself.
+alias npmup="npm i -g npm@latest"
+
 # One-liner for updating pnpm to the latest version via corepack.
 alias pnpmup="corepack prepare pnpm@latest --activate"
+
+# One-liner for updating yarn to the latest version via corepack.
+alias yarnup="corepack prepare yarn@stable --activate"
 
 # ------------------------------------------------------------------------------
 # Helpers
