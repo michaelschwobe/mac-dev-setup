@@ -339,6 +339,7 @@ brew install --cask visual-studio-code
    code --install-extension bradlc.vscode-tailwindcss
    code --install-extension christian-kohler.npm-intellisense
    code --install-extension christian-kohler.path-intellisense
+   code --install-extension CodeForge.remix-forge
    code --install-extension dbaeumer.vscode-eslint
    code --install-extension dsznajder.es7-react-js-snippets
    code --install-extension eamodio.gitlens

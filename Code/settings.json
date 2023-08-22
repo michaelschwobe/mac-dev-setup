@@ -2,6 +2,7 @@
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
+  "console-ninja.featureSet": "Community",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
@@ -31,6 +32,13 @@
   "files.defaultLanguage": "typescriptreact",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "typescriptreact": true
+  },
   "projectManager.git.baseFolders": ["~/Developer", "~/Sandbox"],
   "search.exclude": {
     "**/*-lock.*": true,
