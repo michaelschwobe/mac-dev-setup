@@ -140,12 +140,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ##### Install [powerlevel10k](https://github.com/romkatv/powerlevel10k/) (CLI theming):
 
 ```sh
-brew install romkatv/powerlevel10k/powerlevel10k && \
+brew install powerlevel10k && \
 echo '# Theme configuration: PowerLevel10K' >> ~/.zshrc && \
-echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc && \
+echo 'source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc && \
 echo '# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.' >> ~/.zshrc && \
-echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc && \
-echo 'POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true' >> ~/.zshrc
+echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
 ```
 
 Restart your CLI for this to take effect, or run:

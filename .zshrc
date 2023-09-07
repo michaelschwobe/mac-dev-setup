@@ -254,10 +254,9 @@ killps() {
 # ------------------------------------------------------------------------------
 
 # Theme configuration: PowerLevel10K
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 # Fish shell-like fast/unobtrusive autosuggestions for Zsh.
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
