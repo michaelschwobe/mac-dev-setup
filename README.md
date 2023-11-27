@@ -256,12 +256,6 @@ brew install --cask figma
 brew install --cask google-chrome
 ```
 
-##### Install Insomnia:
-
-```sh
-brew install --cask insomnia
-```
-
 ##### Install iTerm:
 
 ```sh
