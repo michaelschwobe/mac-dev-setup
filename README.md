@@ -238,14 +238,6 @@ brew install --cask 1password
 brew install --cask brave-browser
 ```
 
-##### Install DiffMerge:
-
-If Intel Architecture:
-
-```sh
-brew install --cask diffmerge
-```
-
 ##### Install Discord:
 
 ```sh
