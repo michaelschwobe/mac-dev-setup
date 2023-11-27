@@ -17,6 +17,7 @@ declare -a cask_desc=(
 declare -a app_name=(
 "1password"
 "brave-browser"
+"bruno"
 "discord"
 "figma"
 "google-chrome"
@@ -33,6 +34,7 @@ declare -a app_name=(
 declare -a app_desc=(
 "1Password 7"
 "Brave Browser"
+"Bruno"
 "Discord"
 "Figma"
 "Google Chrome"

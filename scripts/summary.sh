@@ -41,6 +41,7 @@ else
 fi
 test_app "1Password 7"
 test_app "Brave Browser"
+test_app "Bruno"
 test_app "Discord"
 test_app "Figma"
 test_app "Google Chrome"
