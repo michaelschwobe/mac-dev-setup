@@ -332,21 +332,20 @@ brew install --cask visual-studio-code
    code --install-extension esbenp.prettier-vscode
    code --install-extension formulahendry.auto-rename-tag
    code --install-extension GitHub.copilot
+   code --install-extension GitHub.copilot-chat
+   code --install-extension github.vscode-github-actions
    code --install-extension Gruntfuggly.todo-tree
    code --install-extension L13RARY.l13-diff
-   code --install-extension mattpocock.ts-error-translator
    code --install-extension mikestead.dotenv
+   code --install-extension ms-azuretools.vscode-docker
    code --install-extension ms-vscode.sublime-keybindings
-   code --install-extension Orta.vscode-twoslash-queries
    code --install-extension Prisma.prisma
    code --install-extension stylelint.vscode-stylelint
    code --install-extension Tyriar.sort-lines
    code --install-extension unifiedjs.vscode-mdx
    code --install-extension vscode-icons-team.vscode-icons
-   code --install-extension WallabyJs.console-ninja
    code --install-extension wix.vscode-import-cost
    code --install-extension yoavbls.pretty-ts-errors
-   code --install-extension zenclabs.previewjs
    code --install-extension Zignd.html-css-class-completion
    ```
 2. Copy my Visual Studio Code User settings:
