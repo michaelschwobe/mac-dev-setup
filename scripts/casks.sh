@@ -11,7 +11,7 @@ declare -a cask_name=(
 )
 
 declare -a cask_desc=(
-"JetBrains Mono Nerd Font"
+"JetBrainsMono Nerd Font"
 )
 
 declare -a app_name=(

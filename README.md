@@ -219,7 +219,7 @@ npm install -g serve@latest
 
 ### Applications/Casks
 
-##### Install JetBrains Mono Nerd Font:
+##### Install JetBrainsMono Nerd Font:
 
 ```sh
 brew tap homebrew/cask-fonts # You only need to do this once!
@@ -285,7 +285,7 @@ brew install --cask iterm2
    - Theme location: `~/Downloads/mac-dev-setup/Moonlight.itermcolors`
 3. Set the font by going to:
    - "Preferences &rarr; Profiles &rarr; Text &rarr; Font"
-   - Font name: "JetBrainsMono Nerd Font Mono"
+   - Font name: "JetBrainsMono NFM"
 4. Restart iTerm and resolve any remaining issues.
 
 ##### Install Rectangle:
@@ -308,7 +308,7 @@ brew install --cask sourcetree
 
 1. Set the font by going to:
    - "Preferences &rarr; Diff &rarr; Internal Diff Visualization &rarr; Diff View font"
-   - Font name: "JetBrainsMono Nerd Font Mono"
+   - Font name: "JetBrainsMono NFM"
 2. Restart Sourcetree and resolve any remaining issues.
 
 ##### Install Spotify:
@@ -322,7 +322,7 @@ brew install --cask spotify
 1. Set the theme and font by going to:
    - "Preferences &rarr; Profiles &rarr; Import…"
    - Theme location: `~/Downloads/mac-dev-setup/Moonlight.terminal`
-   - Font name: "JetBrainsMono Nerd Font Mono"
+   - Font name: "JetBrainsMono NFM"
 2. Restart iTerm and resolve any remaining issues.
 
 ##### Install Visual Studio Code:
@@ -383,7 +383,7 @@ brew install --cask warp
 2. Set the theme and font by going to:
    - "Settings &rarr; Appearance &rarr; Themes"
    - Theme name: "Moonlight"
-   - Font name: "JetBrainsMono Nerd Font Mono"
+   - Font name: "JetBrainsMono NFM"
 
 ##### Install Zoom.us:
 
