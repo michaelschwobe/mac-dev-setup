@@ -2,11 +2,10 @@
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
-  "console-ninja.featureSet": "Community",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": true
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
   },
   "editor.cursorBlinking": "phase",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -22,7 +21,9 @@
   "editor.renderWhitespace": "all",
   "editor.rulers": [80],
   "editor.scrollBeyondLastLine": false,
+  "editor.semanticHighlighting.enabled": true,
   "editor.snippetSuggestions": "top",
+  "editor.stickyScroll.enabled": true,
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
@@ -34,17 +35,17 @@
   "files.trimTrailingWhitespace": true,
   "github.copilot.enable": {
     "*": true,
-    "plaintext": false,
     "markdown": true,
+    "plaintext": false,
     "scminput": false,
     "typescriptreact": true
   },
   "projectManager.git.baseFolders": ["~/Developer", "~/Sandbox"],
   "search.exclude": {
-    "**/*-lock.*": true,
-    "**/*.lock": true,
     "**/.*cache": true,
     "**/.next": true,
+    "**/*-lock.*": true,
+    "**/*.lock": true,
     "**/bower_components": true,
     "**/build": true,
     "**/coverage": true,
@@ -54,18 +55,21 @@
   },
   "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.env.osx": {},
   "terminal.integrated.fontFamily": "JetBrainsMono NFM, monospace",
-  "totalTypeScript.hideAllTips": true,
-  "totalTypeScript.hideBasicTips": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,
   "window.closeWhenEmpty": true,
   "workbench.colorTheme": "Moonlight II Italic",
+  "workbench.editorAssociations": {
+    "*.db": "sqlite-viewer.view"
+  },
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.enableStickyScroll": true,
   "workbench.tree.indent": 16
 }

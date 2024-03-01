@@ -77,6 +77,42 @@ if has_command "brew"; then
   done
 fi
 
+if has_app "Visual Studio Code"; then
+  get_consent "Install Visual Studio Code extensions, settings, and snippets"
+  if has_consent; then
+    e_pending "Installing Visual Studio Code extensions, settings, and snippets"
+    code --install-extension alefragnani.project-manager
+    code --install-extension atomiks.moonlight
+    code --install-extension bradlc.vscode-tailwindcss
+    code --install-extension christian-kohler.npm-intellisense
+    code --install-extension christian-kohler.path-intellisense
+    code --install-extension codeforge.remix-forge
+    code --install-extension dbaeumer.vscode-eslint
+    code --install-extension eamodio.gitlens
+    code --install-extension editorconfig.editorconfig
+    code --install-extension esbenp.prettier-vscode
+    code --install-extension formulahendry.auto-rename-tag
+    code --install-extension github.copilot
+    code --install-extension github.copilot-chat
+    code --install-extension github.vscode-github-actions
+    code --install-extension gruntfuggly.todo-tree
+    code --install-extension l13rary.l13-diff
+    code --install-extension mikestead.dotenv
+    code --install-extension ms-azuretools.vscode-docker
+    code --install-extension ms-vscode.sublime-keybindings
+    code --install-extension prisma.prisma
+    code --install-extension qwtel.sqlite-viewer
+    code --install-extension stylelint.vscode-stylelint
+    code --install-extension tyriar.sort-lines
+    code --install-extension unifiedjs.vscode-mdx
+    code --install-extension vscode-icons-team.vscode-icons
+    code --install-extension wix.vscode-import-cost
+    code --install-extension yoavbls.pretty-ts-errors
+    code --install-extension zignd.html-css-class-completion
+    cp ~/Downloads/mac-dev-setup/Code/* ~/Library/Application\ Support/Code/User
+  fi
+fi
+
 # ------------------------------------------------------------------------------
 e_message "Applications/Casks complete"
 # ------------------------------------------------------------------------------
