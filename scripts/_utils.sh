@@ -84,7 +84,7 @@ has_cask() {
 }
 
 test_cask() {
-  if has_cask $1; then
+  if has_cask $2; then
     e_success "$1"
   else
     e_failure "$1"

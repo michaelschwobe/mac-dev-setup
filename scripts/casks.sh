@@ -52,13 +52,13 @@ if has_command "brew"; then
   for i in "${!cask_name[@]}"; do
     DESC=${cask_desc[$i]}
     NAME=${cask_name[$i]}
-    test_cask "$DESC"
-    if ! has_cask "$DESC"; then
+    test_cask "$DESC" "$NAME"
+    if ! has_cask "$NAME"; then
       get_consent "Install $DESC"
       if has_consent; then
         e_pending "Installing $NAME"
         brew install --cask $NAME
-        test_cask "$DESC"
+        test_cask "$DESC" "$NAME"
       fi
     fi
   done

@@ -34,11 +34,7 @@ test_command "yarn"
 test_command "pnpm"
 test_command "npm"
 test_command "serve"
-if has_cask "font-jetbrains-mono-nerd-font"; then
-  e_success "JetBrainsMono Nerd Font"
-else
-  e_failure "JetBrainsMono Nerd Font"
-fi
+test_cask "JetBrainsMono Nerd Font" "font-jetbrains-mono-nerd-font";
 test_app "1Password"
 test_app "Brave Browser"
 test_app "Bruno"
