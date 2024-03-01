@@ -32,7 +32,7 @@ declare -a app_name=(
 )
 
 declare -a app_desc=(
-"1Password 7"
+"1Password"
 "Brave Browser"
 "Bruno"
 "Discord"

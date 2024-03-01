@@ -39,7 +39,7 @@ if has_cask "font-jetbrains-mono-nerd-font"; then
 else
   e_failure "JetBrainsMono Nerd Font"
 fi
-test_app "1Password 7"
+test_app "1Password"
 test_app "Brave Browser"
 test_app "Bruno"
 test_app "Discord"

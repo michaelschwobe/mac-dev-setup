@@ -273,11 +273,11 @@ brew install --cask iterm2
    cp ~/Downloads/mac-dev-setup/.zshrc ~/
    ```
 2. Set the theme by going to:
-   - "Preferences &rarr; Profiles &rarr; Colors &rarr; Color Presets… &rarr; Import…"
+   - "Settings… &rarr; Profiles &rarr; Colors &rarr; Color Presets… &rarr; Import…"
    - Theme location: `~/Downloads/mac-dev-setup/Moonlight.itermcolors`
 3. Set the font by going to:
-   - "Preferences &rarr; Profiles &rarr; Text &rarr; Font"
-   - Font name: "JetBrainsMono NFM"
+   - "Settings… &rarr; Profiles &rarr; Text &rarr; Font"
+   - Font name: "JetBrainsMono NFM" or "JetBrainsMono Nerd Font Mono"
 4. Restart iTerm and resolve any remaining issues.
 
 ##### Install Rectangle:
@@ -299,8 +299,8 @@ brew install --cask sourcetree
 ```
 
 1. Set the font by going to:
-   - "Preferences &rarr; Diff &rarr; Internal Diff Visualization &rarr; Diff View font"
-   - Font name: "JetBrainsMono NFM"
+   - "Settings… &rarr; Diff &rarr; Internal Diff Visualization &rarr; Diff View font"
+   - Font name: "JetBrainsMono NFM" or "JetBrainsMono Nerd Font Mono"
 2. Restart Sourcetree and resolve any remaining issues.
 
 ##### Install Spotify:
@@ -312,10 +312,10 @@ brew install --cask spotify
 ##### Update Terminal:
 
 1. Set the theme and font by going to:
-   - "Preferences &rarr; Profiles &rarr; Import…"
+   - "Settings… &rarr; Profiles &rarr; Import…" (bottom left next to the "+/-" buttons)
    - Theme location: `~/Downloads/mac-dev-setup/Moonlight.terminal`
-   - Font name: "JetBrainsMono NFM"
-2. Restart iTerm and resolve any remaining issues.
+   - Font name: "JetBrainsMono NFM" or "JetBrainsMono Nerd Font Mono"
+2. Restart Terminal and resolve any remaining issues.
 
 ##### Install Visual Studio Code:
 
@@ -372,9 +372,10 @@ brew install --cask warp
    cp ~/Downloads/mac-dev-setup/Moonlight.yaml ~/.warp/themes/
    ```
 2. Set the theme and font by going to:
-   - "Settings &rarr; Appearance &rarr; Themes"
+   - "Settings… &rarr; Appearance… &rarr; Themes"
    - Theme name: "Moonlight"
-   - Font name: "JetBrainsMono NFM"
+   - Font name: "JetBrainsMono NFM" or "JetBrainsMono Nerd Font Mono"
+3. Restart Warp and resolve any remaining issues.
 
 ##### Install Zoom.us:
 
