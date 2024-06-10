@@ -93,7 +93,14 @@ if has_command "brew" && has_command "zsh"; then
       echo '# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.' >> ~/.zshrc
       echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
       test_brew "powerlevel10k"
-      p10k configure
+    fi
+  fi
+  if has_brew "powerlevel10k" && ! has_path ".p10k.zsh"; then
+    get_consent "Install PowerLevel10K theme"
+    if has_consent; then
+      e_pending "Installing PowerLevel10K theme"
+      cp ~/Downloads/mac-dev-setup/.p10k.zsh ~/.p10k.zsh
+      test_path ".p10k.zsh"
     fi
   fi
 fi

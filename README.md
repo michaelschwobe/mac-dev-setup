@@ -169,11 +169,19 @@ echo '# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.' >> ~/.zs
 echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
 ```
 
-Restart your CLI for this to take effect, or run:
+Copy my PowerLevel10K settings:
+
+```sh
+cp ~/Downloads/mac-dev-setup/.p10k.zsh ~/.p10k.zsh
+```
+
+Or customize your own settings:
 
 ```sh
 p10k configure
 ```
+
+Restart your CLI for this to take effect.
 
 ##### Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/):
 
