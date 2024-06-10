@@ -399,7 +399,7 @@ brew install --cask warp
 1. Copy the theme:
    ```sh
    mkdir -p ~/.warp/themes/ && \
-   cp ~/Downloads/mac-dev-setup/Moonlight.yaml ~/.warp/themes/
+   cp ~/Downloads/mac-dev-setup/Moonlight.warp.yaml ~/.warp/themes/
    ```
 2. Set the theme and font by going to:
    - "Settings… &rarr; Appearance… &rarr; Themes"
