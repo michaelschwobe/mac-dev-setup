@@ -11,7 +11,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "JetBrainsMono NFM, monospace",
   "editor.fontLigatures": true,
-  "editor.fontSize": 13,
+  "editor.fontSize": 11,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
@@ -28,11 +28,13 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "files.associations": {
-    ".env*": "dotenv"
+    ".env*": "dotenv",
+    "*.svg": "html"
   },
   "files.defaultLanguage": "typescriptreact",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.enable": {
     "*": true,
     "markdown": true,
@@ -40,6 +42,7 @@
     "scminput": false,
     "typescriptreact": true
   },
+  "prisma.showPrismaDataPlatformNotification": false,
   "projectManager.git.baseFolders": ["~/Developer", "~/Sandbox"],
   "search.exclude": {
     "**/.*cache": true,
@@ -51,16 +54,19 @@
     "**/coverage": true,
     "**/dist": true,
     "**/node_modules": true,
+    "**/out": true,
     "**/storybook-build": true
   },
   "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.env.osx": {},
   "terminal.integrated.fontFamily": "JetBrainsMono NFM, monospace",
+  "terminal.integrated.fontSize": 9,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,
   "window.closeWhenEmpty": true,

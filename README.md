@@ -343,10 +343,10 @@ brew install --cask visual-studio-code
    code --install-extension l13rary.l13-diff
    code --install-extension mikestead.dotenv
    code --install-extension ms-azuretools.vscode-docker
-   code --install-extension ms-vscode.sublime-keybindings
    code --install-extension prisma.prisma
    code --install-extension qwtel.sqlite-viewer
    code --install-extension stylelint.vscode-stylelint
+   code --install-extension supermaven.supermaven
    code --install-extension tyriar.sort-lines
    code --install-extension unifiedjs.vscode-mdx
    code --install-extension vscode-icons-team.vscode-icons
