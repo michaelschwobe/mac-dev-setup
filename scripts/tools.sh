@@ -56,6 +56,33 @@ if has_command "zsh"; then
 fi
 
 if has_command "brew" && has_command "zsh"; then
+  if ! has_brew "oh-my-posh"; then
+    get_consent "Install oh-my-posh (CLI theming)"
+    if has_consent; then
+      e_pending "Installing oh-my-posh"
+      brew install jandedobbeleer/oh-my-posh/oh-my-posh
+      echo '# Theme configuration: Oh My Posh' >> ~/.zshrc
+      echo 'if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then' >> ~/.zshrc
+      echo '  if [ -f ~/.moonlight.omp.json ]; then' >> ~/.zshrc
+      echo '    eval "$(oh-my-posh init zsh --config ~/.moonlight.omp.json)"' >> ~/.zshrc
+      echo '  else' >> ~/.zshrc
+      echo '    eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/jandedobbeleer.omp.json)"' >> ~/.zshrc
+      echo '  fi' >> ~/.zshrc
+      echo 'fi' >> ~/.zshrc
+      test_brew "oh-my-posh"
+    fi
+  fi
+  if has_brew "oh-my-posh" && ! has_path ".moonlight.omp.json"; then
+    get_consent "Install Oh My Posh theme"
+    if has_consent; then
+      e_pending "Installing Oh My Posh theme"
+      cp ~/Downloads/mac-dev-setup/.moonlight.omp.json ~/.moonlight.omp.json
+      test_path ".moonlight.omp.json"
+    fi
+  fi
+fi
+
+if has_command "brew" && has_command "zsh"; then
   if ! has_brew "powerlevel10k"; then
     get_consent "Install powerlevel10k (CLI theming)"
     if has_consent; then

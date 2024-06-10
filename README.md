@@ -137,6 +137,28 @@ brew install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+##### Install [oh-my-posh](https://github.com/jandedobbeleer/oh-my-posh) (CLI theming):
+
+```sh
+brew install jandedobbeleer/oh-my-posh/oh-my-posh
+echo '# Theme configuration: Oh My Posh' >> ~/.zshrc
+echo 'if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then' >> ~/.zshrc
+echo '  if [ -f ~/.moonlight.omp.json ]; then' >> ~/.zshrc
+echo '    eval "$(oh-my-posh init zsh --config ~/.moonlight.omp.json)"' >> ~/.zshrc
+echo '  else' >> ~/.zshrc
+echo '    eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/jandedobbeleer.omp.json)"' >> ~/.zshrc
+echo '  fi' >> ~/.zshrc
+echo 'fi' >> ~/.zshrc
+```
+
+Copy my Oh My Posh settings:
+
+```sh
+cp ~/Downloads/mac-dev-setup/.moonlight.omp.json ~/.moonlight.omp.json
+```
+
+Restart your CLI for this to take effect.
+
 ##### Install [powerlevel10k](https://github.com/romkatv/powerlevel10k/) (CLI theming):
 
 ```sh

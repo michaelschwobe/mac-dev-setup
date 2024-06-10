@@ -257,6 +257,15 @@ killps() {
 # Plugins
 # ------------------------------------------------------------------------------
 
+# Theme configuration: Oh My Posh
+# if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+#   if [ -f ~/.moonlight.omp.json ]; then
+#     eval "$(oh-my-posh init zsh --config ~/.moonlight.omp.json)"
+#   else
+#     eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/jandedobbeleer.omp.json)"
+#   fi
+# fi
+
 # Theme configuration: PowerLevel10K
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
