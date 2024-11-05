@@ -13,8 +13,8 @@
           "style": "diamond",
           "leading_diamond": "",
           "trailing_diamond": "\uE0B0",
-          "background": "blue",
-          "foreground": "black",
+          "background": "#78dbff",
+          "foreground": "#000000",
           "template": " {{ .Path }} ",
           "properties": {
             "style": "unique"
@@ -25,20 +25,20 @@
           "style": "diamond",
           "leading_diamond": "\uE0D7",
           "trailing_diamond": "\uE0B0",
-          "background": "green",
-          "foreground": "black",
+          "background": "#c3e88d",
+          "foreground": "#000000",
           "background_templates": [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}",
-            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}lightYellow{{ end }}",
-            "{{ if gt .Ahead 0 }}magenta{{ end }}",
-            "{{ if gt .Behind 0 }}lightMagenta{{ end }}"
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#ffc777{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ffdea9{{ end }}",
+            "{{ if gt .Ahead 0 }}#fca7ea{{ end }}",
+            "{{ if gt .Behind 0 }}#fed0f6{{ end }}"
           ],
           "templates": [
             " {{ .HEAD }}",
             "{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}",
             "{{ if .Working.Changed }} \uF448 {{ .Working.String }} {{ end }}",
             "{{ if and (.Staging.Changed) (.Working.Changed) }}|{{ end }}",
-            "{{ if .Staging.Changed }} ✔ {{ .Staging.String }} {{ end }}",
+            "{{ if .Staging.Changed }} \uF00C {{ .Staging.String }} {{ end }}",
             "{{ if gt .StashCount 0 }} \udb80\udd20{{ .StashCount }} {{ end }}"
           ],
           "properties": {
@@ -52,17 +52,19 @@
           "style": "diamond",
           "leading_diamond": "\uE0D7",
           "trailing_diamond": "\uE0B0",
+          "background": "#000000",
+          "foreground": "#c3e88d",
           "background_templates": [
-            "{{if gt .Code 0}}red{{end}}",
-            "{{if eq .Code 0}}black{{end}}"
+            "{{if gt .Code 0}}#ff757f{{end}}",
+            "{{if eq .Code 0}}#000000{{end}}"
           ],
           "foreground_templates": [
-            "{{if gt .Code 0}}black{{end}}",
-            "{{if eq .Code 0}}green{{end}}"
+            "{{if gt .Code 0}}#000000{{end}}",
+            "{{if eq .Code 0}}#c3e88d{{end}}"
           ],
           "templates": [
-            "{{if gt .Code 0}} ✘ {{ reason .Code }} {{end}}",
-            "{{if eq .Code 0}} ✔ {{end}}"
+            "{{if gt .Code 0}} \uF00D {{ reason .Code }} {{end}}",
+            "{{if eq .Code 0}} \uF00C {{end}}"
           ]
         }
       ]
@@ -73,25 +75,47 @@
       "overflow": "hide",
       "segments": [
         {
-          "type": "node",
+          "type": "pnpm",
           "style": "diamond",
           "leading_diamond": "\uE0B2",
           "trailing_diamond": "\uE0D6",
-          "background": "magenta",
-          "foreground": "black",
-          "template": " \uE718 {{ .Full }} ",
+          "background": "#ffc777",
+          "foreground": "#000000",
+          "template": " \uDB80\uDEC1 {{ .Full }} ",
           "properties": {
-            "fetch_version": true
+            "extensions": ["pnpm-lock.yaml"]
+          }
+        },
+        {
+          "type": "yarn",
+          "style": "diamond",
+          "leading_diamond": "\uE0B2",
+          "trailing_diamond": "\uE0D6",
+          "background": "#7cafff",
+          "foreground": "#000000",
+          "template": " \uDB80\uDD1B {{ .Full }} ",
+          "properties": {
+            "extensions": ["yarn.lock"]
+          }
+        },
+        {
+          "type": "node",
+          "style": "diamond",
+          "leading_diamond": "\uE0B2",
+          "trailing_diamond": "",
+          "background": "#c3e88d",
+          "foreground": "#000000",
+          "template": " \uE718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "properties": {
+            "fetch_package_manager": true
           }
         },
         {
           "type": "npm",
-          "style": "diamond",
-          "leading_diamond": "",
-          "trailing_diamond": "",
-          "background": "magenta",
-          "foreground": "black",
-          "template": "npm {{ .Full }} "
+          "style": "plain",
+          "background": "#c3e88d",
+          "foreground": "#000000",
+          "template": "\u0026 {{ .Full }} "
         }
       ]
     }
