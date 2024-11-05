@@ -342,8 +342,7 @@
       "",
       "Button.displayName = \"Button\";",
       "",
-      "export { Button };",
-      ""
+      "export { Button };"
     ]
   },
   "React: Div component with forwardRef": {

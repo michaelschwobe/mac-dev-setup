@@ -42,7 +42,6 @@
     "scminput": false,
     "typescriptreact": true
   },
-  "prisma.showPrismaDataPlatformNotification": false,
   "projectManager.git.baseFolders": ["~/Developer", "~/Sandbox"],
   "search.exclude": {
     "**/.*cache": true,
@@ -55,7 +54,9 @@
     "**/dist": true,
     "**/node_modules": true,
     "**/out": true,
-    "**/storybook-build": true
+    "**/playwright-report": true,
+    "**/storybook-build": true,
+    "**/test-results": true
   },
   "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.experimental.classRegex": [
@@ -64,7 +65,6 @@
     ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
   "terminal.external.osxExec": "iTerm.app",
-  "terminal.integrated.env.osx": {},
   "terminal.integrated.fontFamily": "JetBrainsMono NFM, monospace",
   "terminal.integrated.fontSize": 9,
   "typescript.updateImportsOnFileMove.enabled": "always",
