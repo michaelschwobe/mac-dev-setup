@@ -286,6 +286,22 @@ brew install --cask discord
 brew install --cask figma
 ```
 
+##### Install Ghostty:
+
+```sh
+brew install --cask ghostty
+```
+
+1. Copy the theme:
+   ```sh
+   mkdir -p ~/.config/ghostty/ && \
+   cp ~/Downloads/mac-dev-setup/Moonlight.ghostty.config ~/.config/ghostty/config
+   ```
+2. Check the theme by going to:
+   - "Settings…"
+3. Reload Ghostty and resolve any remaining issues.
+   - "Reload Configuration"
+
 ##### Install Google Chrome:
 
 ```sh
