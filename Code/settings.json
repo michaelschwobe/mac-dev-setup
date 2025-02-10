@@ -29,6 +29,7 @@
   "editor.wordWrap": "on",
   "files.associations": {
     ".env*": "dotenv",
+    "*.code-snippets": "json",
     "*.svg": "html"
   },
   "files.defaultLanguage": "typescriptreact",
@@ -67,6 +68,7 @@
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "JetBrainsMono NFM, monospace",
   "terminal.integrated.fontSize": 9,
+  "terminal.integrated.fontLigatures": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,
   "window.closeWhenEmpty": true,

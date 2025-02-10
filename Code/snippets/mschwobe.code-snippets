@@ -89,12 +89,34 @@
       "</pre>"
     ]
   },
+  "React: Component Variants": {
+    "prefix": "rcv",
+    "description": "React: Button Variants",
+    "scope": "typescript,typescriptreact",
+    "body": [
+      "import { cva, type VariantProps } from \"#app/utils/css\";",
+      "",
+      "export type ${TM_FILENAME/(.*?)\\..+/${1:/pascalcase}/}Variants = VariantProps<typeof ${TM_FILENAME/(.*?)\\..+/${1:/camelcase}/}Variants>;",
+      "",
+      "export const ${TM_FILENAME/(.*?)\\..+/${1:/camelcase}/}VariantKeys = {} as const;",
+      "",
+      "export const ${TM_FILENAME/(.*?)\\..+/${1:/camelcase}/}VariantDefaults = {} as const;",
+      "",
+      "export const ${TM_FILENAME/(.*?)\\..+/${1:/camelcase}/}Variants = cva({",
+      "  base: [],",
+      "  variants: {},",
+      "  compoundVariants: [],",
+      "  defaultVariants: ${TM_FILENAME/(.*?)\\..+/${1:/camelcase}/}VariantDefaults,",
+      "});",
+      ""
+    ]
+  },
   "React: Button Variants": {
     "prefix": "rbv",
     "description": "React: Button Variants",
     "scope": "typescript,typescriptreact",
     "body": [
-      "import { cva, type VariantProps } from \"../utils/style-utils\";",
+      "import { cva, type VariantProps } from \"#app/utils/css\";",
       "",
       "export type ButtonVariants = VariantProps<typeof buttonVariants>;",
       "",
