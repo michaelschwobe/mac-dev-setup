@@ -35,14 +35,6 @@
   "files.defaultLanguage": "typescriptreact",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "github.copilot.editor.enableAutoCompletions": true,
-  "github.copilot.enable": {
-    "*": true,
-    "markdown": true,
-    "plaintext": false,
-    "scminput": false,
-    "typescriptreact": true
-  },
   "projectManager.git.baseFolders": ["~/Developer", "~/Sandbox"],
   "search.exclude": {
     "**/.*cache": true,
@@ -65,10 +57,10 @@
     ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
     ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
   ],
-  "terminal.external.osxExec": "iTerm.app",
+  "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.fontFamily": "JetBrainsMono NFM, monospace",
+  "terminal.integrated.fontLigatures.enabled": false,
   "terminal.integrated.fontSize": 9,
-  "terminal.integrated.fontLigatures": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsicons.dontShowNewVersionMessage": true,
   "window.closeWhenEmpty": true,

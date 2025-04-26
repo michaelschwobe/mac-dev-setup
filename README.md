@@ -378,6 +378,7 @@ brew install --cask visual-studio-code
    code --install-extension christian-kohler.path-intellisense
    code --install-extension codeforge.remix-forge
    code --install-extension dbaeumer.vscode-eslint
+   code --install-extension docker.docker
    code --install-extension eamodio.gitlens
    code --install-extension editorconfig.editorconfig
    code --install-extension esbenp.prettier-vscode
