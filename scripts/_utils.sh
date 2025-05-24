@@ -1,5 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
+# Check if running on macOS and fail quickly if not
+if [ "$(uname)" != "Darwin" ]; then
+    e_failure "Unsupported operating system (macOS only)"
+    exit 1
+fi
+
+
+# Using tput so this works in both zsh and bash
 color_reset=$(tput sgr0)
 color_red=$(tput setaf 1)
 color_green=$(tput setaf 2)
@@ -7,127 +15,93 @@ color_yellow=$(tput setaf 3)
 color_blue=$(tput setaf 4)
 
 e_failure() {
-  printf "${color_red}🔴  %s${color_reset}" "$@"
-  printf "\n"
+    printf "${color_red}🔴  %s${color_reset}\n" "$@"
 }
 
 e_pending() {
-  printf "${color_yellow}⏳  %s...${color_reset}" "$@"
-  printf "\n"
+    printf "${color_yellow}⏳  %s...${color_reset}\n" "$@"
 }
 
 e_success() {
-  printf "${color_green}🟢  %s${color_reset}" "$@"
-  printf "\n"
+    printf "${color_green}🟢  %s${color_reset}\n" "$@"
 }
 
 e_message() {
-  printf "\n"
-  printf "${color_blue}✨  %s${color_reset}" "$@"
-  printf "\n\n"
+    printf "\n${color_blue}✨  %s${color_reset}\n\n" "$@"
 }
 
 has_command() {
-  if [ $(type -P $1) ]; then
-    return 0
-  fi
-  return 1
+    command -v "$1" >/dev/null 2>&1
 }
 
-test_command() {
-  if has_command $1; then
-    e_success "$1"
-  else
-    e_failure "$1"
-  fi
+test_fn() {
+    local condition=$1
+    local name=$2
+    if eval "$condition"; then
+        e_success "$name"
+        return 0
+    else
+        e_failure "$name"
+        return 1
+    fi
 }
 
-has_brew() {
-  if $(brew ls --versions $1 > /dev/null); then
-    return 0
-  fi
-  return 1
+has_arm64() {
+    [ "$(uname -m)" = "arm64" ]
 }
 
-test_brew() {
-  if has_brew $1; then
-    e_success "$1"
-  else
-    e_failure "$1"
-  fi
+test_arm64() {
+    if has_arm64; then
+        e_success "arm64"
+        return 0
+    else
+        e_failure "arm64"
+        return 0
+    fi
 }
 
 has_path() {
-  local path="$@"
-  if [ -e "$HOME/$path" ]; then
-    return 0
-  fi
-  return 1
+    [ -e "$HOME/$1" ]
 }
 
 test_path() {
-  # local path=$(echo "$@" | sed 's:.*/::')
-  if has_path $1; then
-    # e_success "$path"
-    e_success "$1"
-  else
-    # e_failure "$path"
-    e_failure "$1"
-  fi
+    test_fn "has_path $1" "$1"
+}
+
+test_command() {
+    test_fn "has_command $1" "$1"
+}
+
+has_brew() {
+    brew list --versions "$1" >/dev/null 2>&1
+}
+
+test_brew() {
+    test_fn "has_brew $1" "$1"
 }
 
 has_cask() {
-  if $(brew ls --cask $1 &> /dev/null); then
-    return 0
-  fi
-  return 1
+    brew list --cask "$1" >/dev/null 2>&1
 }
 
 test_cask() {
-  if has_cask $2; then
-    e_success "$1"
-  else
-    e_failure "$1"
-  fi
+    test_fn "has_cask $1" "$2"
 }
 
 has_app() {
-  local name="$@"
-  if [ -e "/Applications/$name.app" ]; then
-    return 0
-  fi
-  return 1
+    [ -e "/Applications/$1.app" ] || [ -d "$HOME/Applications/$1.app" ]
 }
 
 test_app() {
-  if has_app $1; then
-    e_success "$1"
-  else
-    e_failure "$1"
-  fi
-}
-
-has_arm() {
-  if [[ $(uname -p) == 'arm' ]]; then
-    return 0
-  fi
-  return 1
+    test_fn "has_app \"$1\"" "$1"
 }
 
 has_consent() {
-  if [[ "$REPLY" =~ ^[Yy]$ ]]; then
-    return 0
-  fi
-  return 1
+    echo "$REPLY" | grep -qE '^[Yy]$'
 }
 
 get_consent() {
-  printf "❔  %s? [y/n]:" "$@"
-  read -p " " -n 1
-  printf "\n"
+    printf "❔  %s? [y/n]: " "$@"
+    read REPLY
+    printf "\n"
 }
-
-if ! [[ "${OSTYPE}" == "darwin"* ]]; then
-  e_failure "Unsupported operating system (macOS only)"
-  exit 1
-fi

@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-source _utils.sh
+. ./_utils.sh
 
 clear
 
@@ -8,11 +8,11 @@ clear
 e_message "Starting mac-dev-setup"
 # ------------------------------------------------------------------------------
 
-source defaults.sh
-source tools.sh
-source casks.sh
-source optimizations.sh
-source summary.sh
+. ./defaults.sh
+. ./tools.sh
+. ./casks.sh
+. ./optimizations.sh
+. ./summary.sh
 
 # ------------------------------------------------------------------------------
 e_message "mac-dev-setup complete"

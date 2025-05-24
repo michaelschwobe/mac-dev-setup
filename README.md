@@ -2,11 +2,19 @@
 
 > A macOS setup guide specific to front-end development.
 
+## Prerequisites
+
+🔐 **Required Permissions:**
+
+- Administrator access to your Mac
+- Full disk access for certain applications
+- Permission to install applications from identified developers
+
 ## Guided Setup
 
-For a guided setup, open up **Terminal.app** and run the following command:
+For a guided setup, open up **Terminal.app** and run the following commands.
 
-1. Save repo to `~/Downloads` folder:
+1. Save the repo to the `~/Downloads` folder:
    ```sh
    git clone https://github.com/michaelschwobe/mac-dev-setup.git ~/Downloads/mac-dev-setup && \
    cd ~/Downloads/mac-dev-setup/scripts
@@ -15,18 +23,10 @@ For a guided setup, open up **Terminal.app** and run the following command:
    ```sh
    sh install.sh
    ```
-   **OR** Run the installer scripts individually:
-   ```sh
-   sh defaults.sh
-   sh tools.sh
-   sh casks.sh
-   sh optimizations.sh
-   sh summary.sh
-   ```
 
-🔥 The scripts auto-skip prompts for items already installed. **Recommended:** Rerun as many times as needed.
+🔥 **Recommended:** Rerun as many times as needed. The scripts will auto-skip prompts for items already installed.
 
-✨ And thats it! For additional CLI and IDE customizations, refer to the related **Manual Setup** section below.
+✨ And that’s it! For additional CLI and IDE customizations, refer to the related **Manual Setup** section below.
 
 ## Manual Setup
 
@@ -39,6 +39,8 @@ For those who prefer à la carte, this section contains everything that the **Gu
    ```
 2. Continue with setup below.
 
+### Quick Navigation
+
 - [Defaults](#defaults)
 - [Tools](#tools)
 - [Applications](#applications)
@@ -46,7 +48,9 @@ For those who prefer à la carte, this section contains everything that the **Gu
 
 ### Defaults
 
-##### Create Dock spacers:
+#### System Preferences
+
+##### Create 3 Dock spacers:
 
 ```sh
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}' && \
@@ -69,17 +73,21 @@ defaults write com.apple.finder AppleShowAllFiles -boolean true && \
 killall Finder
 ```
 
-##### Create `~/Developer` folder:
+#### Directory Structure
+
+##### Create a `~/Developer` folder:
 
 ```sh
 mkdir -p ~/Developer
 ```
 
-##### Create `~/Sandbox` folder:
+##### Create a `~/Sandbox` folder:
 
 ```sh
 mkdir -p ~/Sandbox
 ```
+
+#### Core Dependencies
 
 ##### Installing xcode-select (CLI tools):
 
@@ -93,7 +101,7 @@ If: Apple Silicon/ARM Architecture:
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'>>$HOME/.zprofile && \
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile && \
 eval "$(/opt/homebrew/bin/brew shellenv)" && \
 brew doctor
 ```
@@ -106,6 +114,8 @@ brew doctor
 ```
 
 ### Tools
+
+#### Development Tools
 
 ##### Install [watchman](https://facebook.github.io/watchman/):
 
@@ -124,6 +134,8 @@ brew install trash
 ```sh
 brew install git
 ```
+
+#### Shell Configuration
 
 ##### Install [zsh](https://www.zsh.org/):
 
@@ -205,28 +217,22 @@ echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlight
 Restart your CLI for this to take effect.
 Note the `source` command must be **at the end** of `~/.zshrc`.
 
-##### Install [node](https://nodejs.org/) (Node via [Homebrew](https://brew.sh/)):
-
-```sh
-brew install node
-```
-
-##### Install [n](https://github.com/tj/n/) (Node via n):
+##### Install [n](https://github.com/tj/n/) to install/manage Node versions:
 
 ```sh
 brew install n
 ```
 
-##### Install [nvm](https://github.com/nvm-sh/nvm/) (Node via nvm):
+##### Install [nvm](https://github.com/nvm-sh/nvm/) to install/manage Node versions:
 
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
-##### Install [yarn](https://yarnpkg.com/):
+##### Install [node](https://nodejs.org/) versioned managed by Homebrew:
 
 ```sh
-brew install yarn
+brew install node
 ```
 
 ##### Install [pnpm](https://pnpm.io/):
@@ -235,13 +241,19 @@ brew install yarn
 brew install pnpm
 ```
 
+##### Install [yarn](https://yarnpkg.com/):
+
+```sh
+brew install yarn
+```
+
 ##### Upgrade [npm](https://www.npmjs.com/) (globally via npm):
 
 ```sh
 npm install -g npm@latest
 ```
 
-##### Install/Upgrade [serve](https://github.com/zeit/serve/) (globally via npm):
+##### Install [serve](https://github.com/zeit/serve/) (globally via npm):
 
 ```sh
 npm install -g serve@latest
