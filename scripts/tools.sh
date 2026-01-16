@@ -164,7 +164,7 @@ if has_command "brew"; then
         get_consent "Install nvm to install/manage node versions"
         if has_consent; then
             e_pending "Installing nvm"
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
             test_command "nvm"
         fi
     fi

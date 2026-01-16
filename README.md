@@ -233,7 +233,7 @@ sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/lo
 ##### Install [nvm](https://github.com/nvm-sh/nvm/) to install/manage Node versions:
 
 ```sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
 ##### Install [node](https://nodejs.org/) versioned managed by Homebrew:
@@ -260,7 +260,7 @@ brew install yarn
 npm install -g npm@latest
 ```
 
-##### Install [serve](https://github.com/zeit/serve/) (globally via npm):
+##### Install [serve](https://github.com/vercel/serve/) (globally via npm):
 
 ```sh
 npm install -g serve@latest
