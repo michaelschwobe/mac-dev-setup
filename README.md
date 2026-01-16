@@ -381,19 +381,19 @@ brew install --cask spotify
 brew install --cask visual-studio-code
 ```
 
-1. Install my Extensions:
+1. Install my Extensions (`code` alias required in `.zshrc`):
    ```sh
    code --install-extension alefragnani.project-manager
    code --install-extension atomiks.moonlight
+   code --install-extension bierner.markdown-mermaid
+   code --install-extension biomejs.biome
    code --install-extension bradlc.vscode-tailwindcss
    code --install-extension christian-kohler.npm-intellisense
    code --install-extension christian-kohler.path-intellisense
-   code --install-extension codeforge.remix-forge
    code --install-extension dbaeumer.vscode-eslint
    code --install-extension docker.docker
    code --install-extension eamodio.gitlens
    code --install-extension editorconfig.editorconfig
-   code --install-extension esbenp.prettier-vscode
    code --install-extension formulahendry.auto-rename-tag
    code --install-extension github.copilot
    code --install-extension github.copilot-chat
@@ -401,8 +401,11 @@ brew install --cask visual-studio-code
    code --install-extension gruntfuggly.todo-tree
    code --install-extension l13rary.l13-diff
    code --install-extension mikestead.dotenv
+   code --install-extension ms-azuretools.vscode-containers
    code --install-extension ms-azuretools.vscode-docker
    code --install-extension orta.vscode-twoslash-queries
+   code --install-extension oxc.oxc-vscode
+   code --install-extension prettier.prettier-vscode
    code --install-extension prisma.prisma
    code --install-extension qwtel.sqlite-viewer
    code --install-extension stylelint.vscode-stylelint

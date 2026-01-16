@@ -5,8 +5,8 @@
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "body": [
       "$LINE_COMMENT -----------------------------------------------------------------------------",
-      ""
-    ]
+      "",
+    ],
   },
   "Comment: Double //": {
     "prefix": "/",
@@ -16,16 +16,16 @@
       "$LINE_COMMENT -----------------------------------------------------------------------------",
       "$LINE_COMMENT ${1:sectionName}",
       "$LINE_COMMENT -----------------------------------------------------------------------------",
-      ""
-    ]
+      "",
+    ],
   },
   "Comment: Single /*": {
     "prefix": "/",
     "description": "Comment: Single /*",
     "body": [
       "$BLOCK_COMMENT_START -------------------------------------------------------------------------- $BLOCK_COMMENT_END",
-      ""
-    ]
+      "",
+    ],
   },
   "Comment: Double //*": {
     "prefix": "/",
@@ -34,50 +34,50 @@
       "$BLOCK_COMMENT_START -----------------------------------------------------------------------------",
       "$BLOCK_COMMENT_START ${1:sectionName}",
       "$BLOCK_COMMENT_START -------------------------------------------------------------------------- $BLOCK_COMMENT_END",
-      ""
-    ]
+      "",
+    ],
   },
   "Console: table": {
     "prefix": "contab",
     "description": "Console: table",
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
-    "body": ["console.table(${1});"]
+    "body": ["console.table(${1});"],
   },
   "Console: error": {
     "prefix": "conerr",
     "description": "Console: error",
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
-    "body": ["console.log(\"🔴 ${1}\", ${1});"]
+    "body": ["console.log(\"🔴 ${1}\", ${1});"],
   },
   "Console: warn": {
     "prefix": "conwarn",
     "description": "Console: warn",
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
-    "body": ["console.log(\"🟡 ${1}\", ${1});"]
+    "body": ["console.log(\"🟡 ${1}\", ${1});"],
   },
   "Console: log": {
     "prefix": "conlog",
     "description": "Console: log",
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
-    "body": ["console.log(\"🟢 ${1}\", ${1});"]
+    "body": ["console.log(\"🟢 ${1}\", ${1});"],
   },
   "Console: log stringified": {
     "prefix": "constr",
     "description": "Console: log stringified",
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
-    "body": ["console.log(\"🟢 ${1}\", JSON.stringify(${1}${2:, null, 2}));"]
+    "body": ["console.log(\"🟢 ${1}\", JSON.stringify(${1}${2:, null, 2}));"],
   },
   "CSS: debug with outline": {
     "prefix": "debugcss",
     "description": "CSS: debug with outline",
     "scope": "css,scss",
-    "body": ["* { outline: 1px dotted hotpink; }", ""]
+    "body": ["* { outline: 1px dotted hotpink; }", ""],
   },
   "Array of length N": {
     "prefix": "arrn",
     "description": "Array of length N",
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
-    "body": ["[...Array(${1:n}).keys()]"]
+    "body": ["[...Array(${1:n}).keys()]"],
   },
   "React: Pre component with stringified data": {
     "prefix": "prestr",
@@ -86,8 +86,8 @@
     "body": [
       "<pre style={{ fontSize: \"10px\", tabSize: 2, width: \"fit-content\", padding: \"1em\", border: \"1px dashed\", overflow: \"auto\" }}>",
       "  {JSON.stringify(${1}, null, 2)}",
-      "</pre>"
-    ]
+      "</pre>",
+    ],
   },
   "React: Component Variants": {
     "prefix": "rcv",
@@ -108,8 +108,8 @@
       "  compoundVariants: [],",
       "  defaultVariants: ${TM_FILENAME/(.*?)\\..+/${1:/camelcase}/}VariantDefaults,",
       "});",
-      ""
-    ]
+      "",
+    ],
   },
   "React: Button Variants": {
     "prefix": "rbv",
@@ -323,8 +323,8 @@
       "    palette: \"neutral\",",
       "  },",
       "});",
-      ""
-    ]
+      "",
+    ],
   },
   "React: Button component with forwardRef": {
     "prefix": "rcfr-button",
@@ -365,8 +365,8 @@
       "Button.displayName = \"Button\";",
       "",
       "export { Button };",
-      ""
-    ]
+      "",
+    ],
   },
   "React: Div component with forwardRef": {
     "prefix": "rcfr-div",
@@ -389,8 +389,8 @@
       "${TM_FILENAME/(.*?)\\..+/${1:/pascalcase}/}.displayName = \"${TM_FILENAME/(.*?)\\..+/${1:/pascalcase}/}\";",
       "",
       "export { ${TM_FILENAME/(.*?)\\..+/${1:/pascalcase}/} };",
-      ""
-    ]
+      "",
+    ],
   },
   "React: Input component with forwardRef": {
     "prefix": "rcfr-input",
@@ -413,8 +413,8 @@
       "${TM_FILENAME/(.*?)\\..+/${1:/pascalcase}/}.displayName = \"${TM_FILENAME/(.*?)\\..+/${1:/pascalcase}/}\";",
       "",
       "export { ${TM_FILENAME/(.*?)\\..+/${1:/pascalcase}/} };",
-      ""
-    ]
+      "",
+    ],
   },
   "React: Context with simple tuple": {
     "prefix": "rctx-simple",
@@ -534,8 +534,8 @@
       "    </div>",
       "  );",
       "}",
-      ""
-    ]
+      "",
+    ],
   },
   "React: Context with nested objects": {
     "prefix": "rctx-nested",
@@ -892,8 +892,8 @@
       "    </div>",
       "  );",
       "}",
-      ""
-    ]
+      "",
+    ],
   },
   "React: Storybook story": {
     "prefix": "rsb",
@@ -940,8 +940,8 @@
       "};",
       "",
       "/* TODO: Write <${TM_FILENAME/(.*?)\\..+/${1:/pascalcase}/} /> stories. */",
-      ""
-    ]
+      "",
+    ],
   },
   "Vitest: test": {
     "prefix": "vt",
@@ -950,14 +950,14 @@
     "body": [
       "test(\"should\", () => {",
       "  expect(${1:provided}).toEqual(${0:expected});",
-      "});"
-    ]
+      "});",
+    ],
   },
   "Vitest: describe": {
     "prefix": "vd",
     "description": "Vitest: describe",
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
-    "body": ["describe(\"${1:moduleName}\", () => {", "  ${0}", "});"]
+    "body": ["describe(\"${1:moduleName}\", () => {", "  ${0}", "});"],
   },
   "Vitest: describe test": {
     "prefix": "vdt",
@@ -975,7 +975,7 @@
       "});",
       "",
       "/* TODO: Write <${TM_FILENAME/(.*?)\\..+/${1:/pascalcase}/} /> tests. */",
-      ""
-    ]
-  }
+      "",
+    ],
+  },
 }
