@@ -35,7 +35,6 @@ test_command "nvm"
 test_command "node"
 test_command "pnpm"
 test_command "npm"
-test_command "serve"
 
 e_pending "Checking casks"
 test_cask "font-jetbrains-mono-nerd-font" "JetBrainsMono Nerd Font"

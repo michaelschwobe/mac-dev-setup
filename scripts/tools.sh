@@ -156,15 +156,6 @@ if has_command "npm"; then
     fi
 fi
 
-if has_command "npm"; then
-    get_consent "Install serve (globally via npm)"
-    if has_consent; then
-        e_pending "Installing/Upgrading serve"
-        npm install -g serve@latest
-        test_command "serve"
-    fi
-fi
-
 # ------------------------------------------------------------------------------
 e_message "Tools complete"
 # ------------------------------------------------------------------------------

@@ -218,12 +218,6 @@ brew install pnpm
 npm install -g npm@latest
 ```
 
-##### Install [serve](https://github.com/vercel/serve/) (globally via npm):
-
-```sh
-npm install -g serve@latest
-```
-
 ### Applications/Casks
 
 ##### Install JetBrainsMono Nerd Font:
