@@ -45,18 +45,6 @@ if has_command "brew"; then
         fi
     fi
 
-    NAME="bruno"
-    DESC="Bruno"
-    test_app "$DESC"
-    if ! has_app "$DESC"; then
-        get_consent "Install $DESC.app"
-        if has_consent; then
-            e_pending "Installing $NAME"
-            brew install --cask $NAME
-            test_app "$DESC"
-        fi
-    fi
-
     NAME="discord"
     DESC="Discord"
     test_app "$DESC"

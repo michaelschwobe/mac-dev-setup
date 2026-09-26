@@ -263,12 +263,6 @@ brew install --cask 1password
 brew install --cask brave-browser
 ```
 
-##### Install Bruno:
-
-```sh
-brew install --cask bruno
-```
-
 ##### Install Discord:
 
 ```sh
