@@ -50,7 +50,6 @@ test_app "Rectangle"
 test_app "Sourcetree"
 test_app "Spotify"
 test_app "Visual Studio Code"
-test_app "Zoom.us"
 
 # ------------------------------------------------------------------------------
 e_message "Summary complete"

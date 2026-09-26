@@ -128,18 +128,6 @@ if has_command "brew"; then
             test_app "$DESC"
         fi
     fi
-
-    NAME="zoom"
-    DESC="Zoom.us"
-    test_app "$DESC"
-    if ! has_app "$DESC"; then
-        get_consent "Install $DESC.app"
-        if has_consent; then
-            e_pending "Installing $NAME"
-            brew install --cask $NAME
-            test_app "$DESC"
-        fi
-    fi
 fi
 
 if has_app "Visual Studio Code"; then
