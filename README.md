@@ -269,12 +269,6 @@ brew install --cask brave-browser
 brew install --cask discord
 ```
 
-##### Install Figma:
-
-```sh
-brew install --cask figma
-```
-
 ##### Install Ghostty:
 
 ```sh
