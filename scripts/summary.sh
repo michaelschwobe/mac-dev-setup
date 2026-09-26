@@ -24,7 +24,6 @@ test_command "xcode-select"
 test_command "brew"
 
 e_pending "Checking tools"
-test_command "watchman"
 test_command "trash"
 test_command "git"
 test_command "zsh"

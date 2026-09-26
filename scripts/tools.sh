@@ -7,17 +7,6 @@ e_message "Checking tools"
 # ------------------------------------------------------------------------------
 
 if has_command "brew"; then
-    if ! has_command "watchman"; then
-        get_consent "Install watchman"
-        if has_consent; then
-            e_pending "Installing watchman"
-            brew install watchman
-            test_command "watchman"
-        fi
-    fi
-fi
-
-if has_command "brew"; then
     if ! has_command "trash"; then
         get_consent "Install trash"
         if has_consent; then

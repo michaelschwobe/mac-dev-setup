@@ -117,12 +117,6 @@ brew doctor
 
 #### Development Tools
 
-##### Install [watchman](https://facebook.github.io/watchman/):
-
-```sh
-brew install watchman
-```
-
 ##### Install [trash](https://hasseg.org/trash/):
 
 ```sh
