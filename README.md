@@ -386,29 +386,6 @@ brew install --cask visual-studio-code
    ```
 3. Restart Visual Studio Code and resolve any remaining issues.
 
-##### Install Warp:
-
-```sh
-brew install --cask warp
-```
-
-1. Copy the theme:
-   ```sh
-   mkdir -p ~/.warp/themes/ && \
-   cp ~/Downloads/mac-dev-setup/Moonlight.warp.yaml ~/.warp/themes/
-   ```
-2. Set the theme and font by going to:
-   - "Settings… &rarr; Appearance… &rarr; Themes"
-   - Theme name: "Moonlight"
-   - Font name: "JetBrainsMono NFM" or "JetBrainsMono Nerd Font Mono"
-3. Restart Warp and resolve any remaining issues.
-
-##### Install Zoom.us:
-
-```sh
-brew install --cask zoom
-```
-
 ### Optimizations
 
 ##### Re-sort Launchpad applications:
