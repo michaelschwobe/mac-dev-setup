@@ -1,92 +1,127 @@
 {
+  "[css]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
-  "editor.bracketPairColorization.enabled": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.prettier": "explicit",
-    "source.organizeImports": "explicit"
+  "[scss]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
   },
-  "editor.cursorBlinking": "phase",
-  "editor.defaultFormatter": "prettier.prettier-vscode",
+  "[toml]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSaveMode": "file"
+  },
+  "claudeCode.preferredLocation": "panel",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "never",
+    "source.fixAll.oxc": "always",
+    "source.fixAll.prettier": "never",
+    "source.format.oxc": "always",
+    "source.organizeImports": "never"
+  },
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.fontFamily": "JetBrainsMono NFM, monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 11,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
   "editor.linkedEditing": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderWhitespace": "all",
-  "editor.rulers": [80],
+  "editor.rulers": [80, 100, 120],
   "editor.scrollBeyondLastLine": false,
   "editor.semanticHighlighting.enabled": true,
   "editor.snippetSuggestions": "top",
   "editor.stickyScroll.enabled": true,
   "editor.tabCompletion": "on",
-  "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "files.associations": {
     ".env*": "dotenv",
     "*.code-snippets": "json",
     "*.svg": "html"
   },
-  "files.defaultLanguage": "typescriptreact",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "l13Diff.exclude": [
-    "**/.DS_Store",
-    "**/.git",
-    "**/.hg",
-    "**/.svn",
-    "**/CVS",
-    "**/.*cache",
-    "**/.next",
-    "**/.react-router",
-    "**/*-lock.*",
-    "**/*.lock",
-    "**/build",
-    "**/coverage",
-    "**/dist",
-    "**/node_modules",
-    "**/out",
-    "**/playwright-report",
-    "**/storybook-build",
-    "**/test-results"
-  ],
+  "git.confirmSync": false,
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "json.schemaDownload.trustedDomains": {
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://json-schema.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://schemastore.azurewebsites.net/": true,
+    "https://unpkg.com/knip%406/schema.json": true,
+    "https://www.schemastore.org/": true
+  },
+  "l13Diff.exclude": ["**/.DS_Store", "**/.git", "**/node_modules"],
+  "oxc.enable.oxfmt": true,
+  "oxc.enable.oxlint": true,
+  "oxc.lint.run": "onSave",
+  "prettier.enable": true,
+  "prettier.requireConfig": false,
   "projectManager.git.baseFolders": ["~/Developer", "~/Sandbox"],
   "search.exclude": {
-    "**/.*cache": true,
-    "**/.next": true,
-    "**/.react-router": true,
     "**/*-lock.*": true,
     "**/*.lock": true,
-    "**/build": true,
-    "**/coverage": true,
-    "**/dist": true,
-    "**/node_modules": true,
-    "**/out": true,
-    "**/playwright-report": true,
-    "**/storybook-build": true,
-    "**/test-results": true
+    "**/node_modules": true
   },
-  "tailwindCSS.classFunctions": ["tv"],
+  "tailwindCSS.classFunctions": ["cva", "cn"],
   "tailwindCSS.emmetCompletions": true,
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.fontFamily": "JetBrainsMono NFM, monospace",
   "terminal.integrated.fontLigatures.enabled": false,
   "terminal.integrated.fontSize": 9,
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "todo-tree.ripgrep.ripgrep": "/usr/local/bin/rg",
   "vsicons.dontShowNewVersionMessage": true,
-  "window.closeWhenEmpty": true,
+  "workbench.browser.openLocalhostLinks": false,
   "workbench.colorTheme": "Moonlight II Italic",
-  "workbench.editorAssociations": {
-    "*.db": "sqlite-viewer.view"
-  },
+  "workbench.editorAssociations": { "*.db": "sqlite-viewer.view" },
   "workbench.iconTheme": "vscode-icons",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.tree.enableStickyScroll": true,
-  "workbench.tree.indent": 16
+  "workbench.startupEditor": "none"
 }
