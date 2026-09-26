@@ -297,12 +297,6 @@ brew install --cask google-chrome
 brew install --cask rectangle
 ```
 
-##### Install Slack:
-
-```sh
-brew install --cask slack
-```
-
 ##### Install Sourcetree:
 
 ```sh

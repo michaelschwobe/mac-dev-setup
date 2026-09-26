@@ -93,18 +93,6 @@ if has_command "brew"; then
         fi
     fi
 
-    NAME="slack"
-    DESC="Slack"
-    test_app "$DESC"
-    if ! has_app "$DESC"; then
-        get_consent "Install $DESC.app"
-        if has_consent; then
-            e_pending "Installing $NAME"
-            brew install --cask $NAME
-            test_app "$DESC"
-        fi
-    fi
-
     NAME="sourcetree"
     DESC="Sourcetree"
     test_app "$DESC"
