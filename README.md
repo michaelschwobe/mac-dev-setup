@@ -212,12 +212,6 @@ brew install node
 brew install pnpm
 ```
 
-##### Install [yarn](https://yarnpkg.com/):
-
-```sh
-brew install yarn
-```
-
 ##### Upgrade [npm](https://www.npmjs.com/) (globally via npm):
 
 ```sh

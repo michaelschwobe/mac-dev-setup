@@ -34,7 +34,6 @@ test_command "n"
 test_command "nvm"
 test_command "node"
 test_command "pnpm"
-test_command "yarn"
 test_command "npm"
 test_command "serve"
 

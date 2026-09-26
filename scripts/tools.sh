@@ -147,17 +147,6 @@ if has_command "brew"; then
     fi
 fi
 
-if has_command "brew"; then
-    if ! has_command "yarn"; then
-        get_consent "Install yarn"
-        if has_consent; then
-            e_pending "Installing yarn"
-            brew install yarn
-            test_command "yarn"
-        fi
-    fi
-fi
-
 if has_command "npm"; then
     get_consent "Upgrade npm (globally via npm)"
     if has_consent; then
