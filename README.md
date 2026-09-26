@@ -117,12 +117,6 @@ brew doctor
 
 #### Development Tools
 
-##### Install [trash](https://hasseg.org/trash/):
-
-```sh
-brew install trash
-```
-
 ##### Install [git](https://git-scm.com/):
 
 ```sh

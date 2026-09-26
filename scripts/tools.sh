@@ -7,17 +7,6 @@ e_message "Checking tools"
 # ------------------------------------------------------------------------------
 
 if has_command "brew"; then
-    if ! has_command "trash"; then
-        get_consent "Install trash"
-        if has_consent; then
-            e_pending "Installing trash"
-            brew install trash
-            test_command "trash"
-        fi
-    fi
-fi
-
-if has_command "brew"; then
     if ! has_command "git"; then
         get_consent "Install git"
         if has_consent; then
