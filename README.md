@@ -171,30 +171,6 @@ cp ~/Downloads/mac-dev-setup/.moonlight.omp.json ~/.moonlight.omp.json
 
 Restart your CLI for this to take effect.
 
-##### Install [powerlevel10k](https://github.com/romkatv/powerlevel10k/) (CLI theming):
-
-```sh
-brew install powerlevel10k && \
-echo '# Theme configuration: PowerLevel10K' >> ~/.zshrc && \
-echo 'source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc && \
-echo '# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.' >> ~/.zshrc && \
-echo '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh' >> ~/.zshrc
-```
-
-Copy my PowerLevel10K settings:
-
-```sh
-cp ~/Downloads/mac-dev-setup/.p10k.zsh ~/.p10k.zsh
-```
-
-Or customize your own settings:
-
-```sh
-p10k configure
-```
-
-Restart your CLI for this to take effect.
-
 ##### Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/):
 
 ```sh
