@@ -303,24 +303,6 @@ brew install --cask ghostty
 brew install --cask google-chrome
 ```
 
-##### Install iTerm:
-
-```sh
-brew install --cask iterm2
-```
-
-1. Copy my iTerm settings:
-   ```sh
-   cp ~/Downloads/mac-dev-setup/.zshrc ~/
-   ```
-2. Set the theme by going to:
-   - "Settings… &rarr; Profiles &rarr; Colors &rarr; Color Presets… &rarr; Import…"
-   - Theme location: `~/Downloads/mac-dev-setup/Moonlight.itermcolors`
-3. Set the font by going to:
-   - "Settings… &rarr; Profiles &rarr; Text &rarr; Font"
-   - Font name: "JetBrainsMono NFM" or "JetBrainsMono Nerd Font Mono"
-4. Restart iTerm and resolve any remaining issues.
-
 ##### Install Rectangle:
 
 ```sh
